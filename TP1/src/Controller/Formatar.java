@@ -6,23 +6,29 @@ import java.nio.file.*;
 
 public class Formatar {
     public static void main(String[] args) {
-        String inputFilePath = "steam.csv";  
-        String outputFilePath = "lib/steam2.csv"; 
+        String inputFilePath = "TP1/src/steam.csv";;  
+        String outputFilePath = "TP1/src/steam2.csv"; 
+        
 
         try (BufferedReader br = Files.newBufferedReader(Paths.get(inputFilePath));
              BufferedWriter bw = Files.newBufferedWriter(Paths.get(outputFilePath))) {
             
             String header = br.readLine(); 
-           
+            
+
 
             String[] columns = header.split(",");
+            System.out.println("Colunas encontradas no CSV:");
+for (String col : columns) {
+    System.out.println("'" + col + "'");
+}
             int indexID = -1, indexName = -1, indexDate = -1, indexGenre = -1, indexPlatform = -1;
             
             for (int i = 0; i < columns.length; i++) {
                 String col = columns[i].trim().toLowerCase();
-                if (col.equals("id")) indexID = i;
+                if (col.equals("appid")) indexID = i;
                 else if (col.equals("name")) indexName = i;
-                else if (col.equals("release date")) indexDate = i;
+                else if (col.equals("release_date")) indexDate = i;
                 else if (col.equals("genres")) indexGenre = i;
                 else if (col.equals("platforms")) indexPlatform = i;
             }
