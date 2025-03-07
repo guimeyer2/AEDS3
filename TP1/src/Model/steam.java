@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+// Tirar as colunas que nao estao sendo utilizadas e criar o objeto pra ser utilizado no Actions.
 public class steam {
     private int appid;
     private String name;

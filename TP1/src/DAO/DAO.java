@@ -1,5 +1,5 @@
 package DAO;
-
+// Nao acho necessário
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
@@ -36,7 +36,7 @@ public class DAO {
             // States,In Relationship,4.0,"Bachelor of Arts/Science, Princeton
             // University",True,1968-01-01
 
-            steam steam = new steam(rank, name, birthdate, false, education, name, source, rank, country, residence, citizenship, status, rank, rank, rank, rank, education, children)
+            steam steam = new steam(rank, name, birthdate, false, education, name, source, rank, country, residence, citizenship, status, rank, rank, rank, rank, education, children);
 
             DataOutputStream dataOutputStream;
 

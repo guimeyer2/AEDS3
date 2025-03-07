@@ -70,21 +70,20 @@ public class Formatar {
     // Método para verificar se o jogo foi lançado antes de 2010
     public static boolean isBefore2010(String releaseDate) {
         try {
-            // Verifica se a data está no formato yyyy-mm-dd
+            releaseDate = releaseDate.replaceAll("\"", "").trim();  // Remover aspas e espaços extras
+            System.out.println("Verificando data: " + releaseDate); // Debug para ver se a data está correta
+    
             String datePattern = "^\\d{4}-\\d{2}-\\d{2}$";
             if (!Pattern.matches(datePattern, releaseDate)) {
                 System.out.println("Ignorando valor não relacionado a data: " + releaseDate);
                 return false;  // Retorna "NAO" se não for uma data válida
             }
-
-            // Exemplo de data: "2019-02-18"
-            String[] dateParts = releaseDate.split("-"); // Divide por "-"
-            int year = Integer.parseInt(dateParts[0]);  // Extrai o ano
-
+    
+            int year = Integer.parseInt(releaseDate.split("-")[0]);  // Extrai o ano
             return year < 2010;  // Compara o ano
         } catch (Exception e) {
             System.out.println("Erro ao analisar a data: " + releaseDate);
-            return false;  // Retorna "NAO" se não conseguir processar a data
+            return false;
         }
     }
-}
+}    
