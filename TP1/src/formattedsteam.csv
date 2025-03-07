@@ -1,636 +1,636 @@
 ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
-10,Counter-Strike,2000-11-01,Action,windows;mac;linux,SIM
-20,Team Fortress Classic,1999-04-01,Action,windows;mac;linux,SIM
-30,Day of Defeat,2003-05-01,Action,windows;mac;linux,SIM
-40,Deathmatch Classic,2001-06-01,Action,windows;mac;linux,SIM
-50,Half-Life: Opposing Force,1999-11-01,Action,windows;mac;linux,SIM
-60,Ricochet,2000-11-01,Action,windows;mac;linux,SIM
-70,Half-Life,1998-11-08,Action,windows;mac;linux,SIM
-80,Counter-Strike: Condition Zero,2004-03-01,Action,windows;mac;linux,SIM
-130,Half-Life: Blue Shift,2001-06-01,Action,windows;mac;linux,SIM
-220,Half-Life 2,2004-11-16,Action,windows;mac;linux,SIM
-240,Counter-Strike: Source,2004-11-01,Action,windows;mac;linux,SIM
-280,Half-Life: Source,2004-06-01,Action,windows;mac;linux,SIM
+10,Counter-Strike,2000-11-01,Action,windows;mac;linux,NAO
+20,Team Fortress Classic,1999-04-01,Action,windows;mac;linux,NAO
+30,Day of Defeat,2003-05-01,Action,windows;mac;linux,NAO
+40,Deathmatch Classic,2001-06-01,Action,windows;mac;linux,NAO
+50,Half-Life: Opposing Force,1999-11-01,Action,windows;mac;linux,NAO
+60,Ricochet,2000-11-01,Action,windows;mac;linux,NAO
+70,Half-Life,1998-11-08,Action,windows;mac;linux,NAO
+80,Counter-Strike: Condition Zero,2004-03-01,Action,windows;mac;linux,NAO
+130,Half-Life: Blue Shift,2001-06-01,Action,windows;mac;linux,NAO
+220,Half-Life 2,2004-11-16,Action,windows;mac;linux,NAO
+240,Counter-Strike: Source,2004-11-01,Action,windows;mac;linux,NAO
+280,Half-Life: Source,2004-06-01,Action,windows;mac;linux,NAO
 300,Day of Defeat: Source,2010-07-12,Action,windows;mac;linux,NAO
-320,Half-Life 2: Deathmatch,2004-11-01,Action,windows;mac;linux,SIM
-340,Half-Life 2: Lost Coast,2005-10-27,Action,windows;mac;linux,SIM
-360,Half-Life Deathmatch: Source,2006-05-01,Action,windows;mac;linux,SIM
-380,Half-Life 2: Episode One,2006-06-01,Action,windows;mac;linux,SIM
-400,Portal,2007-10-10,Action,windows;mac;linux,SIM
-420,Half-Life 2: Episode Two,2007-10-10,Action,windows;mac;linux,SIM
-440,Team Fortress 2,2007-10-10,Action;Free to Play,windows;mac;linux,SIM
-500,Left 4 Dead,2008-11-17,Action,windows;mac,SIM
-550,Left 4 Dead 2,2009-11-19,Action,windows;mac;linux,SIM
+320,Half-Life 2: Deathmatch,2004-11-01,Action,windows;mac;linux,NAO
+340,Half-Life 2: Lost Coast,2005-10-27,Action,windows;mac;linux,NAO
+360,Half-Life Deathmatch: Source,2006-05-01,Action,windows;mac;linux,NAO
+380,Half-Life 2: Episode One,2006-06-01,Action,windows;mac;linux,NAO
+400,Portal,2007-10-10,Action,windows;mac;linux,NAO
+420,Half-Life 2: Episode Two,2007-10-10,Action,windows;mac;linux,NAO
+440,Team Fortress 2,2007-10-10,Action;Free to Play,windows;mac;linux,NAO
+500,Left 4 Dead,2008-11-17,Action,windows;mac,NAO
+550,Left 4 Dead 2,2009-11-19,Action,windows;mac;linux,NAO
 570,Dota 2,2013-07-09,Action;Free to Play;Strategy,windows;mac;linux,NAO
 620,Portal 2,2011-04-18,Action;Adventure,windows;mac;linux,NAO
 630,Alien Swarm,2010-07-19,Action,windows,NAO
 730,Counter-Strike: Global Offensive,2012-08-21,Action;Free to Play,windows;mac;linux,NAO
-1002,Rag Doll Kung Fu,2005-10-12,Indie,windows,SIM
-1200,Red Orchestra: Ostfront 41-45,2006-03-14,Action,windows;mac;linux,SIM
-1250,Killing Floor,2009-05-14,Action,windows;mac;linux,SIM
-1300,SiN Episodes: Emergence,2006-05-10,Action,windows,SIM
-1500,Darwinia,2005-07-14,Indie;Strategy,windows;mac;linux,SIM
-1510,Uplink,2006-08-23,Indie;Strategy,windows;mac;linux,SIM
-1520,DEFCON,2006-09-29,Indie;Strategy,windows;mac;linux,SIM
-1530,Multiwinia,2008-09-19,Indie,windows;mac,SIM
-1600,Dangerous Waters,2006-02-07,Strategy,windows,SIM
-1610,Space Empires IV Deluxe,2006-02-07,Strategy,windows,SIM
-1630,Disciples II: Rise of the Elves,2006-07-06,Strategy,windows,SIM
-1640,Disciples II: Gallean's Return,2006-07-06,Strategy,windows,SIM
-1670,Iron Warriors: T - 72 Tank Command,2006-07-26,Strategy,windows,SIM
-1690,Space Empires V,2006-10-16,Strategy,windows,SIM
-1700,Arx Fatalis,2007-04-03,RPG,windows,SIM
+1002,Rag Doll Kung Fu,2005-10-12,Indie,windows,NAO
+1200,Red Orchestra: Ostfront 41-45,2006-03-14,Action,windows;mac;linux,NAO
+1250,Killing Floor,2009-05-14,Action,windows;mac;linux,NAO
+1300,SiN Episodes: Emergence,2006-05-10,Action,windows,NAO
+1500,Darwinia,2005-07-14,Indie;Strategy,windows;mac;linux,NAO
+1510,Uplink,2006-08-23,Indie;Strategy,windows;mac;linux,NAO
+1520,DEFCON,2006-09-29,Indie;Strategy,windows;mac;linux,NAO
+1530,Multiwinia,2008-09-19,Indie,windows;mac,NAO
+1600,Dangerous Waters,2006-02-07,Strategy,windows,NAO
+1610,Space Empires IV Deluxe,2006-02-07,Strategy,windows,NAO
+1630,Disciples II: Rise of the Elves,2006-07-06,Strategy,windows,NAO
+1640,Disciples II: Gallean's Return,2006-07-06,Strategy,windows,NAO
+1670,Iron Warriors: T - 72 Tank Command,2006-07-26,Strategy,windows,NAO
+1690,Space Empires V,2006-10-16,Strategy,windows,NAO
+1700,Arx Fatalis,2007-04-03,RPG,windows,NAO
 1840,Source Filmmaker,2012-07-10,Animation & Modeling;Video Production,windows,NAO
-1900,Earth 2160,2006-04-01,Strategy,windows;mac;linux,SIM
-1930,Two Worlds Epic Edition,2009-04-30,RPG,windows;mac;linux,SIM
-2100,Dark Messiah of Might & Magic,2006-10-25,Action;RPG,windows,SIM
-2200,Quake III Arena,2007-08-03,Action,windows,SIM
+1900,Earth 2160,2006-04-01,Strategy,windows;mac;linux,NAO
+1930,Two Worlds Epic Edition,2009-04-30,RPG,windows;mac;linux,NAO
+2100,Dark Messiah of Might & Magic,2006-10-25,Action;RPG,windows,NAO
+2200,Quake III Arena,2007-08-03,Action,windows,NAO
 2210,Quake IV,2011-08-04,Action,windows,NAO
-2270,Wolfenstein 3D,2007-08-03,Action,windows,SIM
-2280,Ultimate Doom,2007-08-03,Action,windows,SIM
-2290,Final DOOM,2007-08-03,Action,windows,SIM
-2300,DOOM II,2007-08-03,Action,windows,SIM
-2310,QUAKE,2007-08-03,Action,windows,SIM
-2320,QUAKE II,2007-08-03,Action,windows,SIM
-2330,QUAKE II Mission Pack: The Reckoning,2007-08-03,Action,windows,SIM
-2340,QUAKE II Mission Pack: Ground Zero,2007-08-03,Action,windows,SIM
-2350,QUAKE III: Team Arena,2007-08-03,Action,windows,SIM
-2360,HeXen: Beyond Heretic,2007-08-03,Action,windows,SIM
-2370,HeXen: Deathkings of the Dark Citadel,2007-08-03,Action,windows,SIM
-2390,Heretic: Shadow of the Serpent Riders,2007-08-03,Action,windows,SIM
-2400,The Ship: Murder Party,2006-07-11,Action;Indie;RPG,windows,SIM
+2270,Wolfenstein 3D,2007-08-03,Action,windows,NAO
+2280,Ultimate Doom,2007-08-03,Action,windows,NAO
+2290,Final DOOM,2007-08-03,Action,windows,NAO
+2300,DOOM II,2007-08-03,Action,windows,NAO
+2310,QUAKE,2007-08-03,Action,windows,NAO
+2320,QUAKE II,2007-08-03,Action,windows,NAO
+2330,QUAKE II Mission Pack: The Reckoning,2007-08-03,Action,windows,NAO
+2340,QUAKE II Mission Pack: Ground Zero,2007-08-03,Action,windows,NAO
+2350,QUAKE III: Team Arena,2007-08-03,Action,windows,NAO
+2360,HeXen: Beyond Heretic,2007-08-03,Action,windows,NAO
+2370,HeXen: Deathkings of the Dark Citadel,2007-08-03,Action,windows,NAO
+2390,Heretic: Shadow of the Serpent Riders,2007-08-03,Action,windows,NAO
+2400,The Ship: Murder Party,2006-07-11,Action;Indie;RPG,windows,NAO
 2450,Bloody Good Time,2010-10-29,Action,windows,NAO
-2500,Shadowgrounds,2006-05-08,Action,windows;mac,SIM
-2520,Gumboy - Crazy Adventures™,2006-12-19,0,"CINEMAX,SIM
-2590,Alpha Prime,2007-11-07,Action,windows,SIM
-2600,Vampire: The Masquerade - Bloodlines,2007-03-22,Action,windows,SIM
-2610,GUN™,2006-10-13,Action,windows,SIM
-2620,Call of Duty®,2006-10-13,Action,windows,SIM
-2630,Call of Duty® 2,2006-10-13,Action,windows;mac,SIM
-2640,Call of Duty: United Offensive,2006-10-13,Action,windows,SIM
-2710,Act of War: Direct Action,2008-03-12,Action,windows,SIM
-2720,ThreadSpace: Hyperbol,2007-07-12,Action;Indie;Strategy,windows,SIM
-2780,ARMA: Combat Operations,2008-03-12,Action,windows,SIM
-2800,X2: The Threat,2006-07-21,Strategy,windows,SIM
-2810,X3: Reunion,2006-07-21,Strategy,windows;mac;linux,SIM
-2820,X3: Terran Conflict,2008-10-16,Action;Simulation;Strategy,windows;mac;linux,SIM
+2500,Shadowgrounds,2006-05-08,Action,windows;mac,NAO
+2520,Gumboy - Crazy Adventures™,2006-12-19,0,"CINEMAX,NAO
+2590,Alpha Prime,2007-11-07,Action,windows,NAO
+2600,Vampire: The Masquerade - Bloodlines,2007-03-22,Action,windows,NAO
+2610,GUN™,2006-10-13,Action,windows,NAO
+2620,Call of Duty®,2006-10-13,Action,windows,NAO
+2630,Call of Duty® 2,2006-10-13,Action,windows;mac,NAO
+2640,Call of Duty: United Offensive,2006-10-13,Action,windows,NAO
+2710,Act of War: Direct Action,2008-03-12,Action,windows,NAO
+2720,ThreadSpace: Hyperbol,2007-07-12,Action;Indie;Strategy,windows,NAO
+2780,ARMA: Combat Operations,2008-03-12,Action,windows,NAO
+2800,X2: The Threat,2006-07-21,Strategy,windows,NAO
+2810,X3: Reunion,2006-07-21,Strategy,windows;mac;linux,NAO
+2820,X3: Terran Conflict,2008-10-16,Action;Simulation;Strategy,windows;mac;linux,NAO
 2840,X: Beyond the Frontier,2010-10-08,Simulation;Strategy,windows,NAO
 2850,X: Tension,2010-10-08,Simulation;Strategy,windows,NAO
 2870,X Rebirth,2013-11-15,Action;Simulation,windows;mac;linux,NAO
-2900,688(I) Hunter/Killer,2006-10-26,Strategy,windows,SIM
-2910,Fleet Command,2006-10-26,Strategy,windows,SIM
-2920,Sub Command,2006-10-26,Strategy,windows,SIM
-2990,FlatOut 2™,2006-12-21,Racing,windows,SIM
-3010,Xpand Rally,2006-08-24,Racing,windows,SIM
-3020,Call of Juarez™,2007-11-08,Action,windows,SIM
-3050,Xpand Rally Xtreme,2008-10-08,Racing,windows,SIM
-3130,Men of War: Red Tide,2009-11-01,Strategy,windows,SIM
-3170,King's Bounty: Armored Princess,2009-11-19,RPG;Strategy,windows;mac,SIM
-3230,Genesis Rising,2007-08-06,Strategy,windows,SIM
-3260,Safecracker: The Ultimate Puzzle Adventure,2007-08-29,Adventure;Casual,windows,SIM
-3270,Painkiller Overdose,2007-10-30,Action,windows,SIM
-3330,Zuma Deluxe,2006-08-30,0,"PopCap Games,SIM
-3410,Heavy Weapon Deluxe,2006-08-30,0,"PopCap Games,SIM
-3480,Peggle Deluxe,2007-03-06,0,"PopCap Games,SIM
-3483,Peggle Extreme,2007-09-11,0,"PopCap Games,SIM
-3490,Venice Deluxe,2007-06-25,0,"PopCap Games,SIM
-3500,Mystery P.I.™ - The Lottery Ticket,2007-10-16,Single-player,Inc.",SIM
-3510,Amazing Adventures The Lost Tomb™,2007-12-13,Single-player,Inc.",SIM
-3520,Mystery P.I.™ - The Vegas Heist,2008-06-05,Single-player,Inc.",SIM
-3530,Amazing Adventures Around the World,2009-04-15,Single-player,Inc.",SIM
-3540,Peggle™ Nights,2008-10-15,0,"PopCap Games,SIM
-3560,Bejeweled Twist,2008-11-18,0,"PopCap Games,SIM
-3570,Mystery P.I.™ - The New York Fortune,2009-01-28,Single-player,Inc.",SIM
-3580,The Wizard's Pen™,2009-02-18,0,"PopCap Games,SIM
-3590,Plants vs. Zombies GOTY Edition,2009-05-05,0,"PopCap Games,SIM
-3600,Escape Rosecliff Island,2009-04-15,Single-player,Inc.",SIM
-3610,Mystery P.I. - Lost in Los Angeles,2009-07-27,Single-player,Inc.",SIM
-3620,Zuma's Revenge!,2009-09-15,0,"PopCap Games,SIM
-3700,Sniper Elite,2009-07-16,Action,windows,SIM
-3710,Judge Dredd: Dredd vs. Death,2009-03-26,Action,windows,SIM
-3720,Evil Genius,2009-06-22,Strategy,windows,SIM
+2900,688(I) Hunter/Killer,2006-10-26,Strategy,windows,NAO
+2910,Fleet Command,2006-10-26,Strategy,windows,NAO
+2920,Sub Command,2006-10-26,Strategy,windows,NAO
+2990,FlatOut 2™,2006-12-21,Racing,windows,NAO
+3010,Xpand Rally,2006-08-24,Racing,windows,NAO
+3020,Call of Juarez™,2007-11-08,Action,windows,NAO
+3050,Xpand Rally Xtreme,2008-10-08,Racing,windows,NAO
+3130,Men of War: Red Tide,2009-11-01,Strategy,windows,NAO
+3170,King's Bounty: Armored Princess,2009-11-19,RPG;Strategy,windows;mac,NAO
+3230,Genesis Rising,2007-08-06,Strategy,windows,NAO
+3260,Safecracker: The Ultimate Puzzle Adventure,2007-08-29,Adventure;Casual,windows,NAO
+3270,Painkiller Overdose,2007-10-30,Action,windows,NAO
+3330,Zuma Deluxe,2006-08-30,0,"PopCap Games,NAO
+3410,Heavy Weapon Deluxe,2006-08-30,0,"PopCap Games,NAO
+3480,Peggle Deluxe,2007-03-06,0,"PopCap Games,NAO
+3483,Peggle Extreme,2007-09-11,0,"PopCap Games,NAO
+3490,Venice Deluxe,2007-06-25,0,"PopCap Games,NAO
+3500,Mystery P.I.™ - The Lottery Ticket,2007-10-16,Single-player,Inc.",NAO
+3510,Amazing Adventures The Lost Tomb™,2007-12-13,Single-player,Inc.",NAO
+3520,Mystery P.I.™ - The Vegas Heist,2008-06-05,Single-player,Inc.",NAO
+3530,Amazing Adventures Around the World,2009-04-15,Single-player,Inc.",NAO
+3540,Peggle™ Nights,2008-10-15,0,"PopCap Games,NAO
+3560,Bejeweled Twist,2008-11-18,0,"PopCap Games,NAO
+3570,Mystery P.I.™ - The New York Fortune,2009-01-28,Single-player,Inc.",NAO
+3580,The Wizard's Pen™,2009-02-18,0,"PopCap Games,NAO
+3590,Plants vs. Zombies GOTY Edition,2009-05-05,0,"PopCap Games,NAO
+3600,Escape Rosecliff Island,2009-04-15,Single-player,Inc.",NAO
+3610,Mystery P.I. - Lost in Los Angeles,2009-07-27,Single-player,Inc.",NAO
+3620,Zuma's Revenge!,2009-09-15,0,"PopCap Games,NAO
+3700,Sniper Elite,2009-07-16,Action,windows,NAO
+3710,Judge Dredd: Dredd vs. Death,2009-03-26,Action,windows,NAO
+3720,Evil Genius,2009-06-22,Strategy,windows,NAO
 3730,Aliens versus Predator Classic 2000,2010-01-15,Action,windows,NAO
-3800,Advent Rising,2006-09-14,Action,windows,SIM
-3810,BloodRayne,2006-09-14,Action,windows,SIM
-3820,BloodRayne 2,2006-09-14,Action,windows,SIM
-3830,Psychonauts,2006-10-11,Action,windows;mac;linux,SIM
-3900,Sid Meier's Civilization® IV,2006-10-25,Strategy,windows;mac,SIM
-3910,Sid Meier's Civilization® III Complete,2006-10-25,Strategy,windows,SIM
-3920,Sid Meier's Pirates!,2005-07-11,RPG,windows,SIM
-3960,Shattered Union,2006-10-25,Strategy,windows,SIM
-3980,CivCity: Rome,2007-04-06,Strategy,windows,SIM
-3990,Civilization IV®: Warlords,2007-04-06,Strategy,windows;mac,SIM
-4000,Garry's Mod,2006-11-29,Indie;Simulation,windows;mac;linux,SIM
-4100,Poker Superstars II,2006-10-05,Casual;Strategy;Indie,windows,SIM
-4230,RACE - The WTCC Game,2006-11-24,Racing,windows,SIM
-4290,RACE: Caterham Expansion,2007-06-22,Racing,windows,SIM
-4300,RoboBlitz,2006-11-07,Action;Indie,windows,SIM
-4420,Silverfall,2007-03-20,RPG,windows,SIM
-4460,City Life 2008,2008-09-29,Simulation;Strategy,windows,SIM
-4470,Silverfall: Earth Awakening,2008-07-18,RPG,windows,SIM
-4500,S.T.A.L.K.E.R.: Shadow of Chernobyl,2007-03-20,Action;RPG,windows,SIM
-4520,Full Spectrum Warrior,2007-07-17,Action;Strategy,windows,SIM
-4530,Full Spectrum Warrior: Ten Hammers,2007-07-17,Action;Strategy,windows,SIM
-4560,Company of Heroes - Legacy Edition,2007-07-17,Violent;Action;Strategy,windows,SIM
+3800,Advent Rising,2006-09-14,Action,windows,NAO
+3810,BloodRayne,2006-09-14,Action,windows,NAO
+3820,BloodRayne 2,2006-09-14,Action,windows,NAO
+3830,Psychonauts,2006-10-11,Action,windows;mac;linux,NAO
+3900,Sid Meier's Civilization® IV,2006-10-25,Strategy,windows;mac,NAO
+3910,Sid Meier's Civilization® III Complete,2006-10-25,Strategy,windows,NAO
+3920,Sid Meier's Pirates!,2005-07-11,RPG,windows,NAO
+3960,Shattered Union,2006-10-25,Strategy,windows,NAO
+3980,CivCity: Rome,2007-04-06,Strategy,windows,NAO
+3990,Civilization IV®: Warlords,2007-04-06,Strategy,windows;mac,NAO
+4000,Garry's Mod,2006-11-29,Indie;Simulation,windows;mac;linux,NAO
+4100,Poker Superstars II,2006-10-05,Casual;Strategy;Indie,windows,NAO
+4230,RACE - The WTCC Game,2006-11-24,Racing,windows,NAO
+4290,RACE: Caterham Expansion,2007-06-22,Racing,windows,NAO
+4300,RoboBlitz,2006-11-07,Action;Indie,windows,NAO
+4420,Silverfall,2007-03-20,RPG,windows,NAO
+4460,City Life 2008,2008-09-29,Simulation;Strategy,windows,NAO
+4470,Silverfall: Earth Awakening,2008-07-18,RPG,windows,NAO
+4500,S.T.A.L.K.E.R.: Shadow of Chernobyl,2007-03-20,Action;RPG,windows,NAO
+4520,Full Spectrum Warrior,2007-07-17,Action;Strategy,windows,NAO
+4530,Full Spectrum Warrior: Ten Hammers,2007-07-17,Action;Strategy,windows,NAO
+4560,Company of Heroes - Legacy Edition,2007-07-17,Violent;Action;Strategy,windows,NAO
 4570,"Warhammer® 40,000: Dawn of War® - Game of the Year Edition",Single-player;Multi-player;Steam Trading Cards;Steam Cloud,SEGA,NAO
 4580,"Warhammer® 40,000: Dawn of War® - Dark Crusade",Single-player;Multi-player;Steam Cloud,SEGA,NAO
-4700,Total War: MEDIEVAL II – Definitive Edition,2006-11-15,Strategy,windows;mac;linux,SIM
+4700,Total War: MEDIEVAL II – Definitive Edition,2006-11-15,Strategy,windows;mac;linux,NAO
 4720,Condemned: Criminal Origins,2012-10-29,Action,windows,NAO
-4760,Rome: Total War™ - Collection,2007-08-28,Strategy,windows,SIM
-4770,Rome: Total War™ - Alexander,2007-08-28,Strategy,windows,SIM
-4780,Medieval II: Total War™ Kingdoms,2007-08-28,Strategy,windows;mac;linux,SIM
-4800,Heroes of Annihilated Empires,2006-11-22,Strategy,windows,SIM
+4760,Rome: Total War™ - Collection,2007-08-28,Strategy,windows,NAO
+4770,Rome: Total War™ - Alexander,2007-08-28,Strategy,windows,NAO
+4780,Medieval II: Total War™ Kingdoms,2007-08-28,Strategy,windows;mac;linux,NAO
+4800,Heroes of Annihilated Empires,2006-11-22,Strategy,windows,NAO
 4850,Cossacks: Back to War,2010-09-02,Strategy,windows,NAO
 4870,Cossacks: Art of War,2011-08-26,Strategy,windows,NAO
 4880,Cossacks: European Wars,2011-08-26,Strategy,windows,NAO
 4890,Cossacks II: Battle for Europe,2011-08-26,Strategy,windows,NAO
-4900,Zen of Sudoku,2006-12-14,Casual;Indie,windows,SIM
+4900,Zen of Sudoku,2006-12-14,Casual;Indie,windows,NAO
 4920,Natural Selection 2,2012-10-30,Action;Indie;Strategy,windows;linux,NAO
-6000,STAR WARS™ Republic Commando™,2009-07-08,Action,windows,SIM
-6010,Indiana Jones® and the Fate of Atlantis™,2009-07-08,Adventure,windows;mac,SIM
-6020,STAR WARS™ Jedi Knight - Jedi Academy™,2009-09-16,Action,windows;mac,SIM
-6030,STAR WARS™ Jedi Knight II - Jedi Outcast™,2009-09-16,Action,windows;mac,SIM
-6040,The Dig®,2009-07-08,Adventure,windows;mac,SIM
+6000,STAR WARS™ Republic Commando™,2009-07-08,Action,windows,NAO
+6010,Indiana Jones® and the Fate of Atlantis™,2009-07-08,Adventure,windows;mac,NAO
+6020,STAR WARS™ Jedi Knight - Jedi Academy™,2009-09-16,Action,windows;mac,NAO
+6030,STAR WARS™ Jedi Knight II - Jedi Outcast™,2009-09-16,Action,windows;mac,NAO
+6040,The Dig®,2009-07-08,Adventure,windows;mac,NAO
 6060,"Star Wars: Battlefront 2 (Classic,2005)",Single-player;Multi-player;Online Multi-Player;Partial Controller Support;Steam Cloud,Lucasfilm;LucasArts;Disney Interactive,NAO
-6080,Thrillville®: Off the Rails™,2009-07-08,Action;Adventure;Racing;Simulation;Strategy,windows,SIM
-6090,Armed and Dangerous®,2009-07-08,Action,windows,SIM
+6080,Thrillville®: Off the Rails™,2009-07-08,Action;Adventure;Racing;Simulation;Strategy,windows,NAO
+6090,Armed and Dangerous®,2009-07-08,Action,windows,NAO
 6120,Shank,2010-10-25,Action;Indie,windows;mac;linux,NAO
-6200,Ghost Master®,2006-12-21,Strategy,windows,SIM
-6210,Vegas: Make It Big™,2006-12-21,Strategy,windows,SIM
-6220,FlatOut,2007-02-02,Racing,windows,SIM
-6250,Making History: The Calm & the Storm,2007-03-13,Action;Strategy,windows,SIM
-6270,Ducati World Championship,2007-09-21,Racing,windows,SIM
-6300,Dreamfall: The Longest Journey,2007-01-12,Adventure;RPG,windows,SIM
-6310,The Longest Journey,2007-05-01,Action;Adventure;RPG,windows,SIM
+6200,Ghost Master®,2006-12-21,Strategy,windows,NAO
+6210,Vegas: Make It Big™,2006-12-21,Strategy,windows,NAO
+6220,FlatOut,2007-02-02,Racing,windows,NAO
+6250,Making History: The Calm & the Storm,2007-03-13,Action;Strategy,windows,NAO
+6270,Ducati World Championship,2007-09-21,Racing,windows,NAO
+6300,Dreamfall: The Longest Journey,2007-01-12,Adventure;RPG,windows,NAO
+6310,The Longest Journey,2007-05-01,Action;Adventure;RPG,windows,NAO
 6370,Bloodline Champions,2011-10-28,Action;Free to Play;Massively Multiplayer,windows,NAO
-6400,Joint Task Force,2007-03-27,Action;Strategy,windows,SIM
-6420,Nexus - The Jupiter Incident,2007-07-03,Indie;Simulation;Strategy,windows,SIM
-6510,Lost Planet™: Extreme Condition,2007-06-29,Single-player;Multi-player;Partial Controller Support;Valve Anti-Cheat enabled,Capcom,SIM
-6550,Devil May Cry® 3 Special Edition,2007-06-12,Single-player;Partial Controller Support,Capcom,SIM
-6800,Commandos: Behind Enemy Lines,2007-03-15,Action,windows,SIM
-6810,Commandos: Beyond the Call of Duty,2007-03-15,Action,windows,SIM
-6830,Commandos 2: Men of Courage,2007-03-15,Action,windows,SIM
-6840,Commandos 3: Destination Berlin,2007-03-15,Action,windows,SIM
-6850,Hitman 2: Silent Assassin,2007-03-15,Action,windows,SIM
-6860,Hitman: Blood Money,2007-03-15,Action,windows,SIM
-6870,Battlestations: Midway,2007-03-15,Action,windows,SIM
-6880,Just Cause,2007-03-15,Action,windows,SIM
-6900,Hitman: Codename 47,2007-03-15,Action,windows,SIM
-6910,Deus Ex: Game of the Year Edition,2007-03-29,Action,windows,SIM
-6920,Deus Ex: Invisible War,2007-03-29,Action,windows,SIM
-6980,Thief: Deadly Shadows,2007-03-29,Action,windows,SIM
-7000,Tomb Raider: Legend,2007-03-29,Action;Adventure,windows,SIM
-7010,Project: Snowblind,2007-03-29,Action,windows,SIM
-7020,Rogue Trooper,2007-03-29,Action,windows,SIM
-7110,Jade Empire™: Special Edition,2007-02-27,RPG,windows,SIM
-7200,Trackmania United Forever Star Edition,2008-04-16,Racing,windows,SIM
+6400,Joint Task Force,2007-03-27,Action;Strategy,windows,NAO
+6420,Nexus - The Jupiter Incident,2007-07-03,Indie;Simulation;Strategy,windows,NAO
+6510,Lost Planet™: Extreme Condition,2007-06-29,Single-player;Multi-player;Partial Controller Support;Valve Anti-Cheat enabled,Capcom,NAO
+6550,Devil May Cry® 3 Special Edition,2007-06-12,Single-player;Partial Controller Support,Capcom,NAO
+6800,Commandos: Behind Enemy Lines,2007-03-15,Action,windows,NAO
+6810,Commandos: Beyond the Call of Duty,2007-03-15,Action,windows,NAO
+6830,Commandos 2: Men of Courage,2007-03-15,Action,windows,NAO
+6840,Commandos 3: Destination Berlin,2007-03-15,Action,windows,NAO
+6850,Hitman 2: Silent Assassin,2007-03-15,Action,windows,NAO
+6860,Hitman: Blood Money,2007-03-15,Action,windows,NAO
+6870,Battlestations: Midway,2007-03-15,Action,windows,NAO
+6880,Just Cause,2007-03-15,Action,windows,NAO
+6900,Hitman: Codename 47,2007-03-15,Action,windows,NAO
+6910,Deus Ex: Game of the Year Edition,2007-03-29,Action,windows,NAO
+6920,Deus Ex: Invisible War,2007-03-29,Action,windows,NAO
+6980,Thief: Deadly Shadows,2007-03-29,Action,windows,NAO
+7000,Tomb Raider: Legend,2007-03-29,Action;Adventure,windows,NAO
+7010,Project: Snowblind,2007-03-29,Action,windows,NAO
+7020,Rogue Trooper,2007-03-29,Action,windows,NAO
+7110,Jade Empire™: Special Edition,2007-02-27,RPG,windows,NAO
+7200,Trackmania United Forever Star Edition,2008-04-16,Racing,windows,NAO
 7210,"Runaway,A Road Adventure",Single-player,Focus Home Interactive,NAO
 7220,"Runaway,The Dream of The Turtle",Single-player,Focus Home Interactive,NAO
-7260,Loki,2007-10-05,RPG,windows,SIM
+7260,Loki,2007-10-05,RPG,windows,NAO
 7340,Azada,2010-04-21,Casual;Indie,windows,NAO
-7510,X-Blades,2009-04-30,Nudity;Violent;Action;Adventure;RPG,windows;mac;linux,SIM
+7510,X-Blades,2009-04-30,Nudity;Violent;Action;Adventure;RPG,windows;mac;linux,NAO
 7520,Two Worlds II HD,2011-02-03,Single-player;Multi-player;Online Multi-Player;Co-op;Online Co-op;Cross-Platform Multiplayer;Steam Achievements;Full controller support;Steam Trading Cards;In-App Purchases;Steam Cloud,ACE",NAO
 7530,Two Worlds II Castle Defense,2011-06-14,Strategy,windows;mac,NAO
-7600,Sid Meier's Railroads!,2007-05-04,Strategy,windows;mac,SIM
-7610,Railroad Tycoon 3,2007-05-04,Strategy,windows,SIM
-7620,Railroad Tycoon II Platinum,2007-05-04,Strategy,windows,SIM
-7650,X-COM: Terror From the Deep,2007-05-04,Single-player,2K,SIM
-7660,X-COM: Apocalypse,2008-09-04,Single-player,2K,SIM
-7730,X-COM: Interceptor,2008-09-04,Single-player;Multi-player,2K,SIM
-7760,X-COM: UFO Defense,2008-09-04,Single-player,2K,SIM
-7770,X-COM: Enforcer,2008-09-04,Single-player;Multi-player,2K,SIM
-7830,Men of War™,2009-05-06,Strategy,windows,SIM
-7840,Death Track®: Resurrection,2009-05-06,Racing,windows,SIM
-7860,NecroVision,2009-05-20,Action,windows,SIM
-7940,Call of Duty® 4: Modern Warfare®,2007-11-12,Action,windows;mac,SIM
-8000,Tomb Raider: Anniversary,2007-06-05,Action;Adventure,windows,SIM
-8080,Kane and Lynch: Dead Men™,2007-12-13,Action,windows,SIM
-8100,Conflict: Denied Ops,2008-02-08,Action,windows,SIM
-8140,Tomb Raider: Underworld,2008-11-21,Action;Adventure,windows,SIM
-8170,Battlestations Pacific,2009-05-13,Action;Strategy,windows,SIM
+7600,Sid Meier's Railroads!,2007-05-04,Strategy,windows;mac,NAO
+7610,Railroad Tycoon 3,2007-05-04,Strategy,windows,NAO
+7620,Railroad Tycoon II Platinum,2007-05-04,Strategy,windows,NAO
+7650,X-COM: Terror From the Deep,2007-05-04,Single-player,2K,NAO
+7660,X-COM: Apocalypse,2008-09-04,Single-player,2K,NAO
+7730,X-COM: Interceptor,2008-09-04,Single-player;Multi-player,2K,NAO
+7760,X-COM: UFO Defense,2008-09-04,Single-player,2K,NAO
+7770,X-COM: Enforcer,2008-09-04,Single-player;Multi-player,2K,NAO
+7830,Men of War™,2009-05-06,Strategy,windows,NAO
+7840,Death Track®: Resurrection,2009-05-06,Racing,windows,NAO
+7860,NecroVision,2009-05-20,Action,windows,NAO
+7940,Call of Duty® 4: Modern Warfare®,2007-11-12,Action,windows;mac,NAO
+8000,Tomb Raider: Anniversary,2007-06-05,Action;Adventure,windows,NAO
+8080,Kane and Lynch: Dead Men™,2007-12-13,Action,windows,NAO
+8100,Conflict: Denied Ops,2008-02-08,Action,windows,NAO
+8140,Tomb Raider: Underworld,2008-11-21,Action;Adventure,windows,NAO
+8170,Battlestations Pacific,2009-05-13,Action;Strategy,windows,NAO
 8190,Just Cause 2,2010-03-23,Action;Adventure,windows,NAO
-8310,Bone: Out From Boneville,2008-06-17,Adventure,windows,SIM
-8320,Bone: The Great Cow Race,2008-06-17,Adventure,windows,SIM
-8330,Telltale Texas Hold ‘Em,2008-06-17,Casual,windows,SIM
-8340,Strong Bad's Cool Game for Attractive People: Season 1,2008-12-18,Adventure,windows;mac,SIM
-8400,Geometry Wars: Retro Evolved,2007-06-18,Casual,windows,SIM
+8310,Bone: Out From Boneville,2008-06-17,Adventure,windows,NAO
+8320,Bone: The Great Cow Race,2008-06-17,Adventure,windows,NAO
+8330,Telltale Texas Hold ‘Em,2008-06-17,Casual,windows,NAO
+8340,Strong Bad's Cool Game for Attractive People: Season 1,2008-12-18,Adventure,windows;mac,NAO
+8400,Geometry Wars: Retro Evolved,2007-06-18,Casual,windows,NAO
 8500,EVE Online,2010-12-15,Action;Free to Play;Massively Multiplayer;RPG;Strategy,windows;mac,NAO
-8600,RACE 07,2007-10-15,Racing,windows,SIM
+8600,RACE 07,2007-10-15,Racing,windows,NAO
 8790,GTR 2 FIA GT Racing Game,2012-12-12,Racing;Simulation;Sports,windows,NAO
-8800,Civilization IV: Beyond the Sword,2007-07-24,Strategy,windows;mac,SIM
+8800,Civilization IV: Beyond the Sword,2007-07-24,Strategy,windows;mac,NAO
 8870,BioShock Infinite,2013-03-25,Action,windows;mac;linux,NAO
-8880,Freedom Force,2009-05-29,RPG;Strategy,windows,SIM
-8890,Freedom Force vs. the Third Reich,2009-05-29,RPG;Strategy,windows,SIM
+8880,Freedom Force,2009-05-29,RPG;Strategy,windows,NAO
+8890,Freedom Force vs. the Third Reich,2009-05-29,RPG;Strategy,windows,NAO
 8930,Sid Meier's Civilization® V,2010-09-23,Strategy,windows;mac;linux,NAO
 8970,Axel & Pixel,2010-10-06,Indie,windows,NAO
-9000,Spear of Destiny,2007-08-03,Action,windows,SIM
-9010,Return to Castle Wolfenstein,2007-08-03,Action,windows,SIM
-9030,QUAKE Mission Pack 2: Dissolution of Eternity,2007-08-03,Action,windows,SIM
-9040,QUAKE Mission Pack 1: Scourge of Armagon,2007-08-03,Action,windows,SIM
-9050,DOOM 3,2007-08-03,Action,windows,SIM
-9060,HeXen II,2007-08-03,Action,windows,SIM
-9160,Master Levels for Doom II,2007-08-03,Action,windows,SIM
-9180,Commander Keen,2007-08-03,Action,windows,SIM
+9000,Spear of Destiny,2007-08-03,Action,windows,NAO
+9010,Return to Castle Wolfenstein,2007-08-03,Action,windows,NAO
+9030,QUAKE Mission Pack 2: Dissolution of Eternity,2007-08-03,Action,windows,NAO
+9040,QUAKE Mission Pack 1: Scourge of Armagon,2007-08-03,Action,windows,NAO
+9050,DOOM 3,2007-08-03,Action,windows,NAO
+9060,HeXen II,2007-08-03,Action,windows,NAO
+9160,Master Levels for Doom II,2007-08-03,Action,windows,NAO
+9180,Commander Keen,2007-08-03,Action,windows,NAO
 9200,RAGE,2011-10-03,Action,windows,NAO
 9310,"Warhammer® 40,000: Dawn of War® – Winter Assault",Single-player;Multi-player,SEGA,NAO
-9340,Company of Heroes: Opposing Fronts,2007-09-24,Action;Strategy,windows,SIM
+9340,Company of Heroes: Opposing Fronts,2007-09-24,Action;Strategy,windows,NAO
 9350,Supreme Commander,2011-09-28,Strategy,windows,NAO
 9420,Supreme Commander: Forged Alliance,2011-09-28,Strategy,windows,NAO
 9450,"Warhammer® 40,000: Dawn of War® - Soulstorm",Single-player;Multi-player;Steam Cloud,SEGA,NAO
-9460,Frontlines™: Fuel of War™,2008-02-29,Action,windows,SIM
-9480,Saints Row 2,2009-01-07,Action,windows;linux,SIM
-9500,Gish,2007-07-20,Indie,windows;mac,SIM
-9710,Desperados 2: Cooper's Revenge,2008-03-12,Action,windows,SIM
-9760,Act of War: High Treason,2008-03-12,Action,windows,SIM
-9800,Death to Spies,2008-03-12,Action;Adventure,windows,SIM
-9850,Codename: Panzers - Cold War,2009-05-06,Simulation;Strategy,windows,SIM
+9460,Frontlines™: Fuel of War™,2008-02-29,Action,windows,NAO
+9480,Saints Row 2,2009-01-07,Action,windows;linux,NAO
+9500,Gish,2007-07-20,Indie,windows;mac,NAO
+9710,Desperados 2: Cooper's Revenge,2008-03-12,Action,windows,NAO
+9760,Act of War: High Treason,2008-03-12,Action,windows,NAO
+9800,Death to Spies,2008-03-12,Action;Adventure,windows,NAO
+9850,Codename: Panzers - Cold War,2009-05-06,Simulation;Strategy,windows,NAO
 9880,Champions Online,2011-06-14,Free to Play;Massively Multiplayer;RPG,windows,NAO
 9900,Star Trek Online,2012-01-31,Free to Play;Massively Multiplayer;RPG,windows,NAO
 9940,Blade Kitten,2014-05-22,Action;Adventure,windows,NAO
 9960,Haunted House™,2010-09-28,Adventure,windows,NAO
 9970,Star Raiders,2011-05-11,Action,windows,NAO
 9980,The UnderGarden,2010-11-10,Casual,windows,NAO
-10090,Call of Duty: World at War,2008-11-18,Action,windows,SIM
-10100,King's Quest™ Collection,2009-07-23,Adventure,windows,SIM
-10110,Space Quest™ Collection,2009-07-23,Adventure,windows,SIM
-10120,Aces of the Galaxy™,2009-07-23,Action;Casual,windows,SIM
-10130,TimeShift™,2009-07-23,Action,windows,SIM
-10140,3D Ultra™ Minigolf Adventures,2009-07-23,Sports,windows,SIM
-10150,Prototype™,2009-06-12,Action;Adventure,windows,SIM
-10180,Call of Duty®: Modern Warfare® 2,2009-11-11,Action,windows;mac,SIM
+10090,Call of Duty: World at War,2008-11-18,Action,windows,NAO
+10100,King's Quest™ Collection,2009-07-23,Adventure,windows,NAO
+10110,Space Quest™ Collection,2009-07-23,Adventure,windows,NAO
+10120,Aces of the Galaxy™,2009-07-23,Action;Casual,windows,NAO
+10130,TimeShift™,2009-07-23,Action,windows,NAO
+10140,3D Ultra™ Minigolf Adventures,2009-07-23,Sports,windows,NAO
+10150,Prototype™,2009-06-12,Action;Adventure,windows,NAO
+10180,Call of Duty®: Modern Warfare® 2,2009-11-11,Action,windows;mac,NAO
 10220,Postal III,2012-02-17,Action,windows,NAO
 10230,Dead Mountaineer's Hotel,2011-10-28,Adventure,windows,NAO
 10240,A Stroke of Fate: Operation Valkyrie,2011-10-28,Adventure,windows,NAO
 10250,PT Boats: Knights of the Sea,2011-10-28,Simulation,windows,NAO
 10260,PT Boats: South Gambit,2011-10-28,Simulation,windows,NAO
 10270,Disciples III: Reincarnation,2014-02-14,RPG;Strategy,windows,NAO
-10460,The Club™,2008-02-20,Action,windows,SIM
-10500,Total War: EMPIRE – Definitive Edition,2009-03-04,Strategy,windows;mac;linux,SIM
+10460,The Club™,2008-02-20,Action,windows,NAO
+10500,Total War: EMPIRE – Definitive Edition,2009-03-04,Strategy,windows;mac;linux,NAO
 10680,Aliens vs. Predator™,2010-02-16,Action,windows,NAO
-11020,TrackMania Nations Forever,2008-04-16,Racing,windows,SIM
-11040,Sherlock Holmes - Nemesis,2008-08-07,Adventure;RPG,windows,SIM
-11050,Dracula Origin,2008-08-07,Adventure,windows,SIM
-11130,Sherlock Holmes: The Mystery of the Mummy,2009-08-06,Adventure,windows,SIM
-11140,Sherlock Holmes: The Awakened - Remastered Edition,2009-08-06,Adventure,windows,SIM
-11150,Sherlock Holmes: The Silver Earring,2009-08-06,Adventure,windows,SIM
-11190,Sherlock Holmes versus Jack the Ripper,2009-12-23,Adventure;RPG,windows,SIM
-11200,Shadowgrounds Survivor,2007-11-14,Action,windows;mac,SIM
-11230,Gumboy Tournament,2008-05-19,0,"CINEMAX,SIM
-11240,Space Trader: Merchant Marine,2008-10-23,Action;Indie;Strategy,windows,SIM
-11250,Pacific Storm,2008-06-24,Simulation;Strategy,windows,SIM
-11260,Pacific Storm Allies,2008-08-18,Simulation;Strategy,windows,SIM
-11280,Penguins Arena: Sedna's World,2008-12-18,Action;Casual;Indie,windows;mac,SIM
-11330,Obulis,2009-03-19,Casual;Indie,windows,SIM
-11340,Larva Mortus,2009-03-19,Action;Indie,windows,SIM
-11360,Chains,2009-07-01,Indie,windows;mac,SIM
-11450,Overlord™,2009-11-12,RPG,windows;mac;linux,SIM
+11020,TrackMania Nations Forever,2008-04-16,Racing,windows,NAO
+11040,Sherlock Holmes - Nemesis,2008-08-07,Adventure;RPG,windows,NAO
+11050,Dracula Origin,2008-08-07,Adventure,windows,NAO
+11130,Sherlock Holmes: The Mystery of the Mummy,2009-08-06,Adventure,windows,NAO
+11140,Sherlock Holmes: The Awakened - Remastered Edition,2009-08-06,Adventure,windows,NAO
+11150,Sherlock Holmes: The Silver Earring,2009-08-06,Adventure,windows,NAO
+11190,Sherlock Holmes versus Jack the Ripper,2009-12-23,Adventure;RPG,windows,NAO
+11200,Shadowgrounds Survivor,2007-11-14,Action,windows;mac,NAO
+11230,Gumboy Tournament,2008-05-19,0,"CINEMAX,NAO
+11240,Space Trader: Merchant Marine,2008-10-23,Action;Indie;Strategy,windows,NAO
+11250,Pacific Storm,2008-06-24,Simulation;Strategy,windows,NAO
+11260,Pacific Storm Allies,2008-08-18,Simulation;Strategy,windows,NAO
+11280,Penguins Arena: Sedna's World,2008-12-18,Action;Casual;Indie,windows;mac,NAO
+11330,Obulis,2009-03-19,Casual;Indie,windows,NAO
+11340,Larva Mortus,2009-03-19,Action;Indie,windows,NAO
+11360,Chains,2009-07-01,Indie,windows;mac,NAO
+11450,Overlord™,2009-11-12,RPG,windows;mac;linux,NAO
 11480,Soldiers: Heroes of World War II,2014-07-03,Strategy,windows,NAO
-11560,Maelstrom: The Battle for Earth Begins,2009-02-13,Strategy,windows,SIM
-11590,Hospital Tycoon,2009-02-13,Simulation,windows,SIM
-12100,Grand Theft Auto III,2008-01-04,Action,windows,SIM
+11560,Maelstrom: The Battle for Earth Begins,2009-02-13,Strategy,windows,NAO
+11590,Hospital Tycoon,2009-02-13,Simulation,windows,NAO
+12100,Grand Theft Auto III,2008-01-04,Action,windows,NAO
 12110,Grand Theft Auto: Vice City,2011-01-10,Action,windows,NAO
-12120,Grand Theft Auto: San Andreas,2008-01-04,Action,windows,SIM
-12130,Manhunt,2008-01-04,Action,windows,SIM
-12140,Max Payne,2008-01-04,Action,windows,SIM
-12150,Max Payne 2: The Fall of Max Payne,2008-01-04,Action,windows,SIM
-12170,Grand Theft Auto,2008-01-04,Action,windows,SIM
-12180,Grand Theft Auto 2,2008-01-04,Action,windows,SIM
-12200,Bully: Scholarship Edition,2008-10-21,Action;Adventure,windows,SIM
-12210,Grand Theft Auto IV,2008-12-02,Action;Adventure,windows,SIM
+12120,Grand Theft Auto: San Andreas,2008-01-04,Action,windows,NAO
+12130,Manhunt,2008-01-04,Action,windows,NAO
+12140,Max Payne,2008-01-04,Action,windows,NAO
+12150,Max Payne 2: The Fall of Max Payne,2008-01-04,Action,windows,NAO
+12170,Grand Theft Auto,2008-01-04,Action,windows,NAO
+12180,Grand Theft Auto 2,2008-01-04,Action,windows,NAO
+12200,Bully: Scholarship Edition,2008-10-21,Action;Adventure,windows,NAO
+12210,Grand Theft Auto IV,2008-12-02,Action;Adventure,windows,NAO
 12220,Grand Theft Auto: Episodes from Liberty City,2010-04-12,Action,windows,NAO
-12310,Culpa Innata,2008-01-18,RPG;Casual;Adventure,windows,SIM
-12320,Sacred Gold,2008-07-09,Action;RPG,windows,SIM
-12330,Darkstar One,2008-02-13,Action,windows,SIM
-12340,Jack Keane,2008-06-27,Adventure,windows,SIM
-12360,FlatOut: Ultimate Carnage,2008-08-26,Racing,windows,SIM
-12390,Exodus from the Earth,2008-10-24,Action,windows,SIM
-12420,Perimeter 2: New Earth,2009-02-10,Strategy,windows,SIM
-12430,SlamIt Pinball Big Score,2009-02-23,Casual,windows,SIM
-12440,Ankh 2: Heart of Osiris,2009-06-16,Adventure,windows,SIM
-12450,Ankh 3: Battle of the Gods,2009-06-16,Adventure,windows,SIM
-12460,BC Kings,2009-06-16,Strategy,windows,SIM
-12470,Port Royale 2,2009-06-16,Strategy,windows,SIM
-12480,9th Company: Roots Of Terror,2009-12-03,Strategy,windows,SIM
-12500,PuzzleQuest: Challenge of the Warlords,2008-01-29,Single-player;Multi-player;Steam Cloud,Inc.",SIM
-12510,Prison Tycoon 3™: Lockdown,2008-01-29,Strategy,windows,SIM
-12520,18 Wheels of Steel: American Long Haul,2008-01-29,Racing,windows,SIM
-12530,Hunting Unlimited™ 2008,2008-01-29,Action;Adventure;Strategy,windows,SIM
-12540,Mahjongg Investigations: Under Suspicion,2008-07-29,Casual,windows,SIM
-12560,Ride! Carnival Tycoon,2008-07-29,Simulation,windows,SIM
-12590,Sprint Cars Road to Knoxville,2008-07-29,Racing,windows,SIM
-12600,Midnight Outlaw: 6 Hours to SunUp,2008-07-29,Racing,windows,SIM
-12640,Drakensang,2009-03-09,RPG,windows,SIM
-12670,Mission Runway,2009-07-17,Simulation,windows,SIM
-12710,Overlord™: Raising Hell,2009-11-12,RPG,windows;mac;linux,SIM
-12770,Rise of the Argonauts,2009-01-07,RPG,windows,SIM
-12790,Damnation,2009-05-22,Action;Adventure,windows,SIM
-12810,Overlord II,2009-06-24,RPG,windows;mac;linux,SIM
-12830,Operation Flashpoint: Dragon Rising,2009-10-08,Action,windows,SIM
-13000,Ninja Reflex: Steamworks Edition,2008-03-21,Casual;Indie,windows,SIM
-13140,America's Army 3,2009-06-17,Action,windows,SIM
-13200,Unreal 2: The Awakening,2008-03-17,0,"Epic Games,SIM
-13210,Unreal Tournament 3 Black,2009-03-05,0,"Epic Games,SIM
-13230,Unreal Tournament 2004: Editor's Choice Edition,2004-03-17,0,"Epic Games,SIM
-13240,Unreal Tournament: Game of the Year Edition,2008-03-17,0,"Epic Games,SIM
-13250,Unreal Gold,2008-03-17,0,"Epic Games,SIM
-13500,Prince of Persia: Warrior Within™,2009-08-27,Action;Adventure,windows,SIM
-13520,Far Cry®,2008-04-01,Action,windows,SIM
-13530,Prince of Persia: The Two Thrones™,2009-08-27,Action;Adventure,windows,SIM
-13540,Tom Clancy's Rainbow Six® Vegas,2008-04-09,Action,windows,SIM
-13560,Tom Clancy's Splinter Cell®,2008-04-01,Action,windows,SIM
-13570,Tom Clancy's Splinter Cell Chaos Theory®,2009-08-27,Action,windows,SIM
-13580,Tom Clancy's Splinter Cell Double Agent®,2009-02-13,Action,windows,SIM
-13600,Prince of Persia®: The Sands of Time,2009-08-27,Action;Adventure,windows,SIM
-13620,Tom Clancy's Ghost Recon® Desert Siege™,2008-07-15,Action,windows,SIM
-15000,Tom Clancy's Rainbow Six Lockdown™,2009-08-27,Action,windows,SIM
-15080,Rayman Raving Rabbids™,2008-06-13,Action;Adventure,windows,SIM
-15100,Assassin's Creed™: Director's Cut Edition,2008-04-09,Action;Adventure,windows,SIM
-15120,Tom Clancy's Rainbow Six® Vegas 2,2008-04-16,Action,windows,SIM
-15130,Beyond Good and Evil™,2008-05-13,Action;Adventure,windows,SIM
-15160,Petz® Horsez® 2,2009-08-27,Simulation,windows,SIM
-15170,Heroes of Might & Magic V,2008-05-13,Strategy,windows,SIM
-15190,Brothers in Arms: Road to Hill 30™,2008-05-13,Action,windows,SIM
-15200,Silent Hunter®: Wolves of the Pacific,2009-08-27,Simulation,windows,SIM
-15210,Silent Hunter® III,2008-06-13,Simulation,windows,SIM
-15240,Silent Hunter®: Wolves of the Pacific U-Boat Missions,2009-08-27,Simulation,windows,SIM
-15270,Cold Fear™,2008-05-13,Action,windows,SIM
-15300,Tom Clancy's Ghost Recon®,2008-07-15,Action,windows,SIM
-15320,IL-2 Sturmovik: 1946,2008-06-13,Simulation,windows,SIM
-15370,Heroes of Might & Magic V: Tribes of the East,2008-10-10,Strategy,windows,SIM
-15380,Heroes of Might & Magic V: Hammers of Fate,2008-10-10,Strategy,windows,SIM
-15390,Brothers in Arms: Hell's Highway™,2008-10-08,Action,windows,SIM
-15400,Harvest: Massive Encounter,2009-01-23,Strategy;Indie,windows;mac;linux,SIM
-15500,The Wonderful End of the World,2008-07-17,0,"Dejobaan Games,SIM
-15520,AaAaAA!!! - A Reckless Disregard for Gravity,2009-09-03,0,"Dejobaan Games,SIM
+12310,Culpa Innata,2008-01-18,RPG;Casual;Adventure,windows,NAO
+12320,Sacred Gold,2008-07-09,Action;RPG,windows,NAO
+12330,Darkstar One,2008-02-13,Action,windows,NAO
+12340,Jack Keane,2008-06-27,Adventure,windows,NAO
+12360,FlatOut: Ultimate Carnage,2008-08-26,Racing,windows,NAO
+12390,Exodus from the Earth,2008-10-24,Action,windows,NAO
+12420,Perimeter 2: New Earth,2009-02-10,Strategy,windows,NAO
+12430,SlamIt Pinball Big Score,2009-02-23,Casual,windows,NAO
+12440,Ankh 2: Heart of Osiris,2009-06-16,Adventure,windows,NAO
+12450,Ankh 3: Battle of the Gods,2009-06-16,Adventure,windows,NAO
+12460,BC Kings,2009-06-16,Strategy,windows,NAO
+12470,Port Royale 2,2009-06-16,Strategy,windows,NAO
+12480,9th Company: Roots Of Terror,2009-12-03,Strategy,windows,NAO
+12500,PuzzleQuest: Challenge of the Warlords,2008-01-29,Single-player;Multi-player;Steam Cloud,Inc.",NAO
+12510,Prison Tycoon 3™: Lockdown,2008-01-29,Strategy,windows,NAO
+12520,18 Wheels of Steel: American Long Haul,2008-01-29,Racing,windows,NAO
+12530,Hunting Unlimited™ 2008,2008-01-29,Action;Adventure;Strategy,windows,NAO
+12540,Mahjongg Investigations: Under Suspicion,2008-07-29,Casual,windows,NAO
+12560,Ride! Carnival Tycoon,2008-07-29,Simulation,windows,NAO
+12590,Sprint Cars Road to Knoxville,2008-07-29,Racing,windows,NAO
+12600,Midnight Outlaw: 6 Hours to SunUp,2008-07-29,Racing,windows,NAO
+12640,Drakensang,2009-03-09,RPG,windows,NAO
+12670,Mission Runway,2009-07-17,Simulation,windows,NAO
+12710,Overlord™: Raising Hell,2009-11-12,RPG,windows;mac;linux,NAO
+12770,Rise of the Argonauts,2009-01-07,RPG,windows,NAO
+12790,Damnation,2009-05-22,Action;Adventure,windows,NAO
+12810,Overlord II,2009-06-24,RPG,windows;mac;linux,NAO
+12830,Operation Flashpoint: Dragon Rising,2009-10-08,Action,windows,NAO
+13000,Ninja Reflex: Steamworks Edition,2008-03-21,Casual;Indie,windows,NAO
+13140,America's Army 3,2009-06-17,Action,windows,NAO
+13200,Unreal 2: The Awakening,2008-03-17,0,"Epic Games,NAO
+13210,Unreal Tournament 3 Black,2009-03-05,0,"Epic Games,NAO
+13230,Unreal Tournament 2004: Editor's Choice Edition,2004-03-17,0,"Epic Games,NAO
+13240,Unreal Tournament: Game of the Year Edition,2008-03-17,0,"Epic Games,NAO
+13250,Unreal Gold,2008-03-17,0,"Epic Games,NAO
+13500,Prince of Persia: Warrior Within™,2009-08-27,Action;Adventure,windows,NAO
+13520,Far Cry®,2008-04-01,Action,windows,NAO
+13530,Prince of Persia: The Two Thrones™,2009-08-27,Action;Adventure,windows,NAO
+13540,Tom Clancy's Rainbow Six® Vegas,2008-04-09,Action,windows,NAO
+13560,Tom Clancy's Splinter Cell®,2008-04-01,Action,windows,NAO
+13570,Tom Clancy's Splinter Cell Chaos Theory®,2009-08-27,Action,windows,NAO
+13580,Tom Clancy's Splinter Cell Double Agent®,2009-02-13,Action,windows,NAO
+13600,Prince of Persia®: The Sands of Time,2009-08-27,Action;Adventure,windows,NAO
+13620,Tom Clancy's Ghost Recon® Desert Siege™,2008-07-15,Action,windows,NAO
+15000,Tom Clancy's Rainbow Six Lockdown™,2009-08-27,Action,windows,NAO
+15080,Rayman Raving Rabbids™,2008-06-13,Action;Adventure,windows,NAO
+15100,Assassin's Creed™: Director's Cut Edition,2008-04-09,Action;Adventure,windows,NAO
+15120,Tom Clancy's Rainbow Six® Vegas 2,2008-04-16,Action,windows,NAO
+15130,Beyond Good and Evil™,2008-05-13,Action;Adventure,windows,NAO
+15160,Petz® Horsez® 2,2009-08-27,Simulation,windows,NAO
+15170,Heroes of Might & Magic V,2008-05-13,Strategy,windows,NAO
+15190,Brothers in Arms: Road to Hill 30™,2008-05-13,Action,windows,NAO
+15200,Silent Hunter®: Wolves of the Pacific,2009-08-27,Simulation,windows,NAO
+15210,Silent Hunter® III,2008-06-13,Simulation,windows,NAO
+15240,Silent Hunter®: Wolves of the Pacific U-Boat Missions,2009-08-27,Simulation,windows,NAO
+15270,Cold Fear™,2008-05-13,Action,windows,NAO
+15300,Tom Clancy's Ghost Recon®,2008-07-15,Action,windows,NAO
+15320,IL-2 Sturmovik: 1946,2008-06-13,Simulation,windows,NAO
+15370,Heroes of Might & Magic V: Tribes of the East,2008-10-10,Strategy,windows,NAO
+15380,Heroes of Might & Magic V: Hammers of Fate,2008-10-10,Strategy,windows,NAO
+15390,Brothers in Arms: Hell's Highway™,2008-10-08,Action,windows,NAO
+15400,Harvest: Massive Encounter,2009-01-23,Strategy;Indie,windows;mac;linux,NAO
+15500,The Wonderful End of the World,2008-07-17,0,"Dejobaan Games,NAO
+15520,AaAaAA!!! - A Reckless Disregard for Gravity,2009-09-03,0,"Dejobaan Games,NAO
 15560,AaaaaAAaaaAAAaaAAAAaAAAAA!!! for the Awesome,2011-11-23,0,"Dejobaan Games,NAO
 15620,"Warhammer 40,000: Dawn of War II",Single-player;Multi-player;Co-op;Steam Trading Cards;Steam Cloud,SEGA;Feral Interactive (Mac/Linux),NAO
-15700,Oddworld: Abe's Oddysee®,2008-08-28,Adventure,windows,SIM
-15710,Oddworld: Abe's Exoddus®,2008-08-28,Adventure,windows,SIM
+15700,Oddworld: Abe's Oddysee®,2008-08-28,Adventure,windows,NAO
+15710,Oddworld: Abe's Exoddus®,2008-08-28,Adventure,windows,NAO
 15740,Oddworld: Munch's Oddysee,2010-12-20,Action;Adventure;Strategy,windows,NAO
 15750,Oddworld: Stranger's Wrath HD,2010-12-20,Action;Adventure;Strategy,windows,NAO
-15800,Planet Busters,2008-06-30,Indie;Casual,windows,SIM
-15900,7 Wonders II,2008-06-10,Casual,windows,SIM
-15910,Luxor Amun Rising,2008-06-10,Casual,windows,SIM
-15920,Luxor 2,2008-06-10,Casual,windows,SIM
-15930,Luxor 3,2008-06-10,Casual,windows,SIM
-15960,Little Farm,2008-06-10,Casual,windows,SIM
-15970,Luxor,2008-06-10,Casual,windows;mac,SIM
-16000,Discovery! A Seek and Find Adventure,2008-07-29,Casual,windows,SIM
-16020,Samantha Swift and the Hidden Roses of Athena,2008-10-31,Casual,windows,SIM
-16030,7 Wonders: Treasures of Seven,2008-11-14,Casual,windows,SIM
-16040,Luxor: Quest for the Afterlife,2008-12-15,Casual,windows,SIM
-16060,Samantha Swift and the Golden Touch,2009-04-29,Casual,windows,SIM
-16100,Virtual Villagers: A New Home,2008-05-12,Casual;Simulation,windows,SIM
-16110,Virtual Villagers: The Lost Children,2008-05-12,Casual;Simulation,windows,SIM
-16120,Plant Tycoon,2008-05-12,Casual;Simulation,windows,SIM
-16130,Fish Tycoon,2008-05-12,Casual;Simulation,windows,SIM
-16180,Virtual Villagers - The Secret City,2008-05-28,Casual;Simulation,windows,SIM
-16200,Virtual Families,2009-05-06,Casual;Simulation,windows,SIM
-16450,F.E.A.R. 2: Project Origin,2009-02-12,Action,windows,SIM
-16500,Chaos Theory,2008-05-22,Casual;Indie,windows,SIM
-16600,Trials 2: Second Edition,2008-05-28,Indie;Racing;Sports,windows,SIM
-16620,Monster Trucks Nitro,2009-01-29,Indie;Racing;Sports,windows;mac,SIM
-16710,Insecticide Part 1,2008-07-01,Action;Adventure,windows,SIM
-16720,Velvet Assassin,2009-05-01,Action,windows;mac,SIM
-16730,Legendary,2008-12-01,Action,windows,SIM
-16810,Sid Meier's Civilization IV: Colonization,2008-09-23,Strategy,windows;mac,SIM
+15800,Planet Busters,2008-06-30,Indie;Casual,windows,NAO
+15900,7 Wonders II,2008-06-10,Casual,windows,NAO
+15910,Luxor Amun Rising,2008-06-10,Casual,windows,NAO
+15920,Luxor 2,2008-06-10,Casual,windows,NAO
+15930,Luxor 3,2008-06-10,Casual,windows,NAO
+15960,Little Farm,2008-06-10,Casual,windows,NAO
+15970,Luxor,2008-06-10,Casual,windows;mac,NAO
+16000,Discovery! A Seek and Find Adventure,2008-07-29,Casual,windows,NAO
+16020,Samantha Swift and the Hidden Roses of Athena,2008-10-31,Casual,windows,NAO
+16030,7 Wonders: Treasures of Seven,2008-11-14,Casual,windows,NAO
+16040,Luxor: Quest for the Afterlife,2008-12-15,Casual,windows,NAO
+16060,Samantha Swift and the Golden Touch,2009-04-29,Casual,windows,NAO
+16100,Virtual Villagers: A New Home,2008-05-12,Casual;Simulation,windows,NAO
+16110,Virtual Villagers: The Lost Children,2008-05-12,Casual;Simulation,windows,NAO
+16120,Plant Tycoon,2008-05-12,Casual;Simulation,windows,NAO
+16130,Fish Tycoon,2008-05-12,Casual;Simulation,windows,NAO
+16180,Virtual Villagers - The Secret City,2008-05-28,Casual;Simulation,windows,NAO
+16200,Virtual Families,2009-05-06,Casual;Simulation,windows,NAO
+16450,F.E.A.R. 2: Project Origin,2009-02-12,Action,windows,NAO
+16500,Chaos Theory,2008-05-22,Casual;Indie,windows,NAO
+16600,Trials 2: Second Edition,2008-05-28,Indie;Racing;Sports,windows,NAO
+16620,Monster Trucks Nitro,2009-01-29,Indie;Racing;Sports,windows;mac,NAO
+16710,Insecticide Part 1,2008-07-01,Action;Adventure,windows,NAO
+16720,Velvet Assassin,2009-05-01,Action,windows;mac,NAO
+16730,Legendary,2008-12-01,Action,windows,NAO
+16810,Sid Meier's Civilization IV: Colonization,2008-09-23,Strategy,windows;mac,NAO
 16900,GROUND BRANCH,2018-08-14,Action;Indie;Early Access,windows,NAO
 17080,Tribes: Ascend,2012-06-27,Action;Free to Play,windows,NAO
-17100,Children of the Nile: Enhanced Edition,2008-07-08,0,"Tilted Mill Entertainment,SIM
-17120,Children of the Nile: Alexandria,2008-09-22,0,"Tilted Mill Entertainment,SIM
-17140,Hinterland,2008-09-30,0,"Tilted Mill Entertainment,SIM
-17180,Mosby's Confederacy,2008-11-19,0,"Tilted Mill Entertainment,SIM
-17300,Crysis,2008-09-17,Action,windows,SIM
-17330,Crysis Warhead®,2008-09-17,Action,windows,SIM
-17390,SPORE™,2008-12-19,Simulation,windows,SIM
-17410,Mirror's Edge™,2009-01-14,Action;Adventure,windows,SIM
-17430,Need for Speed Undercover,2008-12-19,Action;Racing,windows,SIM
-17440,SPORE™ Creepy & Cute Parts Pack,2008-12-19,Simulation,windows,SIM
-17450,Dragon Age: Origins,2009-11-05,RPG,windows,SIM
-17460,Mass Effect,2008-12-19,Action;RPG,windows,SIM
-17470,Dead Space,2009-01-09,Action,windows,SIM
-17480,Command & Conquer: Red Alert 3,2009-01-08,Strategy,windows,SIM
-17500,Zombie Panic! Source,2008-10-03,Action;Free to Play;Indie,windows;linux,SIM
+17100,Children of the Nile: Enhanced Edition,2008-07-08,0,"Tilted Mill Entertainment,NAO
+17120,Children of the Nile: Alexandria,2008-09-22,0,"Tilted Mill Entertainment,NAO
+17140,Hinterland,2008-09-30,0,"Tilted Mill Entertainment,NAO
+17180,Mosby's Confederacy,2008-11-19,0,"Tilted Mill Entertainment,NAO
+17300,Crysis,2008-09-17,Action,windows,NAO
+17330,Crysis Warhead®,2008-09-17,Action,windows,NAO
+17390,SPORE™,2008-12-19,Simulation,windows,NAO
+17410,Mirror's Edge™,2009-01-14,Action;Adventure,windows,NAO
+17430,Need for Speed Undercover,2008-12-19,Action;Racing,windows,NAO
+17440,SPORE™ Creepy & Cute Parts Pack,2008-12-19,Simulation,windows,NAO
+17450,Dragon Age: Origins,2009-11-05,RPG,windows,NAO
+17460,Mass Effect,2008-12-19,Action;RPG,windows,NAO
+17470,Dead Space,2009-01-09,Action,windows,NAO
+17480,Command & Conquer: Red Alert 3,2009-01-08,Strategy,windows,NAO
+17500,Zombie Panic! Source,2008-10-03,Action;Free to Play;Indie,windows;linux,NAO
 17570,"Pirates,Vikings,0,Octoshark Studios,NAO
 17710,Nuclear Dawn,2011-09-26,Action;Strategy,windows;mac;linux,NAO
-17740,Empires Mod,2008-07-28,Action;Free to Play;Strategy,windows;linux,SIM
+17740,Empires Mod,2008-07-28,Action;Free to Play;Strategy,windows;linux,NAO
 18000,"Precipice of Darkness,Episode One",Single-player;Steam Achievements,Hothead Games,NAO
 18020,"Precipice of Darkness,Episode Two",Single-player;Steam Achievements,Hothead Games,NAO
 18040,DeathSpank,2010-10-25,Action;Indie;RPG,windows;mac,NAO
 18050,DeathSpank: Thongs of Virtue,2010-11-30,Action;RPG;Indie,windows;mac,NAO
 18070,The Baconing,2011-08-31,Action;Adventure;RPG,windows;mac,NAO
 18120,Unstoppable Gorg,2012-01-19,Action;Casual;Indie;Strategy,windows;mac,NAO
-18300,Spectraball,2008-10-20,Casual;Indie,windows;mac;linux,SIM
-18400,Crazy Machines 2,2008-06-20,Casual;Strategy,windows,SIM
-18420,Crazy Machines,2008-12-12,Casual;Strategy,windows,SIM
-18470,Helldorado,2009-04-30,Strategy,windows,SIM
-18480,Mata Hari,2009-07-29,Adventure,windows,SIM
-18500,Defense Grid: The Awakening,2008-12-08,Indie;Strategy,windows,SIM
-18600,Mayhem Intergalactic,2009-01-22,Indie;Strategy,windows,SIM
-18700,And Yet It Moves,2009-04-02,Action;Indie,windows;mac;linux,SIM
+18300,Spectraball,2008-10-20,Casual;Indie,windows;mac;linux,NAO
+18400,Crazy Machines 2,2008-06-20,Casual;Strategy,windows,NAO
+18420,Crazy Machines,2008-12-12,Casual;Strategy,windows,NAO
+18470,Helldorado,2009-04-30,Strategy,windows,NAO
+18480,Mata Hari,2009-07-29,Adventure,windows,NAO
+18500,Defense Grid: The Awakening,2008-12-08,Indie;Strategy,windows,NAO
+18600,Mayhem Intergalactic,2009-01-22,Indie;Strategy,windows,NAO
+18700,And Yet It Moves,2009-04-02,Action;Indie,windows;mac;linux,NAO
 18820,Zero Gear,2010-01-12,Action;Indie;Racing;Sports,windows,NAO
-19000,Silent Hill Homecoming,2009-03-02,Single-player,Inc.;Konami Digital Entertainement GmbH",SIM
+19000,Silent Hill Homecoming,2009-03-02,Single-player,Inc.;Konami Digital Entertainement GmbH",NAO
 19020,Puzzle Chronicles,2010-06-25,Single-player;Multi-player;Steam Achievements;Partial Controller Support;Steam Cloud,Inc.;Konami Digital Entertainment GmbH",NAO
 19030,Rocket Knight,2010-06-25,Single-player;Steam Achievements;Partial Controller Support;Steam Cloud;Steam Leaderboards,Inc.;Konami Digital Entertainment GmbH",NAO
 19080,Biozone,2010-06-25,Single-player,Inc.;Konami Digital Entertainment GmbH",NAO
-19200,Tank Universal,2008-08-21,Action;Indie,windows,SIM
+19200,Tank Universal,2008-08-21,Action;Indie,windows,NAO
 19320,Space Ark,2012-03-16,Action;Indie;Casual,windows,NAO
-19500,Eternity's Child,2008-07-31,Adventure;Indie,windows,SIM
-19800,Brothers in Arms: Earned in Blood™,2008-10-10,Action,windows,SIM
-19830,Tom Clancy's Rainbow Six® 3 Gold,2008-09-25,Action,windows,SIM
-19900,Far Cry® 2: Fortune's Edition,2008-10-22,Action,windows,SIM
-19980,Prince of Persia®,2008-12-10,Action;Adventure,windows,SIM
-20200,Galactic Bowling,2008-10-21,Indie;Casual;Sports,windows,SIM
-20510,S.T.A.L.K.E.R.: Clear Sky,2008-09-15,Action;RPG,windows,SIM
-20530,Red Faction,2009-08-05,Single-player;Multi-player;Steam Cloud,THQ Nordic,SIM
-20540,Company of Heroes: Tales of Valor,2009-04-08,Strategy,windows,SIM
-20550,Red Faction II,2009-08-06,Single-player;Steam Cloud,THQ Nordic,SIM
+19500,Eternity's Child,2008-07-31,Adventure;Indie,windows,NAO
+19800,Brothers in Arms: Earned in Blood™,2008-10-10,Action,windows,NAO
+19830,Tom Clancy's Rainbow Six® 3 Gold,2008-09-25,Action,windows,NAO
+19900,Far Cry® 2: Fortune's Edition,2008-10-22,Action,windows,NAO
+19980,Prince of Persia®,2008-12-10,Action;Adventure,windows,NAO
+20200,Galactic Bowling,2008-10-21,Indie;Casual;Sports,windows,NAO
+20510,S.T.A.L.K.E.R.: Clear Sky,2008-09-15,Action;RPG,windows,NAO
+20530,Red Faction,2009-08-05,Single-player;Multi-player;Steam Cloud,THQ Nordic,NAO
+20540,Company of Heroes: Tales of Valor,2009-04-08,Strategy,windows,NAO
+20550,Red Faction II,2009-08-06,Single-player;Steam Cloud,THQ Nordic,NAO
 20570,"Warhammer® 40,000: Dawn of War® II Chaos Rising",Single-player;Multi-player;Co-op;Steam Cloud,SEGA;Feral Interactive (Mac/Linux),NAO
-20700,Starscape,2008-11-03,Action;Indie;Strategy,windows,SIM
-20710,Mr. Robot,2008-11-03,Action;Indie;Strategy,windows,SIM
+20700,Starscape,2008-11-03,Action;Indie;Strategy,windows,NAO
+20710,Mr. Robot,2008-11-03,Action;Indie;Strategy,windows,NAO
 20820,Shatter,2010-03-15,Action;Indie,windows;mac;linux,NAO
-20900,The Witcher: Enhanced Edition Director's Cut,2008-09-16,Action;RPG,windows;mac,SIM
+20900,The Witcher: Enhanced Edition Director's Cut,2008-09-16,Action;RPG,windows;mac,NAO
 20920,The Witcher 2: Assassins of Kings Enhanced Edition,2012-04-16,RPG,windows;mac;linux,NAO
-21000,LEGO® Batman™: The Videogame,2008-09-29,Action;Adventure,windows,SIM
-21010,Watchmen: The End is Nigh,2009-03-04,Action,windows,SIM
-21030,Watchmen: The End is Nigh Part 2,2009-07-29,Action,windows,SIM
+21000,LEGO® Batman™: The Videogame,2008-09-29,Action;Adventure,windows,NAO
+21010,Watchmen: The End is Nigh,2009-03-04,Action,windows,NAO
+21030,Watchmen: The End is Nigh Part 2,2009-07-29,Action,windows,NAO
 21090,F.E.A.R.,2010-05-21,Single-player,Warner Bros. Interactive Entertainment,NAO
 21100,F.E.A.R. 3,2011-06-21,Action,windows,NAO
 21130,LEGO® Harry Potter: Years 1-4,2010-06-25,Action;Adventure,windows,NAO
-21300,Gravitron 2,2008-09-30,Indie;Casual,windows,SIM
-21400,Project Aftermath,2008-10-03,Strategy;Action;Indie,windows,SIM
-21500,Pyroblazer®,2008-11-13,Racing,windows,SIM
-21640,Flock!,2009-04-07,Casual;Strategy,windows,SIM
-21660,Street Fighter® IV,2009-07-07,Action,windows,SIM
-21670,Bionic Commando,2009-07-28,Action;Adventure,windows,SIM
-21680,Bionic Commando: Rearmed,2009-07-28,Action,windows,SIM
-21690,Resident Evil™ 5/ Biohazard 5®,2009-09-15,Action;Adventure,windows,SIM
-21780,Driver® Parallel Lines,2009-02-13,Racing,windows,SIM
-21800,Tom Clancy's EndWar™,2009-02-25,Strategy,windows,SIM
-21980,Call of Juarez®: Bound in Blood,2009-07-02,Action,windows,SIM
-22000,World of Goo,2008-10-13,Indie,windows;mac;linux,SIM
-22100,Mount & Blade,2008-11-03,Indie;RPG,windows,SIM
-22120,Penumbra: Black Plague Gold Edition,2009-01-23,Nudity;Gore;Action;Adventure;Indie,windows;mac;linux,SIM
-22130,Hearts of Iron 2 Complete,2009-01-23,Strategy,windows,SIM
-22180,Penumbra Overture,2009-03-06,Gore;Action;Adventure;Indie,windows;mac;linux,SIM
-22200,Zeno Clash,2009-04-21,Action;Indie,windows,SIM
+21300,Gravitron 2,2008-09-30,Indie;Casual,windows,NAO
+21400,Project Aftermath,2008-10-03,Strategy;Action;Indie,windows,NAO
+21500,Pyroblazer®,2008-11-13,Racing,windows,NAO
+21640,Flock!,2009-04-07,Casual;Strategy,windows,NAO
+21660,Street Fighter® IV,2009-07-07,Action,windows,NAO
+21670,Bionic Commando,2009-07-28,Action;Adventure,windows,NAO
+21680,Bionic Commando: Rearmed,2009-07-28,Action,windows,NAO
+21690,Resident Evil™ 5/ Biohazard 5®,2009-09-15,Action;Adventure,windows,NAO
+21780,Driver® Parallel Lines,2009-02-13,Racing,windows,NAO
+21800,Tom Clancy's EndWar™,2009-02-25,Strategy,windows,NAO
+21980,Call of Juarez®: Bound in Blood,2009-07-02,Action,windows,NAO
+22000,World of Goo,2008-10-13,Indie,windows;mac;linux,NAO
+22100,Mount & Blade,2008-11-03,Indie;RPG,windows,NAO
+22120,Penumbra: Black Plague Gold Edition,2009-01-23,Nudity;Gore;Action;Adventure;Indie,windows;mac;linux,NAO
+22130,Hearts of Iron 2 Complete,2009-01-23,Strategy,windows,NAO
+22180,Penumbra Overture,2009-03-06,Gore;Action;Adventure;Indie,windows;mac;linux,NAO
+22200,Zeno Clash,2009-04-21,Action;Indie,windows,NAO
 22230,Rock of Ages,2011-09-07,Action;Indie;Racing;Strategy,windows,NAO
-22300,Fallout 3,2008-10-28,RPG,windows,SIM
-22310,Rogue Warrior,2009-12-01,Action,windows,SIM
-22320,The Elder Scrolls III: Morrowind® Game of the Year Edition,2009-06-16,RPG,windows,SIM
-22330,The Elder Scrolls IV: Oblivion® Game of the Year Edition,2009-06-16,RPG,windows,SIM
+22300,Fallout 3,2008-10-28,RPG,windows,NAO
+22310,Rogue Warrior,2009-12-01,Action,windows,NAO
+22320,The Elder Scrolls III: Morrowind® Game of the Year Edition,2009-06-16,RPG,windows,NAO
+22330,The Elder Scrolls IV: Oblivion® Game of the Year Edition,2009-06-16,RPG,windows,NAO
 22350,BRINK,2011-05-09,Action;Free to Play,windows,NAO
-22370,Fallout 3: Game of the Year Edition,2009-12-17,RPG,windows,SIM
+22370,Fallout 3: Game of the Year Edition,2009-12-17,RPG,windows,NAO
 22380,Fallout: New Vegas,2010-10-21,Action;RPG,windows,NAO
 22450,Hunted: The Demon’s Forge™,2011-06-02,Action;Adventure,windows,NAO
-22500,Spectromancer,2009-02-11,Strategy,windows,SIM
+22500,Spectromancer,2009-02-11,Strategy,windows,NAO
 22600,Worms Reloaded,2010-08-26,Strategy,windows;mac;linux,NAO
 22610,Alien Breed: Impact,2010-06-03,Action,windows,NAO
 22650,Alien Breed 2: Assault,2010-09-22,Action,windows,NAO
 22670,Alien Breed 3: Descent,2010-11-17,Action,windows,NAO
 23150,Fluttabyes,2010-04-20,Casual;Indie,windows,NAO
-23300,Yosumin!™,2009-05-26,Casual,windows,SIM
-23380,Gyromancer,2009-11-18,Single-player,Square Enix,SIM
-23400,Imperium Romanum Gold Edition,2008-11-25,Simulation;Strategy,windows,SIM
-23420,Europa Universalis: Rome - Gold Edition,2008-12-18,Strategy,windows,SIM
-23450,Grand Ages: Rome,2009-03-05,Simulation;Strategy,windows,SIM
-23460,Ceville,2009-02-27,Action;Adventure;Strategy,windows,SIM
-23490,Tropico 3,2009-11-13,Simulation;Strategy,windows,SIM
-23500,Puzzle Quest: Galactrix,2009-02-24,Multi-player;Steam Cloud,Inc.",SIM
+23300,Yosumin!™,2009-05-26,Casual,windows,NAO
+23380,Gyromancer,2009-11-18,Single-player,Square Enix,NAO
+23400,Imperium Romanum Gold Edition,2008-11-25,Simulation;Strategy,windows,NAO
+23420,Europa Universalis: Rome - Gold Edition,2008-12-18,Strategy,windows,NAO
+23450,Grand Ages: Rome,2009-03-05,Simulation;Strategy,windows,NAO
+23460,Ceville,2009-02-27,Action;Adventure;Strategy,windows,NAO
+23490,Tropico 3,2009-11-13,Simulation;Strategy,windows,NAO
+23500,Puzzle Quest: Galactrix,2009-02-24,Multi-player;Steam Cloud,Inc.",NAO
 23530,Earth Defense Force: Insect Armageddon,2011-12-14,0,"D3Publisher of America,NAO
 23600,Depths of Peril,2010-11-23,Indie;RPG;Strategy,windows;mac;linux,NAO
-23700,Puzzle Kingdoms,2009-04-27,Casual,windows,SIM
+23700,Puzzle Kingdoms,2009-04-27,Casual,windows,NAO
 24010,Train Simulator 2019,2015-09-17,Simulation,windows,NAO
 24200,DC Universe™ Online,2011-11-02,Action;Adventure;Free to Play;Massively Multiplayer;RPG,windows,NAO
 24240,PAYDAY™ The Heist,2011-10-20,Action,windows,NAO
-24400,King Arthur - The Role-playing Wargame,2009-11-24,RPG;Strategy,windows,SIM
-24410,Crusaders: Thy Kingdom Come,2009-10-08,Strategy,windows,SIM
-24420,Aquaria,2008-12-15,0,"Bit Blot,SIM
+24400,King Arthur - The Role-playing Wargame,2009-11-24,RPG;Strategy,windows,NAO
+24410,Crusaders: Thy Kingdom Come,2009-10-08,Strategy,windows,NAO
+24420,Aquaria,2008-12-15,0,"Bit Blot,NAO
 24460,King Arthur: Fallen Champions,2011-09-16,RPG;Strategy,windows,NAO
 24480,King Arthur II: The Role-Playing Wargame,2012-01-27,RPG;Strategy,windows,NAO
 24640,Trainz: Classic Cabon City,2010-09-01,Simulation,windows,NAO
 24650,Trainz Settle and Carlisle,2010-10-01,Simulation,windows,NAO
 24670,Trainz™ Simulator 12,2011-06-08,Simulation,windows,NAO
-24720,SPORE™ Galactic Adventures,2009-06-26,Action;Simulation,windows,SIM
-24740,Burnout Paradise: The Ultimate Box,2009-03-12,Racing,windows,SIM
+24720,SPORE™ Galactic Adventures,2009-06-26,Action;Simulation,windows,NAO
+24740,Burnout Paradise: The Ultimate Box,2009-03-12,Racing,windows,NAO
 24780,SimCity™ 4 Deluxe Edition,2010-07-20,Simulation;Strategy,windows;mac,NAO
-24790,Command & Conquer 3: Tiberium Wars,2009-11-13,Strategy,windows,SIM
-24800,Command & Conquer: Red Alert 3 - Uprising,2009-10-06,Strategy,windows,SIM
-24810,Command & Conquer 3: Kane's Wrath,2009-11-13,Strategy,windows,SIM
-24840,Medal of Honor: Airborne,2009-10-06,Action,windows,SIM
-24870,Need for Speed: Shift,2009-10-06,Racing,windows,SIM
+24790,Command & Conquer 3: Tiberium Wars,2009-11-13,Strategy,windows,NAO
+24800,Command & Conquer: Red Alert 3 - Uprising,2009-10-06,Strategy,windows,NAO
+24810,Command & Conquer 3: Kane's Wrath,2009-11-13,Strategy,windows,NAO
+24840,Medal of Honor: Airborne,2009-10-06,Action,windows,NAO
+24870,Need for Speed: Shift,2009-10-06,Racing,windows,NAO
 24960,Battlefield: Bad Company™ 2,2010-03-02,Action,windows,NAO
 24980,Mass Effect 2,2010-01-28,RPG,windows,NAO
 25000,Overgrowth,2017-10-16,Action;Indie,windows;mac;linux,NAO
 25010,Lugaru HD,2010-10-08,Action,windows;mac;linux,NAO
-25500,Cricket Revolution,2009-10-28,Indie;Simulation;Sports,windows,SIM
-25600,Eschalon: Book I,2009-02-10,Indie;RPG,windows;mac;linux,SIM
+25500,Cricket Revolution,2009-10-28,Indie;Simulation;Sports,windows,NAO
+25600,Eschalon: Book I,2009-02-10,Indie;RPG,windows;mac;linux,NAO
 25620,Eschalon: Book II,2010-07-12,Indie;RPG,windows;mac;linux,NAO
-25700,Madballs in Babo:Invasion,2009-09-17,Indie,windows;mac,SIM
-25800,Europa Universalis III Complete,2009-02-04,Strategy,windows;mac,SIM
-25830,Knights of Honor,2009-02-04,Strategy,windows,SIM
-25850,Elven Legacy,2009-04-07,RPG;Strategy,windows,SIM
-25890,Hearts of Iron III,2009-08-07,Strategy,windows;mac,SIM
-25900,King's Bounty: The Legend,2009-05-01,RPG;Strategy,windows;mac,SIM
-25910,Supreme Ruler 2020 Gold,2009-07-09,Strategy,windows,SIM
-25930,East India Company,2009-07-31,Strategy,windows,SIM
-25980,Majesty 2,2009-09-17,Simulation;Strategy,windows,SIM
-25990,Majesty Gold HD,2009-09-04,Strategy;Simulation,windows,SIM
-26000,The Maw,2009-03-09,Action;Indie,windows,SIM
-26300,Drug Wars,2009-03-17,Action;Indie,windows,SIM
-26800,Braid,2009-04-10,Casual;Indie;Strategy,windows;mac;linux,SIM
-26900,Crayon Physics Deluxe,2009-05-06,Casual;Indie,windows;mac,SIM
-27000,The Path,2009-03-18,Adventure;Indie,windows;mac,SIM
-27020,The Graveyard,2009-03-09,Indie;Simulation,windows;mac;linux,SIM
-27050,Fatale,2009-11-04,Adventure;Casual;Indie,windows;mac,SIM
-27200,Summer Athletics,2009-04-02,Sports,windows,SIM
+25700,Madballs in Babo:Invasion,2009-09-17,Indie,windows;mac,NAO
+25800,Europa Universalis III Complete,2009-02-04,Strategy,windows;mac,NAO
+25830,Knights of Honor,2009-02-04,Strategy,windows,NAO
+25850,Elven Legacy,2009-04-07,RPG;Strategy,windows,NAO
+25890,Hearts of Iron III,2009-08-07,Strategy,windows;mac,NAO
+25900,King's Bounty: The Legend,2009-05-01,RPG;Strategy,windows;mac,NAO
+25910,Supreme Ruler 2020 Gold,2009-07-09,Strategy,windows,NAO
+25930,East India Company,2009-07-31,Strategy,windows,NAO
+25980,Majesty 2,2009-09-17,Simulation;Strategy,windows,NAO
+25990,Majesty Gold HD,2009-09-04,Strategy;Simulation,windows,NAO
+26000,The Maw,2009-03-09,Action;Indie,windows,NAO
+26300,Drug Wars,2009-03-17,Action;Indie,windows,NAO
+26800,Braid,2009-04-10,Casual;Indie;Strategy,windows;mac;linux,NAO
+26900,Crayon Physics Deluxe,2009-05-06,Casual;Indie,windows;mac,NAO
+27000,The Path,2009-03-18,Adventure;Indie,windows;mac,NAO
+27020,The Graveyard,2009-03-09,Indie;Simulation,windows;mac;linux,NAO
+27050,Fatale,2009-11-04,Adventure;Casual;Indie,windows;mac,NAO
+27200,Summer Athletics,2009-04-02,Sports,windows,NAO
 27330,Blacklight: Tango Down,2010-07-14,Action,windows,NAO
-27400,Dangerous High School Girls in Trouble!™,2009-02-23,RPG;Indie;Casual,windows;mac,SIM
-27600,Mevo and The Grooveriders,2009-03-20,Indie;Casual,windows,SIM
-27800,Space Giraffe,2009-03-19,Indie,windows,SIM
+27400,Dangerous High School Girls in Trouble!™,2009-02-23,RPG;Indie;Casual,windows;mac,NAO
+27600,Mevo and The Grooveriders,2009-03-20,Indie;Casual,windows,NAO
+27800,Space Giraffe,2009-03-19,Indie,windows,NAO
 27810,Gridrunner Revolution,2010-02-22,Indie,windows,NAO
-27900,Twin Sector,2009-09-16,Action;Adventure,windows,SIM
+27900,Twin Sector,2009-09-16,Action;Adventure,windows,NAO
 27920,Booster Trooper,2010-04-23,Action;Indie,windows,NAO
 27940,Dead Horde,2011-07-27,Action;Indie,windows,NAO
 28000,Kane & Lynch 2: Dog Days,2010-08-17,Action,windows,NAO
-29120,Yumsters 2: Around the World,2009-11-12,Indie;Casual,windows,SIM
-29130,Musaic Box,2009-03-19,Indie;Casual,windows,SIM
-29160,Blueberry Garden,2009-06-01,Adventure;Indie,windows;mac;linux,SIM
-29180,Osmos,2009-08-18,Indie;Casual,windows;mac;linux,SIM
-29800,Caster,2009-03-19,Action;Adventure;Casual;Indie;RPG;Strategy,windows;mac,SIM
-29900,Dark Sector,2009-03-24,Action,windows,SIM
+29120,Yumsters 2: Around the World,2009-11-12,Indie;Casual,windows,NAO
+29130,Musaic Box,2009-03-19,Indie;Casual,windows,NAO
+29160,Blueberry Garden,2009-06-01,Adventure;Indie,windows;mac;linux,NAO
+29180,Osmos,2009-08-18,Indie;Casual,windows;mac;linux,NAO
+29800,Caster,2009-03-19,Action;Adventure;Casual;Indie;RPG;Strategy,windows;mac,NAO
+29900,Dark Sector,2009-03-24,Action,windows,NAO
 31270,Puzzle Agent,2010-07-01,Adventure;Casual,windows;mac,NAO
-31300,Tunnel Rats,2009-05-15,Action,windows,SIM
-31800,Nancy Drew®: Danger by Design,2009-10-10,Adventure,windows,SIM
-31810,Nancy Drew®: Last Train to Blue Moon Canyon,2009-10-10,Adventure,windows,SIM
-31820,Nancy Drew®: The Haunted Carousel,2009-10-10,Adventure,windows,SIM
-31830,Nancy Drew®: Curse of Blackmoor Manor,2009-10-10,Adventure,windows,SIM
-31840,Nancy Drew®: Danger on Deception Island,2009-10-10,Adventure,windows,SIM
-31850,Nancy Drew®: Ghost Dogs of Moon Lake,2009-10-10,Adventure,windows,SIM
-31860,Nancy Drew®: Legend of the Crystal Skull,2009-07-17,Adventure,windows,SIM
+31300,Tunnel Rats,2009-05-15,Action,windows,NAO
+31800,Nancy Drew®: Danger by Design,2009-10-10,Adventure,windows,NAO
+31810,Nancy Drew®: Last Train to Blue Moon Canyon,2009-10-10,Adventure,windows,NAO
+31820,Nancy Drew®: The Haunted Carousel,2009-10-10,Adventure,windows,NAO
+31830,Nancy Drew®: Curse of Blackmoor Manor,2009-10-10,Adventure,windows,NAO
+31840,Nancy Drew®: Danger on Deception Island,2009-10-10,Adventure,windows,NAO
+31850,Nancy Drew®: Ghost Dogs of Moon Lake,2009-10-10,Adventure,windows,NAO
+31860,Nancy Drew®: Legend of the Crystal Skull,2009-07-17,Adventure,windows,NAO
 31870,"Nancy Drew® Dossier: Lights,Camera,0,HeR Interactive,NAO
-31880,Nancy Drew®: Secret of the Old Clock,2009-10-10,Adventure,windows,SIM
-31890,Nancy Drew®: Secret of the Scarlet Hand,2009-10-10,Action,windows,SIM
-31900,Nancy Drew®: The Creature of Kapu Cave,2009-07-17,Adventure,windows,SIM
-31910,Nancy Drew®: The Haunting of Castle Malloy,2009-07-17,Adventure,windows,SIM
-31920,Nancy Drew®: The Phantom of Venice,2009-07-17,Adventure,windows,SIM
-31930,Nancy Drew®: The White Wolf of Icicle Creek,2009-07-17,Adventure,windows,SIM
-31980,Nancy Drew®: Ransom of the Seven Ships,2009-07-21,Adventure,windows,SIM
-32000,Raycatcher,2009-04-17,Indie;Casual,windows,SIM
-32110,LUXOR: Mah Jong,2009-07-13,Casual,windows;mac,SIM
-32120,Chainz 2: Relinked,2009-07-13,Casual,windows,SIM
-32140,Midnight Mysteries,2009-09-28,Adventure;Casual,windows,SIM
-32150,Everyday Genius: SquareLogic,2009-10-21,Casual;Indie;Strategy,windows,SIM
-32160,Zombie Bowl-o-Rama,2009-10-15,Sports;Casual,windows,SIM
-32200,Metal Drift,2009-10-22,Action;Indie;Racing;Sports,windows,SIM
-32310,Indiana Jones® and the Last Crusade™,2009-07-08,Adventure,windows;mac,SIM
-32330,LEGO® Indiana Jones™: The Original Adventures,2009-07-08,Action;Adventure,windows,SIM
-32340,LOOM™,2009-07-08,Adventure,windows;mac,SIM
-32350,STAR WARS™ Starfighter™,2009-07-08,Action;Simulation,windows,SIM
-32360,The Secret of Monkey Island: Special Edition,2009-07-15,Adventure,windows,SIM
-32370,STAR WARS™ - Knights of the Old Republic™,2009-09-05,Adventure;RPG,windows;mac,SIM
-32380,STAR WARS™ Jedi Knight: Dark Forces II,2009-09-16,Action,windows,SIM
-32390,STAR WARS™ Jedi Knight - Mysteries of the Sith™,2009-09-16,Action,windows,SIM
-32400,STAR WARS™ - Dark Forces,2009-09-16,Action,windows;mac,SIM
-32410,Lucidity™,2009-10-07,Casual,windows,SIM
-32420,STAR WARS™: The Clone Wars - Republic Heroes™,2009-10-06,Action,windows,SIM
-32430,STAR WARS™ - The Force Unleashed™ Ultimate Sith Edition,2009-12-15,Action,windows;mac,SIM
-32440,LEGO® Star Wars™ - The Complete Saga,2009-11-12,Adventure,windows;mac,SIM
+31880,Nancy Drew®: Secret of the Old Clock,2009-10-10,Adventure,windows,NAO
+31890,Nancy Drew®: Secret of the Scarlet Hand,2009-10-10,Action,windows,NAO
+31900,Nancy Drew®: The Creature of Kapu Cave,2009-07-17,Adventure,windows,NAO
+31910,Nancy Drew®: The Haunting of Castle Malloy,2009-07-17,Adventure,windows,NAO
+31920,Nancy Drew®: The Phantom of Venice,2009-07-17,Adventure,windows,NAO
+31930,Nancy Drew®: The White Wolf of Icicle Creek,2009-07-17,Adventure,windows,NAO
+31980,Nancy Drew®: Ransom of the Seven Ships,2009-07-21,Adventure,windows,NAO
+32000,Raycatcher,2009-04-17,Indie;Casual,windows,NAO
+32110,LUXOR: Mah Jong,2009-07-13,Casual,windows;mac,NAO
+32120,Chainz 2: Relinked,2009-07-13,Casual,windows,NAO
+32140,Midnight Mysteries,2009-09-28,Adventure;Casual,windows,NAO
+32150,Everyday Genius: SquareLogic,2009-10-21,Casual;Indie;Strategy,windows,NAO
+32160,Zombie Bowl-o-Rama,2009-10-15,Sports;Casual,windows,NAO
+32200,Metal Drift,2009-10-22,Action;Indie;Racing;Sports,windows,NAO
+32310,Indiana Jones® and the Last Crusade™,2009-07-08,Adventure,windows;mac,NAO
+32330,LEGO® Indiana Jones™: The Original Adventures,2009-07-08,Action;Adventure,windows,NAO
+32340,LOOM™,2009-07-08,Adventure,windows;mac,NAO
+32350,STAR WARS™ Starfighter™,2009-07-08,Action;Simulation,windows,NAO
+32360,The Secret of Monkey Island: Special Edition,2009-07-15,Adventure,windows,NAO
+32370,STAR WARS™ - Knights of the Old Republic™,2009-09-05,Adventure;RPG,windows;mac,NAO
+32380,STAR WARS™ Jedi Knight: Dark Forces II,2009-09-16,Action,windows,NAO
+32390,STAR WARS™ Jedi Knight - Mysteries of the Sith™,2009-09-16,Action,windows,NAO
+32400,STAR WARS™ - Dark Forces,2009-09-16,Action,windows;mac,NAO
+32410,Lucidity™,2009-10-07,Casual,windows,NAO
+32420,STAR WARS™: The Clone Wars - Republic Heroes™,2009-10-06,Action,windows,NAO
+32430,STAR WARS™ - The Force Unleashed™ Ultimate Sith Edition,2009-12-15,Action,windows;mac,NAO
+32440,LEGO® Star Wars™ - The Complete Saga,2009-11-12,Adventure,windows;mac,NAO
 32450,LEGO® Indiana Jones™ 2: The Adventure Continues,2010-02-18,Adventure,windows,NAO
 32460,Monkey Island™ 2 Special Edition: LeChuck’s Revenge™,2010-07-07,Adventure,windows,NAO
 32470,STAR WARS™ Empire at War - Gold Pack,2010-05-25,Strategy,windows,NAO
 32500,STAR WARS™: The Force Unleashed™ II,2010-11-23,Action,windows,NAO
 32510,LEGO® Star Wars™ III - The Clone Wars™,2011-03-22,Action;Adventure,windows,NAO
-32610,Delta Force Xtreme 2,2009-06-18,Action,windows,SIM
-32620,Delta Force,2009-06-18,Action,windows,SIM
-32630,Delta Force 2,2009-06-18,Action,windows,SIM
-32640,Delta Force Land Warrior,2009-06-18,Action,windows,SIM
-32650,Delta Force: Task Force Dagger,2009-06-18,Action,windows,SIM
-32660,Delta Force: Xtreme,2009-06-18,Action,windows,SIM
-32670,Delta Force: Black Hawk Down,2009-06-18,Action,windows,SIM
-32680,Delta Force — Black Hawk Down: Team Sabre,2009-06-18,Action,windows,SIM
-32710,Armored Fist 3,2009-06-18,Simulation,windows,SIM
-32720,F-16 Multirole Fighter,2009-06-18,Simulation,windows,SIM
-32730,F-22 Lightning 3,2009-06-18,Simulation,windows,SIM
-32740,MiG-29 Fulcrum,2009-06-01,Simulation,windows,SIM
-32750,Comanche 4,2009-06-18,Action;Simulation,windows,SIM
-32760,Tachyon: The Fringe,2009-06-18,Simulation,windows,SIM
-32770,Joint Operations: Combined Arms Gold,2009-09-29,Action,windows,SIM
-32900,Restaurant Empire II,2009-05-27,Casual;Indie;Simulation;Strategy,windows,SIM
-33100,Alien Shooter,2009-05-27,Action;Indie;RPG,windows,SIM
-33110,Alien Shooter: Revisited,2009-05-27,Action;Indie;RPG,windows,SIM
-33120,Alien Shooter 2: Reloaded,2009-05-27,Action;Indie;RPG,windows,SIM
-33130,Zombie Shooter,2009-05-27,Action;Indie;RPG,windows,SIM
-33180,Zombie Shooter 2,2009-11-18,Action;Indie;RPG,windows,SIM
+32610,Delta Force Xtreme 2,2009-06-18,Action,windows,NAO
+32620,Delta Force,2009-06-18,Action,windows,NAO
+32630,Delta Force 2,2009-06-18,Action,windows,NAO
+32640,Delta Force Land Warrior,2009-06-18,Action,windows,NAO
+32650,Delta Force: Task Force Dagger,2009-06-18,Action,windows,NAO
+32660,Delta Force: Xtreme,2009-06-18,Action,windows,NAO
+32670,Delta Force: Black Hawk Down,2009-06-18,Action,windows,NAO
+32680,Delta Force — Black Hawk Down: Team Sabre,2009-06-18,Action,windows,NAO
+32710,Armored Fist 3,2009-06-18,Simulation,windows,NAO
+32720,F-16 Multirole Fighter,2009-06-18,Simulation,windows,NAO
+32730,F-22 Lightning 3,2009-06-18,Simulation,windows,NAO
+32740,MiG-29 Fulcrum,2009-06-01,Simulation,windows,NAO
+32750,Comanche 4,2009-06-18,Action;Simulation,windows,NAO
+32760,Tachyon: The Fringe,2009-06-18,Simulation,windows,NAO
+32770,Joint Operations: Combined Arms Gold,2009-09-29,Action,windows,NAO
+32900,Restaurant Empire II,2009-05-27,Casual;Indie;Simulation;Strategy,windows,NAO
+33100,Alien Shooter,2009-05-27,Action;Indie;RPG,windows,NAO
+33110,Alien Shooter: Revisited,2009-05-27,Action;Indie;RPG,windows,NAO
+33120,Alien Shooter 2: Reloaded,2009-05-27,Action;Indie;RPG,windows,NAO
+33130,Zombie Shooter,2009-05-27,Action;Indie;RPG,windows,NAO
+33180,Zombie Shooter 2,2009-11-18,Action;Indie;RPG,windows,NAO
 33230,Assassin's Creed 2 Deluxe Edition,2010-03-04,Action;Adventure,windows,NAO
 33320,Prince of Persia: The Forgotten Sands™,2010-06-10,Action;Adventure,windows,NAO
 33390,Zeit²,2011-01-12,Action;Indie,windows,NAO
 33460,From Dust,2011-08-17,Adventure;Simulation,windows,NAO
-33520,Tropico Reloaded,2009-07-24,Simulation;Strategy,windows,SIM
+33520,Tropico Reloaded,2009-07-24,Simulation;Strategy,windows,NAO
 33570,Patrician III,2010-11-18,RPG;Simulation;Strategy,windows,NAO
-33600,Broken Sword 2 - the Smoking Mirror: Remastered,2009-12-02,Adventure,windows;mac;linux,SIM
-33610,Broken Sword 3 - the Sleeping Dragon,2009-12-02,Adventure,windows,SIM
-33620,Crash Time 3,2009-11-25,Action;Racing,windows,SIM
+33600,Broken Sword 2 - the Smoking Mirror: Remastered,2009-12-02,Adventure,windows;mac;linux,NAO
+33610,Broken Sword 3 - the Sleeping Dragon,2009-12-02,Adventure,windows,NAO
+33620,Crash Time 3,2009-11-25,Action;Racing,windows,NAO
 33650,Puzzler World,2010-05-28,Casual,windows,NAO
 33660,Ziro,2010-05-28,Casual;Indie,windows,NAO
 33670,Disciples III - Renaissance Steam Special Edition,2010-07-13,Strategy;RPG,windows,NAO
@@ -638,7 +638,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 33760,The Search for Amelia Earhart,2010-02-22,Casual,windows,NAO
 33770,Drakensang: The River of Time,2011-02-16,RPG,windows,NAO
 33790,Elizabeth Find M.D. - Diagnosis Mystery - Season 2,2011-06-09,Single-player,ValuSoft,NAO
-33900,Arma 2,2009-06-29,Action;Simulation;Strategy,windows,SIM
+33900,Arma 2,2009-06-29,Action;Simulation;Strategy,windows,NAO
 33930,Arma 2: Operation Arrowhead,2010-06-29,Action;Simulation;Strategy,windows,NAO
 33950,Fish Fillets 2,2010-11-05,Casual;Indie,windows,NAO
 33980,Pound of Ground,2010-11-05,Action,windows,NAO
@@ -646,56 +646,56 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 34010,Alpha Protocol™,2010-05-27,Action;RPG,windows,NAO
 34030,Total War: NAPOLEON – Definitive Edition,2010-02-25,Strategy,windows;mac,NAO
 34190,Sonic & SEGA All-Stars Racing,2010-03-03,Racing,windows,NAO
-34410,Death to Spies: Moment of Truth,2009-08-07,Action,windows,SIM
-34420,XIII Century – Gold Edition,2009-08-28,Strategy,windows,SIM
-34500,Light of Altair,2009-06-04,Indie;Simulation;Strategy,windows,SIM
-34600,Order of War™,2009-09-17,Strategy,windows,SIM
-34630,Massive Assault,2009-11-04,Strategy,windows,SIM
-34640,Massive Assault: Phantom Renaissance,2009-11-04,Strategy,windows,SIM
-34800,Chronicles of Mystery: The Scorpio Ritual,2009-06-18,Adventure,windows,SIM
-34810,Project Freedom,2009-10-14,Action;Simulation,windows,SIM
-34820,Combat Wings: Battle of Britain,2009-10-14,Simulation,windows,SIM
+34410,Death to Spies: Moment of Truth,2009-08-07,Action,windows,NAO
+34420,XIII Century – Gold Edition,2009-08-28,Strategy,windows,NAO
+34500,Light of Altair,2009-06-04,Indie;Simulation;Strategy,windows,NAO
+34600,Order of War™,2009-09-17,Strategy,windows,NAO
+34630,Massive Assault,2009-11-04,Strategy,windows,NAO
+34640,Massive Assault: Phantom Renaissance,2009-11-04,Strategy,windows,NAO
+34800,Chronicles of Mystery: The Scorpio Ritual,2009-06-18,Adventure,windows,NAO
+34810,Project Freedom,2009-10-14,Action;Simulation,windows,NAO
+34820,Combat Wings: Battle of Britain,2009-10-14,Simulation,windows,NAO
 34830,Sniper: Ghost Warrior,2010-06-24,Action,windows,NAO
 34870,Sniper: Ghost Warrior 2,2013-03-11,Action,windows,NAO
-34900,Bad Rats: the Rats' Revenge,2009-07-20,Indie,windows,SIM
+34900,Bad Rats: the Rats' Revenge,2009-07-20,Indie,windows,NAO
 34920,Razor2: Hidden Skies,2010-07-19,Action;Casual;Indie,windows,NAO
-35000,Mini Ninjas,2009-09-14,Action;Adventure,windows,SIM
-35070,Flora's Fruit Farm,2009-10-01,Casual,windows,SIM
+35000,Mini Ninjas,2009-09-14,Action;Adventure,windows,NAO
+35070,Flora's Fruit Farm,2009-10-01,Casual,windows,NAO
 35130,Lara Croft and the Guardian of Light,2010-09-28,Action;Adventure,windows,NAO
 35140,Batman: Arkham Asylum Game of the Year Edition,2010-03-26,Action;Adventure,windows;mac,NAO
-35300,Warfare,2009-07-20,Strategy,windows,SIM
-35310,Clutch,2009-07-20,Action;Racing,windows,SIM
+35300,Warfare,2009-07-20,Strategy,windows,NAO
+35310,Clutch,2009-07-20,Action;Racing,windows,NAO
 35320,Insane 2,2012-01-24,Racing,windows,NAO
 35450,Red Orchestra 2: Heroes of Stalingrad with Rising Storm,2011-09-13,Action;Massively Multiplayer;Simulation,windows,NAO
 35460,The Ball,2010-10-26,Action;Adventure;Indie,windows,NAO
 35480,Dwarfs!?,2011-05-04,Strategy;Indie;Casual,windows;mac;linux,NAO
-35600,Big Brain Wolf,2009-11-05,Adventure;Casual;Strategy,windows,SIM
-35700,Trine Enchanted Edition,2009-07-02,Action;Adventure;Indie,windows;mac;linux,SIM
+35600,Big Brain Wolf,2009-11-05,Adventure;Casual;Strategy,windows,NAO
+35700,Trine Enchanted Edition,2009-07-02,Action;Adventure;Indie,windows;mac;linux,NAO
 35720,Trine 2: Complete Story,2013-06-06,Action;Adventure;Indie,windows;mac;linux,NAO
-35800,BRAINPIPE: A Plunge to Unhumanity,2009-07-06,Casual;Indie,windows;mac,SIM
-36000,Foreign Legion: Buckets of Blood,2009-08-04,Action;Indie,windows;mac,SIM
-36100,Tradewinds Classics,2009-07-17,Casual,windows,SIM
-36130,Tradewinds Caravans + Odyssey Pack,2009-07-17,Casual,windows,SIM
-36180,Cake Mania Collection,2009-07-17,Casual,windows,SIM
-36210,Monster Mash,2009-07-17,Casual,windows,SIM
-36240,Kuros,2009-09-21,Casual,windows,SIM
+35800,BRAINPIPE: A Plunge to Unhumanity,2009-07-06,Casual;Indie,windows;mac,NAO
+36000,Foreign Legion: Buckets of Blood,2009-08-04,Action;Indie,windows;mac,NAO
+36100,Tradewinds Classics,2009-07-17,Casual,windows,NAO
+36130,Tradewinds Caravans + Odyssey Pack,2009-07-17,Casual,windows,NAO
+36180,Cake Mania Collection,2009-07-17,Casual,windows,NAO
+36210,Monster Mash,2009-07-17,Casual,windows,NAO
+36240,Kuros,2009-09-21,Casual,windows,NAO
 36300,Cake Mania Main Street™,2010-02-16,Casual,windows,NAO
 36310,Westward® IV: All Aboard,2010-02-16,Strategy;Casual,windows,NAO
 36320,Iron Roses,2010-02-16,Adventure;Casual,windows,NAO
-36900,Angle of Attack,2009-08-17,Action;Simulation,windows,SIM
-36910,All Aspect Warfare,2009-08-17,Action;Simulation,windows,SIM
-37000,The Void,2009-12-15,Nudity;Action;Adventure,windows,SIM
-37010,Ninja Blade,2009-11-19,Action,windows,SIM
+36900,Angle of Attack,2009-08-17,Action;Simulation,windows,NAO
+36910,All Aspect Warfare,2009-08-17,Action;Simulation,windows,NAO
+37000,The Void,2009-12-15,Nudity;Action;Adventure,windows,NAO
+37010,Ninja Blade,2009-11-19,Action,windows,NAO
 37030,UFO: Extraterrestrials Gold,2010-02-17,Strategy,windows,NAO
-37100,Aztaka,2009-11-05,Action;RPG;Indie,windows;mac,SIM
-37210,Chocolatier®: Decadence by Design™,2009-08-12,Single-player,PlayFirst,SIM
-37220,Cooking Dash®,2009-08-12,Simulation,windows;mac,SIM
-37230,Diaper Dash®,2009-08-12,Simulation,windows;mac,SIM
-37240,Diner Dash:® Hometown Hero™,2009-08-12,Simulation,windows;mac,SIM
-37260,Emerald City Confidential™,2009-08-12,Adventure,windows,SIM
-37270,Wandering Willows™,2009-08-12,Adventure;RPG,windows;mac,SIM
-37280,Wedding Dash® 2: Rings Around the World,2009-08-12,Simulation,windows;mac,SIM
-37300,DinerTown Tycoon,2009-09-30,Simulation,windows;mac,SIM
+37100,Aztaka,2009-11-05,Action;RPG;Indie,windows;mac,NAO
+37210,Chocolatier®: Decadence by Design™,2009-08-12,Single-player,PlayFirst,NAO
+37220,Cooking Dash®,2009-08-12,Simulation,windows;mac,NAO
+37230,Diaper Dash®,2009-08-12,Simulation,windows;mac,NAO
+37240,Diner Dash:® Hometown Hero™,2009-08-12,Simulation,windows;mac,NAO
+37260,Emerald City Confidential™,2009-08-12,Adventure,windows,NAO
+37270,Wandering Willows™,2009-08-12,Adventure;RPG,windows;mac,NAO
+37280,Wedding Dash® 2: Rings Around the World,2009-08-12,Simulation,windows;mac,NAO
+37300,DinerTown Tycoon,2009-09-30,Simulation,windows;mac,NAO
 37310,DinerTown Detective Agency™,2010-05-06,Casual,windows;mac,NAO
 37320,The Nightshift Code™,2010-05-06,Casual,windows;mac,NAO
 37330,Nightshift Legacy: The Jaguar's Eye™,2010-05-06,Casual,windows;mac,NAO
@@ -704,17 +704,17 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 37380,Valerie Porter and the Scarlet Scandal™,2010-05-06,Casual,windows;mac,NAO
 37390,Gemini Lost™,2010-05-06,Casual,windows;mac,NAO
 37400,"Time Gentlemen,Please! and Ben There,0,Size Five Games,NAO
-37500,Magnetis,2009-11-05,Indie;Casual,windows,SIM
-37600,Windosill,2009-09-25,Adventure;Casual;Indie,windows;mac,SIM
+37500,Magnetis,2009-11-05,Indie;Casual,windows,NAO
+37600,Windosill,2009-09-25,Adventure;Casual;Indie,windows;mac,NAO
 37700,Darkest of Days,2010-03-01,Action,windows,NAO
-37800,Quantz,2009-09-03,Indie;Casual,windows;mac,SIM
-37960,Jewel Quest Pack,2009-08-24,Casual,windows,SIM
-38000,Mahjong Quest Collection,2009-08-24,Casual,windows,SIM
-38070,Coconut Queen,2009-12-17,Casual;Simulation,windows,SIM
-38080,Build-A-Lot,2009-12-17,Simulation,windows,SIM
-38090,Build-A-Lot 2: Town of the Year,2009-12-17,Simulation,windows,SIM
-38100,Build-A-Lot 3: Passport to Europe,2009-12-17,Simulation,windows,SIM
-38110,Build-A-Lot 4: Power Source,2009-12-17,Simulation,windows,SIM
+37800,Quantz,2009-09-03,Indie;Casual,windows;mac,NAO
+37960,Jewel Quest Pack,2009-08-24,Casual,windows,NAO
+38000,Mahjong Quest Collection,2009-08-24,Casual,windows,NAO
+38070,Coconut Queen,2009-12-17,Casual;Simulation,windows,NAO
+38080,Build-A-Lot,2009-12-17,Simulation,windows,NAO
+38090,Build-A-Lot 2: Town of the Year,2009-12-17,Simulation,windows,NAO
+38100,Build-A-Lot 3: Passport to Europe,2009-12-17,Simulation,windows,NAO
+38110,Build-A-Lot 4: Power Source,2009-12-17,Simulation,windows,NAO
 38120,Farm Frenzy,2010-02-15,Casual,windows,NAO
 38130,Farm Frenzy 2,2010-02-15,Casual,windows,NAO
 38140,Farm Frenzy: Pizza Party,2010-02-15,Casual,windows,NAO
@@ -723,15 +723,15 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 38170,Cradle of Rome,2010-02-20,Casual,windows,NAO
 38180,Cradle of Persia,2010-02-20,Casual,windows,NAO
 38190,Romance of Rome,2010-02-20,Casual,windows,NAO
-38210,Roogoo,2009-12-17,Casual,windows,SIM
+38210,Roogoo,2009-12-17,Casual,windows,NAO
 38230,Hotel Giant 2,2010-01-27,Single-player;Steam Achievements;Steam Cloud;Stats,Toplitz Productions,NAO
 38400,Fallout: A Post Nuclear Role Playing Game,2015-11-01,RPG,windows,NAO
-38410,Fallout 2: A Post Nuclear Role Playing Game,2009-08-19,RPG,windows,SIM
-38420,Fallout Tactics: Brotherhood of Steel,2009-08-19,Strategy,windows,SIM
-38430,Kingpin — Life of Crime,2009-08-19,Action,windows,SIM
-38450,MDK,2009-09-17,Action,windows,SIM
-38460,MDK 2,2009-09-17,Action,windows,SIM
-38490,Earthworm Jim 2,2009-11-04,Action;Adventure,windows,SIM
+38410,Fallout 2: A Post Nuclear Role Playing Game,2009-08-19,RPG,windows,NAO
+38420,Fallout Tactics: Brotherhood of Steel,2009-08-19,Strategy,windows,NAO
+38430,Kingpin — Life of Crime,2009-08-19,Action,windows,NAO
+38450,MDK,2009-09-17,Action,windows,NAO
+38460,MDK 2,2009-09-17,Action,windows,NAO
+38490,Earthworm Jim 2,2009-11-04,Action;Adventure,windows,NAO
 38600,Faerie Solitaire,2010-09-17,Casual;Indie,windows;mac,NAO
 38700,Toki Tori,2010-01-28,Casual;Indie,windows;mac;linux,NAO
 38720,RUSH,2010-12-03,Casual;Indie;Strategy,windows;mac;linux,NAO
@@ -742,13 +742,13 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 39140,FINAL FANTASY VII,2013-07-04,RPG,windows,NAO
 39150,FINAL FANTASY VIII,2013-12-05,RPG,windows,NAO
 39190,Dungeon Siege,2011-04-05,RPG,windows,NAO
-39200,Dungeon Siege II,2005-08-16,RPG,windows,SIM
+39200,Dungeon Siege II,2005-08-16,RPG,windows,NAO
 39210,FINAL FANTASY XIV Online,2014-02-18,Massively Multiplayer;RPG,windows,NAO
-39500,Gothic® 3,2009-12-02,Action;RPG,windows,SIM
+39500,Gothic® 3,2009-12-02,Action;RPG,windows,NAO
 39510,Gothic II: Gold Edition,2010-01-13,Action;RPG,windows,NAO
 39520,The Guild Gold Edition,2014-09-09,Simulation;Strategy,windows,NAO
-39540,SpellForce - Platinum Edition,2009-11-03,Action;RPG,windows,SIM
-39560,Painkiller: Resurrection,2009-10-27,Action,windows,SIM
+39540,SpellForce - Platinum Edition,2009-11-03,Action;RPG,windows,NAO
+39560,Painkiller: Resurrection,2009-10-27,Action,windows,NAO
 39630,AquaNox,2010-04-20,Action,windows,NAO
 39640,AquaNox 2: Revelation,2010-04-20,Action,windows,NAO
 39650,The Guild II,2010-06-24,Simulation;Strategy,windows,NAO
@@ -756,41 +756,41 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 39670,Chaser,2010-07-16,Action,windows,NAO
 39680,The Guild II Renaissance,2010-07-28,Simulation;Strategy,windows,NAO
 39690,ArcaniA,2010-10-11,RPG,windows,NAO
-39800,Nation Red,2009-09-03,Action;Indie,windows;mac;linux,SIM
+39800,Nation Red,2009-09-03,Action;Indie,windows;mac;linux,NAO
 39900,Coniclysm,2010-03-26,Action,windows,NAO
 40100,Supreme Commander 2,2010-03-01,Strategy,windows,NAO
-40200,ItzaBitza,2009-10-01,Casual,windows,SIM
-40210,ItzaZoo,2009-12-09,Casual,windows,SIM
-40300,Risen,2009-10-02,RPG,windows,SIM
-40320,Rush for Berlin Gold,2009-10-29,Strategy,windows,SIM
-40330,Secret Files: Tunguska,2009-10-29,Adventure,windows,SIM
-40340,Secret Files 2: Puritas Cordis,2009-10-29,Adventure,windows,SIM
+40200,ItzaBitza,2009-10-01,Casual,windows,NAO
+40210,ItzaZoo,2009-12-09,Casual,windows,NAO
+40300,Risen,2009-10-02,RPG,windows,NAO
+40320,Rush for Berlin Gold,2009-10-29,Strategy,windows,NAO
+40330,Secret Files: Tunguska,2009-10-29,Adventure,windows,NAO
+40340,Secret Files 2: Puritas Cordis,2009-10-29,Adventure,windows,NAO
 40350,Lost Horizon,2010-09-24,Adventure,windows,NAO
 40380,nail'd,2010-11-30,Racing,windows,NAO
 40390,Risen 2: Dark Waters,2012-04-26,RPG,windows,NAO
-40400,AI War: Fleet Command,2009-10-21,0,"Arcen Games,SIM
+40400,AI War: Fleet Command,2009-10-21,0,"Arcen Games,NAO
 40420,Tidalis,2010-07-16,0,"Arcen Games,NAO
-40500,Sacraboar,2009-11-06,Action;Strategy;Indie,windows,SIM
-40700,Machinarium,2009-10-16,Adventure;Indie,windows;mac,SIM
-40720,Samorost 2,2009-12-10,Adventure;Casual;Indie,windows,SIM
+40500,Sacraboar,2009-11-06,Action;Strategy;Indie,windows,NAO
+40700,Machinarium,2009-10-16,Adventure;Indie,windows;mac,NAO
+40720,Samorost 2,2009-12-10,Adventure;Casual;Indie,windows,NAO
 40930,The Misadventures of P.B. Winterbottom,2010-04-20,Adventure;Indie,windows,NAO
 40950,Stronghold HD,2013-10-21,Simulation;Strategy,windows,NAO
 40970,Stronghold Crusader HD,2013-10-21,Simulation;Strategy,windows,NAO
 40980,Stronghold Legends: Steam Edition,2016-09-15,Simulation;Strategy,windows,NAO
-40990,Mafia,2002-08-28,Violent;Action;Adventure,windows,SIM
-41000,Serious Sam HD: The First Encounter,2009-11-24,Action;Indie,windows,SIM
+40990,Mafia,2002-08-28,Violent;Action;Adventure,windows,NAO
+41000,Serious Sam HD: The First Encounter,2009-11-24,Action;Indie,windows,NAO
 41070,Serious Sam 3: BFE,2011-11-22,Action;Indie,windows;mac;linux,NAO
-41100,Hammerfight,2009-10-28,Action;Indie,windows;mac;linux,SIM
-41300,Altitude,2009-12-04,Action;Free to Play;Indie,windows;mac;linux,SIM
-41400,Doom Rails,2009-11-04,0,"Dream Forge Entertainment,SIM
-41500,Torchlight,2009-10-27,RPG,windows;mac,SIM
-41600,Earthworm Jim 3D,2009-11-04,Action;Adventure,windows,SIM
+41100,Hammerfight,2009-10-28,Action;Indie,windows;mac;linux,NAO
+41300,Altitude,2009-12-04,Action;Free to Play;Indie,windows;mac;linux,NAO
+41400,Doom Rails,2009-11-04,0,"Dream Forge Entertainment,NAO
+41500,Torchlight,2009-10-27,RPG,windows;mac,NAO
+41600,Earthworm Jim 3D,2009-11-04,Action;Adventure,windows,NAO
 41660,Tommy Tronic,2010-10-28,Action;Adventure;Indie,windows,NAO
 41680,Death and the Fly,2011-05-23,Indie,windows,NAO
 41700,S.T.A.L.K.E.R.: Call of Pripyat,2010-02-11,Action;RPG,windows,NAO
 41740,Cargo! The Quest for Gravity,2011-04-21,Action;Adventure;Simulation,windows,NAO
-41800,Gratuitous Space Battles,2009-11-16,Indie;Simulation;Strategy,windows;mac;linux,SIM
-41900,The Bard's Tale,2009-12-11,Action;Adventure;RPG,windows;mac;linux,SIM
+41800,Gratuitous Space Battles,2009-11-16,Indie;Simulation;Strategy,windows;mac;linux,NAO
+41900,The Bard's Tale,2009-12-11,Action;Adventure;RPG,windows;mac;linux,NAO
 42000,Trino,2011-01-27,Casual;Indie,windows,NAO
 42120,Lead and Gold: Gangs of the Wild West,2010-04-08,Action,windows,NAO
 42140,Hamilton's Great Adventure,2011-05-31,Adventure;Casual;Indie,windows,NAO
@@ -801,19 +801,19 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 42500,DogFighter,2010-06-14,Action;Indie,windows,NAO
 42670,Singularity™,2010-06-30,Action,windows,NAO
 42700,Call of Duty®: Black Ops,2010-11-08,Action,windows,NAO
-42810,For The Glory: A Europa Universalis Game,2009-11-11,Strategy,windows,SIM
+42810,For The Glory: A Europa Universalis Game,2009-11-11,Strategy,windows,NAO
 42850,Arsenal of Democracy: A Hearts of Iron Game,2010-02-23,Strategy,windows,NAO
 42890,Sword of the Stars: Complete Collection,2010-06-04,Strategy,windows,NAO
 42910,Magicka,2011-01-25,Action;RPG,windows,NAO
 42920,The Kings' Crusade,2010-10-08,Strategy,windows,NAO
-42930,Elven Legacy: Magic,2009-12-03,Strategy,windows,SIM
-42940,Elven Legacy: Siege,2009-11-17,Strategy,windows,SIM
-42950,Elven Legacy: Ranger,2009-10-20,Strategy,windows,SIM
+42930,Elven Legacy: Magic,2009-12-03,Strategy,windows,NAO
+42940,Elven Legacy: Siege,2009-11-17,Strategy,windows,NAO
+42950,Elven Legacy: Ranger,2009-10-20,Strategy,windows,NAO
 42960,Victoria II,2010-08-30,Strategy,windows,NAO
 42980,Victoria I Complete,2010-08-20,Strategy,windows,NAO
 42990,Sword of the Stars II: Enhanced Edition,2012-11-30,Strategy,windows,NAO
 43000,Front Mission Evolved,2010-10-07,Action,windows,NAO
-43100,World of Zoo,2009-10-30,Simulation,windows,SIM
+43100,World of Zoo,2009-10-30,Simulation,windows,NAO
 43190,The Haunted: Hells Reach,2011-10-24,Action;Indie,windows,NAO
 43500,M.U.D. TV,2010-04-19,Simulation;Strategy,windows,NAO
 43600,Nancy Drew®: Warnings at Waverly Academy,2010-01-13,Adventure,windows,NAO
@@ -830,7 +830,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 45410,Ignite,2011-10-28,Racing,windows,NAO
 45420,Land It!,2016-08-01,Casual;Indie;Simulation,windows;mac,NAO
 45450,Fortix 2,2011-05-06,Casual;Indie,windows;mac;linux,NAO
-45700,Devil May Cry 4,2009-12-22,Action;Adventure,windows,SIM
+45700,Devil May Cry 4,2009-12-22,Action;Adventure,windows,NAO
 45710,Dark Void™,2010-01-22,Action;Adventure,windows,NAO
 45720,Lost Planet: Extreme Condition Colonies Edition,2010-02-11,Single-player;Multi-player;Cross-Platform Multiplayer;Partial Controller Support,Capcom,NAO
 45730,Dark Void™ Zero,2010-04-12,Action;Adventure,windows,NAO
@@ -916,7 +916,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 50930,Hidden Expedition: Everest,2010-04-21,Casual,windows,NAO
 50940,Hidden Expedition: Titanic,2010-04-21,Casual,windows,NAO
 50960,Mystery Case Files: Huntsville™,2010-04-21,Casual,windows,NAO
-50970,Mystery Case Files: Madame Fate®,2007-12-14,Casual,windows,SIM
+50970,Mystery Case Files: Madame Fate®,2007-12-14,Casual,windows,NAO
 50980,Mystery Case Files: Prime Suspects™,2010-04-21,Casual,windows,NAO
 50990,Mystery Case Files: Ravenhearst®,2010-04-21,Casual,windows,NAO
 51000,Mystery Case Files: Return to Ravenhearst™,2010-04-21,Casual,windows,NAO
@@ -987,7 +987,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 65400,Archon Classic,2010-11-02,Strategy;Indie,windows,NAO
 65500,Aura: Fate of the Ages,2010-10-04,Adventure,windows,NAO
 65530,SpellForce 2: Faith in Destiny,2012-06-19,RPG;Strategy,windows,NAO
-65540,Gothic 1,2001-03-15,Action;RPG,windows,SIM
+65540,Gothic 1,2001-03-15,Action;RPG,windows,NAO
 65560,Painkiller Redemption,2011-02-25,Action,windows,NAO
 65600,Gothic 3: Forsaken Gods Enhanced Edition,2011-03-22,RPG,windows,NAO
 65610,ArcaniA: Fall of Setarrif,2011-10-24,RPG,windows,NAO
@@ -1184,11 +1184,11 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 200670,Disciples III - Resurrection,2011-10-11,Strategy,windows,NAO
 200710,Torchlight II,2012-09-20,Action;Adventure;Indie;RPG,windows;mac;linux,NAO
 200900,Cave Story+,2011-11-22,0,"Nicalis,NAO
-200960,Geneforge 1,2001-12-01,Strategy;RPG;Indie,windows,SIM
-200980,Geneforge 2,2003-07-01,Strategy;RPG;Indie,windows,SIM
-200990,Geneforge 3,2005-04-01,Strategy;RPG;Indie,windows,SIM
-201000,Geneforge 4: Rebellion,2006-11-01,Strategy;RPG;Indie,windows,SIM
-201010,Geneforge 5: Overthrow,2008-11-01,Strategy;RPG;Indie,windows,SIM
+200960,Geneforge 1,2001-12-01,Strategy;RPG;Indie,windows,NAO
+200980,Geneforge 2,2003-07-01,Strategy;RPG;Indie,windows,NAO
+200990,Geneforge 3,2005-04-01,Strategy;RPG;Indie,windows,NAO
+201000,Geneforge 4: Rebellion,2006-11-01,Strategy;RPG;Indie,windows,NAO
+201010,Geneforge 5: Overthrow,2008-11-01,Strategy;RPG;Indie,windows,NAO
 201070,Revelations 2012,2012-04-23,Action;Indie;Strategy,windows,NAO
 201210,Pox Nora,2014-10-15,Free to Play;RPG;Strategy,windows;mac,NAO
 201230,EverQuest II,2011-12-07,Free to Play;Massively Multiplayer;RPG,windows,NAO
@@ -1607,7 +1607,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 227900,Battleship,2013-06-10,Single-player,PopCap,NAO
 227920,Risk,2013-06-10,Single-player,PopCap,NAO
 227940,Heroes & Generals,2016-10-18,Action;Free to Play;Indie;Massively Multiplayer,windows,NAO
-228200,Company of Heroes,2006-09-11,Violent;Action;Strategy,windows,SIM
+228200,Company of Heroes,2006-09-11,Violent;Action;Strategy,windows,NAO
 228260,Fallen Enchantress: Legendary Heroes,2013-05-22,Indie;RPG;Strategy,windows,NAO
 228280,Baldur's Gate: Enhanced Edition,2013-01-16,RPG;Strategy,windows;mac;linux,NAO
 228300,Remember Me,2013-06-06,Action;Adventure,windows,NAO
@@ -1674,7 +1674,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 233410,Tomb Raider - The Final Hours Digital Book,2013-03-07,Action,windows;mac,NAO
 233450,Prison Architect,2015-10-06,Indie;Simulation;Strategy,windows;mac;linux,NAO
 233470,Evoland,2013-04-04,Adventure;Indie;RPG,windows;mac,NAO
-233510,Lunnye Devitsy,2009-07-01,Casual;Indie,windows,SIM
+233510,Lunnye Devitsy,2009-07-01,Casual;Indie,windows,NAO
 233550,Another World – 20th Anniversary Edition,2013-04-04,Action;Adventure,windows;mac;linux,NAO
 233610,Distance,2018-09-18,Action;Indie;Racing,windows;mac;linux,NAO
 233720,Surgeon Simulator,2013-04-19,Action;Indie;Simulation,windows;mac;linux,NAO
@@ -2142,7 +2142,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 259170,Alone in the Dark,2013-10-29,Action;Adventure,windows,NAO
 259190,Alone in the Dark: The New Nightmare,2013-10-29,Action;Adventure,windows,NAO
 259320,Heli Heroes,2013-11-01,Action;Casual,windows,NAO
-259340,Chicken Shoot Gold,2003-11-01,Action;Casual;Indie,windows;mac,SIM
+259340,Chicken Shoot Gold,2003-11-01,Action;Casual;Indie,windows;mac,NAO
 259390,Ballpoint Universe - Infinite,2013-12-17,Action;Indie,windows;mac;linux,NAO
 259410,Sneaky Sneaky,2014-11-12,Adventure;Casual;Indie;RPG;Strategy,windows;mac,NAO
 259450,Drifter,2014-03-04,Action;Indie;Simulation;Early Access,windows;mac;linux,NAO
@@ -2684,7 +2684,7 @@ ID,Name,Release Date,Genres,Platforms,LaunchBefore2010
 281920,Splatter - Zombie Apocalypse,2014-06-04,Action;Adventure;Indie,windows;mac;linux,NAO
 281940,Woolfe - The Red Hood Diaries,2015-03-17,Action;Adventure;Indie,windows,NAO
 281990,Stellaris,2016-05-09,Simulation;Strategy,windows;mac;linux,NAO
-282010,Carmageddon Max Pack,1997-06-30,Action;Indie;Racing,windows,SIM
+282010,Carmageddon Max Pack,1997-06-30,Action;Indie;Racing,windows,NAO
 282030,Carmageddon 2: Carpocalypse Now,2014-09-19,Action;Indie;Racing,windows,NAO
 282050,MX vs. ATV Supercross Encore,2015-10-27,Racing;Simulation;Sports,windows,NAO
 282070,This War of Mine,2014-11-14,Adventure;Indie;Simulation,windows;mac;linux,NAO
