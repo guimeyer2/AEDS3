@@ -33,10 +33,16 @@ public class Main {
             scanner.nextLine();
             
             switch (choice) {
-                case 1:
+
+
+                case 1: //LOAD
                     actions.loadData();
                     break;
-                case 2:
+
+
+
+
+                    case 2: // CREATE
                     System.out.print("Digite o ID do jogo: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();
@@ -52,15 +58,22 @@ public class Main {
                     }
                     System.out.print("Digite o gênero do jogo: ");
                     String genre = scanner.nextLine();
-                    
-                    steam newGame = new steam(id, name, date, platforms, genre);
+                
+                    // Determina o valor de LaunchBefore2010 com base na data de lançamento
+                    String launchBefore2010 = date.getYear() < 2010 ? "SIM" : "NAO";
+                
+                    // Cria o objeto steam com o campo LaunchBefore2010
+                    steam newGame = new steam(id, name, date, platforms, genre, launchBefore2010);
+                
                     if (actions.createGame(newGame)) {
                         System.out.println("Jogo criado com sucesso!");
                     } else {
                         System.out.println("Erro ao criar jogo.");
                     }
                     break;
-                case 3:
+
+
+                case 3: //READ
                     try {
                         System.out.print("Digite o ID do jogo para leitura: ");
                         int searchId = scanner.nextInt();
@@ -74,7 +87,10 @@ public class Main {
                         System.err.println("Erro ao ler jogo: " + e.getMessage());
                     }
                     break;
-                case 4:
+
+
+
+                    case 4: // UPDATE
                     System.out.print("Digite o ID do jogo para atualizar: ");
                     int updateId = scanner.nextInt();
                     scanner.nextLine();
@@ -90,15 +106,22 @@ public class Main {
                     }
                     System.out.print("Digite o novo gênero do jogo: ");
                     String newGenre = scanner.nextLine();
-                    
-                    steam updatedGame = new steam(updateId, newName, newDate, newPlatforms, newGenre);
+                
+                    // Determina o valor de LaunchBefore2010 com base na nova data de lançamento
+                    String newLaunchBefore2010 = newDate.getYear() < 2010 ? "SIM" : "NAO";
+                
+                    // Cria o objeto steam com o campo LaunchBefore2010
+                    steam updatedGame = new steam(updateId, newName, newDate, newPlatforms, newGenre, newLaunchBefore2010);
+                
                     if (actions.updateGame(updateId, updatedGame)) {
                         System.out.println("Jogo atualizado com sucesso!");
                     } else {
                         System.out.println("Erro ao atualizar jogo.");
                     }
                     break;
-                case 5:
+
+
+                case 5: //DELETE
                     System.out.print("Digite o ID do jogo para deletar: ");
                     int deleteId = scanner.nextInt();
                     steam deletedGame = actions.deleteGame(deleteId);

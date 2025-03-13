@@ -13,11 +13,25 @@ public class Actions {
     RandomAccessFile file;
 
     public void openFile() throws IOException {
-        file = new RandomAccessFile("./TP01/out/steam.db", "rw");
+        File dbFile = new File("TP1/src/steam.db");
+    
+        
+        if (!dbFile.exists()) {
+            dbFile.getParentFile().mkdirs(); 
+            dbFile.createNewFile();
+            System.out.println("Arquivo steam.db criado!");
+        }
+    
+        file = new RandomAccessFile(dbFile, "rw");
+        if (file.length() == 0) {
+            file.writeLong(8); 
+        }
+    
         lastPos = file.readLong();
         maxId = 0;
         gamesCount = maxId;
     }
+    
 
     public void closeFile() throws IOException {
         try {
@@ -28,39 +42,79 @@ public class Actions {
     }
 
     public void loadData() {
-        try (RandomAccessFile csv = new RandomAccessFile("./TP01/db/steam.csv", "r");
-             RandomAccessFile write = new RandomAccessFile("./TP01/out/steam.db", "rw")) {
-
+        try (BufferedReader csv = new BufferedReader(new FileReader("TP1/src/steam2.csv"));
+             RandomAccessFile write = new RandomAccessFile("TP1/src/steam.db", "rw")) {
+    
+            // Pular o cabeçalho
             csv.readLine();
-            String str;
-
-            write.writeLong(8);
-
+    
+            // Escrever o cabeçalho do arquivo binário (último ID e posição do último registro)
+            write.writeInt(0); // Último ID inicializado como 0
+            write.writeLong(12); // Posição inicial do primeiro registro (após o cabeçalho)
+    
             System.out.println("Carregando dados para o arquivo...");
-
+    
+            String str;
+            int lastId = 0; // Para armazenar o último ID utilizado
+    
             while ((str = csv.readLine()) != null) {
-                String vet[] = str.split(";");
+                if (str.trim().isEmpty()) continue; // Ignorar linhas em branco
+    
+                String[] vet = str.split(",");
+    
+                // Verificar se a linha tem o número esperado de colunas
+                if (vet.length < 6) {
+                    System.err.println("Linha mal formatada (menos de 6 colunas): " + str);
+                    continue;
+                }
+    
+                // Tentar parse da data com tratamento de exceção
+                LocalDate releaseDate = null;
+                try {
+                    releaseDate = LocalDate.parse(vet[2]); // A data deve estar no formato AAAA-MM-DD
+                } catch (Exception e) {
+                    System.err.println("Erro ao parsear data: " + vet[2] + " - " + e.getMessage());
+                    continue; // Pular essa linha e continuar com a próxima
+                }
+    
+                // Processar as plataformas (separadas por ";")
                 ArrayList<String> platforms = new ArrayList<>();
-                platforms.add(vet[3]);
-                
+                String[] platformList = vet[4].split(";");
+                for (String platform : platformList) {
+                    platforms.add(platform.trim());
+                }
+    
+                // Ler o valor de LaunchBefore2010 diretamente do CSV
+                String launchBefore2010 = vet[5].trim();
+    
+                // Criar o objeto 'steam' com os dados da linha
                 steam tmp = new steam(
-                    Integer.parseInt(vet[0]),
-                    vet[1],
-                    LocalDate.parse(vet[2]),
-                    platforms,
-                    vet[4]
+                    Integer.parseInt(vet[0]), // ID
+                    vet[1], // Nome
+                    releaseDate, // Data de lançamento
+                    platforms, // Plataformas
+                    vet[3], // Gêneros
+                    launchBefore2010 // Lançado antes de 2010
                 );
-
-                byte aux[] = tmp.toByteArray();
-                write.writeInt(aux.length);
-                write.write(aux);
+    
+                // Converter o objeto 'steam' para um array de bytes
+                byte[] aux = tmp.toByteArray();
+    
+                // Escrever o tamanho do registro e o vetor de bytes no arquivo binário
+                write.writeInt(aux.length); // Tamanho do registro
+                write.write(aux); // Vetor de bytes
+    
+                // Atualizar o último ID
+                lastId = tmp.getAppid();
             }
-
-            long last = write.getFilePointer();
+    
+            // Atualizar o cabeçalho do arquivo binário com o último ID e a posição do último registro
             write.seek(0);
-            write.writeLong(last);
-
+            write.writeInt(lastId); // Último ID utilizado
+            write.writeLong(write.getFilePointer()); // Posição do último registro
+    
             System.out.println("Dados carregados com sucesso!");
+    
         } catch (Exception e) {
             System.err.println("Erro ao carregar dados: " + e);
         }
@@ -95,26 +149,30 @@ public class Actions {
 
     public steam readGame(int searchId) throws IOException {
         steam aux = new steam();
-        long pos = 8;
-
+        long pos = 12; // Pula o cabeçalho (4 bytes para o último ID + 8 bytes para a posição do último registro)
+    
         try {
             file.seek(pos);
-
-            for (int i = 0; i < maxId; i++) {
-                int tam = file.readInt();
+    
+            for (int i = 0; i < gamesCount; i++) {
+                int tam = file.readInt(); // Lê o tamanho do registro
                 byte[] tempVet = new byte[tam];
-                file.read(tempVet);
-
-                if (isGameValid(tempVet, searchId)) {
-                    aux.fromByteArray(tempVet);
-                    return aux;
+                file.read(tempVet); // Lê o vetor de bytes do registro
+    
+                // Verifica se o registro é válido (lápide == 0)
+                if (tempVet[0] == 0) {
+                    aux.fromByteArray(tempVet); // Desserializa o registro
+                    if (aux.getAppid() == searchId) { // Verifica se o ID corresponde
+                        return aux;
+                    }
                 }
-                pos += tam;
+    
+                pos += 4 + tam; // Avança para o próximo registro (4 bytes para o tamanho + tamanho do registro)
             }
         } catch (Exception e) {
-            System.err.println("Erro na função Read: " + e);
+            System.err.println("Erro na função read: " + e);
         }
-        return null;
+        return null; // Retorna null se o jogo não for encontrado
     }
 
     public boolean updateGame(int id, steam insert) {
