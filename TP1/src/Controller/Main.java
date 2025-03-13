@@ -73,20 +73,24 @@ public class Main {
                     break;
 
 
-                case 3: //READ
+                    case 3: // READ
                     try {
                         System.out.print("Digite o ID do jogo para leitura: ");
                         int searchId = scanner.nextInt();
                         steam game = actions.readGame(searchId);
+                
                         if (game != null) {
-                            System.out.println("Jogo encontrado: " + game);
+                            System.out.println("\n===== 🎮 JOGO ENCONTRADO =====");
+                            System.out.println(game); // Usa o toString() para exibir os detalhes corretamente
+                            System.out.println("================================");
                         } else {
-                            System.out.println("Jogo não encontrado.");
+                            System.out.println("🚫 Jogo não encontrado.");
                         }
                     } catch (IOException e) {
-                        System.err.println("Erro ao ler jogo: " + e.getMessage());
+                        System.err.println("❌ Erro ao ler jogo: " + e.getMessage());
                     }
                     break;
+                
 
 
 
