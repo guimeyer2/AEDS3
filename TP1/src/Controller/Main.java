@@ -21,7 +21,7 @@ public class Main {
 
         while (true) {
             System.out.println("\n==== MENU ====");
-            System.out.println("1. Carregar dados do CSV");
+            System.out.println("1. Carregar dados do CSV(Se o arquivo Db estiver vazio)");
             System.out.println("2. Criar jogo");
             System.out.println("3. Ler jogo");
             System.out.println("4. Atualizar jogo");

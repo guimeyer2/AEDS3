@@ -24,13 +24,13 @@ public class Actions {
         file = new RandomAccessFile(dbFile, "rw");
         
         if (file.length() == 0) {
-            file.writeInt(0); // Último ID
-            file.writeLong(12); // Posição do primeiro registro
+            file.writeInt(0);
+            file.writeLong(12);
             lastPos = 12;
         } else {
             file.seek(0);
-            maxId = file.readInt(); // Lê o último ID salvo
-            lastPos = file.readLong(); // Lê a posição do último registro
+            maxId = file.readInt();
+            lastPos = file.readLong();
         }
         
         gamesCount = maxId;
@@ -60,9 +60,22 @@ public class Actions {
             while ((str = csv.readLine()) != null) {
                 if (str.trim().isEmpty()) continue;
 
-                String[] vet = str.split(",");
+                String[] vet = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
                 if (vet.length < 6) {
-                    System.err.println("Linha mal formatada: " + str);
+
+                    continue;
+                }
+
+                if (vet[0].isEmpty() || vet[1].isEmpty() || vet[2].isEmpty()) {
+                    System.err.println("Linha com dados faltando: " + str);
+                    continue;
+                }
+
+                int appid;
+                try {
+                    appid = Integer.parseInt(vet[0]);
+                } catch (NumberFormatException e) {
+                    System.err.println("Erro ao converter AppID para número: " + vet[0]);
                     continue;
                 }
 
@@ -75,11 +88,13 @@ public class Actions {
                 }
 
                 ArrayList<String> platforms = new ArrayList<>();
-                for (String platform : vet[4].split(";")) {
-                    platforms.add(platform.trim());
+                if (!vet[4].isEmpty()) {
+                    for (String platform : vet[4].split(";")) {
+                        platforms.add(platform.trim());
+                    }
                 }
 
-                steam tmp = new steam(Integer.parseInt(vet[0]), vet[1], releaseDate, platforms, vet[3], vet[5].trim());
+                steam tmp = new steam(appid, vet[1], releaseDate, platforms, vet[3], vet[5].trim());
                 byte[] aux = tmp.toByteArray();
 
                 write.writeByte(0);
@@ -97,60 +112,58 @@ public class Actions {
             System.err.println("Erro ao carregar dados: " + e);
         }
     }
-    private boolean isGameValid(byte[] arr, int id) {
-        try (ByteArrayInputStream by = new ByteArrayInputStream(arr);
-             DataInputStream dis = new DataInputStream(by)) {
-            return dis.readInt() == id;
+
+
+    public boolean isGameValid(byte[] arr, int id) {
+        try {
+            steam temp = new steam();
+            temp.fromByteArray(arr);
+            return temp.getAppid() == id;
         } catch (Exception e) {
             System.err.println("Erro na validação do jogo: " + e);
             return false;
         }
     }
     
-
     public steam readGame(int searchId) throws IOException {
-        long pos = 12; // Posição inicial do primeiro registro
+        long pos = 12;
         file.seek(pos);
-    
+
         try {
             while (file.getFilePointer() < file.length()) {
-                long regPos = file.getFilePointer(); // Guarda a posição do registro
-                
-                System.out.println("\nLendo registro na posição: " + regPos);
-                
-                byte tombstone = file.readByte(); // Lê o tombstone
-                System.out.println("Tombstone: " + tombstone);
-                
-                int tam = file.readInt(); // Lê o tamanho do registro
-                System.out.println("Tamanho: " + tam);
-    
-                if (tam <= 0 || tam > file.length()) {
-                    System.out.println("❌ Erro: tamanho do registro inválido! Algo está corrompido.");
+                long regPos = file.getFilePointer();
+                byte tombstone = file.readByte();
+
+                if (file.getFilePointer() + 4 > file.length()) {
                     return null;
                 }
-    
-                byte[] tempVet = new byte[tam]; // Lê os bytes do jogo
+
+                int tam = file.readInt();
+                if (tam <= 0 || tam > (file.length() - file.getFilePointer())) {
+                    return null;
+                }
+
+                byte[] tempVet = new byte[tam];
                 file.read(tempVet);
-    
-                // Se não estiver deletado (tombstone == 0) e for o jogo certo
+
                 if (tombstone == 0 && isGameValid(tempVet, searchId)) {
                     steam game = new steam();
                     game.fromByteArray(tempVet);
-                    System.out.println("🎮 Jogo encontrado! ID: " + game.getAppid());
                     return game;
                 }
-    
-                // Avança para o próximo registro
-                pos += 5 + tam;
+
+                pos = file.getFilePointer();
                 file.seek(pos);
             }
         } catch (Exception e) {
             System.err.println("Erro na função readGame: " + e.getMessage());
         }
-    
-        System.out.println("🚫 Jogo não encontrado.");
+
         return null;
     }
+    
+    
+
     
     
     
@@ -191,24 +204,40 @@ public class Actions {
 
     public boolean createGame(steam tmp) {
         try {
-            file.seek(lastPos);
-
+            if (readGame(tmp.getAppid()) != null) {
+                System.err.println("Erro: Já existe um jogo com o AppID " + tmp.getAppid());
+                return false;
+            }
+    
             byte[] aux = tmp.toByteArray();
+            
+            // Debug para verificar os bytes do jogo
+            System.out.println("Criando jogo com ID: " + tmp.getAppid() + " | Tamanho: " + aux.length);
+    
+            file.seek(lastPos);
             file.writeByte(0);
             file.writeInt(aux.length);
             file.write(aux);
-
+    
             lastPos = file.getFilePointer();
-
+    
+            if (tmp.getAppid() > maxId) {
+                maxId = tmp.getAppid();
+            }
+    
             file.seek(0);
             file.writeInt(maxId);
             file.writeLong(lastPos);
+            
             return true;
         } catch (IOException e) {
             System.err.println("Erro na função createGame: " + e);
             return false;
         }
     }
+    
+    
+    
 
     public steam deleteGame(int id) {
         steam aux = new steam();
