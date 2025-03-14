@@ -98,12 +98,14 @@ public class steam {
     }
 
     // Método para exibir os dados do jogo
-    public void printGame() {
-        System.out.println("AppID: " + this.appid);
-        System.out.println("Nome: " + this.name);
-        System.out.println("Data de Lançamento: " + (this.release_date != null ? this.release_date : "N/A"));
-        System.out.println("Plataformas: " + String.join(", ", this.platforms));
-        System.out.println("Gêneros: " + this.genres);
-        System.out.println("Lançado antes de 2010: " + this.launchBefore2010);
-    }
+    @Override
+public String toString() {
+    return "AppID: " + appid + "\n" +
+           "Nome: " + name + "\n" +
+           "Data de Lançamento: " + (release_date != null ? release_date : "N/A") + "\n" +
+           "Plataformas: " + String.join(", ", platforms) + "\n" +
+           "Gêneros: " + genres + "\n" +
+           "Lançado antes de 2010: " + launchBefore2010;
+}
+
 }
