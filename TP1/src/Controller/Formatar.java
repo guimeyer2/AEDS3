@@ -4,6 +4,10 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.regex.*;
 
+// Classe feita para formatar o primeiro arquivo CSV retirado do Kaggle.
+// Pegamos esse arquivo e escolhemos apenas as colunas que iremos usar, adicionando a nova coluna de string fixa.
+
+
 public class Formatar {
     public static void main(String[] args) {
         String inputFilePath = "TP1/src/steam.csv";  // Caminho do arquivo original
@@ -20,7 +24,7 @@ public class Formatar {
                 System.out.println("'" + col + "'");
             }
 
-            // Identificar os índices das colunas
+            // Identifica os índices das colunas
             int indexID = -1, indexName = -1, indexDate = -1, indexGenre = -1, indexPlatform = -1;
             for (int i = 0; i < columns.length; i++) {
                 String col = columns[i].trim().toLowerCase();
@@ -31,7 +35,7 @@ public class Formatar {
                 else if (col.equals("platforms")) indexPlatform = i;
             }
 
-            // Verifica se todas as colunas necessárias foram encontradas
+            
             if (indexID == -1 || indexName == -1 || indexDate == -1 || indexGenre == -1 || indexPlatform == -1) {
                 System.out.println("Erro: Algumas colunas não foram encontradas no CSV.");
                 return;
@@ -46,7 +50,7 @@ public class Formatar {
                 String[] values = line.split(","); // Divide os valores
                 if (values.length < Math.max(indexID, indexPlatform) + 1) continue; // Verifica se a linha tem colunas suficientes
 
-                // Extrai os dados formatados
+               
                 String id = values[indexID].trim();
                 String name = values[indexName].trim();
                 String releaseDate = values[indexDate].trim();
@@ -71,7 +75,7 @@ public class Formatar {
     public static boolean isBefore2010(String releaseDate) {
         try {
             releaseDate = releaseDate.replaceAll("\"", "").trim();  // Remover aspas e espaços extras
-            System.out.println("Verificando data: " + releaseDate); // Debug para ver se a data está correta
+            System.out.println("Verificando data: " + releaseDate); 
     
             String datePattern = "^\\d{4}-\\d{2}-\\d{2}$";
             if (!Pattern.matches(datePattern, releaseDate)) {

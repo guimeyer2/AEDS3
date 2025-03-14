@@ -5,7 +5,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Actions {
+public class Crud {
 
     private long lastPos;
     private int maxId;
@@ -15,6 +15,7 @@ public class Actions {
     public void openFile() throws IOException {
         File dbFile = new File("TP1/src/steam.db");
 
+        //Criação do arquivo binário
         if (!dbFile.exists()) {
             dbFile.getParentFile().mkdirs(); 
             dbFile.createNewFile();
@@ -23,6 +24,7 @@ public class Actions {
 
         file = new RandomAccessFile(dbFile, "rw");
         
+        //Cabeçalho
         if (file.length() == 0) {
             file.writeInt(0);
             file.writeLong(12);
@@ -43,7 +45,7 @@ public class Actions {
             System.err.println("Erro ao fechar arquivo .db: " + e);
         }
     }
-
+    //Gera o arquivo DB com base no CSV
     public void loadData() {
         try (BufferedReader csv = new BufferedReader(new FileReader("TP1/src/steam2.csv"));
              RandomAccessFile write = new RandomAccessFile("TP1/src/steam.db", "rw")) {
@@ -114,7 +116,7 @@ public class Actions {
     }
 
 
-    public boolean isGameValid(byte[] arr, int id) {
+    public boolean validarGame (byte[] arr, int id) {
         try {
             steam temp = new steam();
             temp.fromByteArray(arr);
@@ -132,7 +134,7 @@ public class Actions {
         try {
             while (file.getFilePointer() < file.length()) {
                 long regPos = file.getFilePointer();
-                byte tombstone = file.readByte();
+                byte lapide = file.readByte();
 
                 if (file.getFilePointer() + 4 > file.length()) {
                     return null;
@@ -146,7 +148,8 @@ public class Actions {
                 byte[] tempVet = new byte[tam];
                 file.read(tempVet);
 
-                if (tombstone == 0 && isGameValid(tempVet, searchId)) {
+                if (lapide == 0 && validarGame
+         (tempVet, searchId)) {
                     steam game = new steam();
                     game.fromByteArray(tempVet);
                     return game;
@@ -175,12 +178,13 @@ public class Actions {
     
             while (file.getFilePointer() < file.length()) {
                 long regPos = file.getFilePointer();
-                byte tombstone = file.readByte();
+                byte lapide = file.readByte();
                 int tam = file.readInt();
                 byte[] arr = new byte[tam];
                 file.read(arr);
     
-                if (tombstone == 0 && isGameValid(arr, id)) {
+                if (lapide == 0 && validarGame
+         (arr, id)) {
                     byte[] newGameBytes = newGame.toByteArray();
     
                     if (newGameBytes.length <= tam) {
@@ -204,7 +208,7 @@ public class Actions {
 
     public boolean createGame(steam tmp) {
         try {
-            if (readGame(tmp.getAppid()) != null) {
+            if (readGame(tmp.getAppid()) != null) { // Verifica se já existe um jogo com esse ID
                 System.err.println("Erro: Já existe um jogo com o AppID " + tmp.getAppid());
                 return false;
             }
@@ -248,12 +252,13 @@ public class Actions {
 
             while (file.getFilePointer() < file.length()) {
                 long regPos = file.getFilePointer();
-                byte tombstone = file.readByte();
+                byte lapide = file.readByte();
                 int tam = file.readInt();
                 byte[] temp = new byte[tam];
                 file.read(temp);
 
-                if (tombstone == 0 && isGameValid(temp, id)) {
+                if (lapide == 0 && validarGame
+         (temp, id)) {
                     file.seek(regPos);
                     file.writeByte(1);
                     aux.fromByteArray(temp);

@@ -27,7 +27,7 @@ public class steam {
         this.release_date = null;
         this.platforms = new ArrayList<>();
         this.genres = "";
-        this.launchBefore2010 = "NAO"; // Valor padrão
+        this.launchBefore2010 = "NAO"; 
     }
 
     // Getters e Setters
@@ -79,17 +79,17 @@ public class steam {
             ByteArrayInputStream vet = new ByteArrayInputStream(by);
             DataInputStream dis = new DataInputStream(vet);
 
-            this.appid = dis.readInt(); // ID
-            this.name = dis.readUTF(); // Nome
-            String dateString = dis.readUTF(); // Data de lançamento
+            this.appid = dis.readInt(); 
+            this.name = dis.readUTF(); 
+            String dateString = dis.readUTF(); 
             this.release_date = dateString.isEmpty() ? null : LocalDate.parse(dateString);
-            int platformSize = dis.readInt(); // Tamanho da lista de plataformas
+            int platformSize = dis.readInt(); 
             this.platforms = new ArrayList<>();
             for (int i = 0; i < platformSize; i++) {
-                this.platforms.add(dis.readUTF()); // Plataformas
+                this.platforms.add(dis.readUTF());
             }
-            this.genres = dis.readUTF(); // Gêneros
-            this.launchBefore2010 = dis.readUTF(); // Lançado antes de 2010
+            this.genres = dis.readUTF(); 
+            this.launchBefore2010 = dis.readUTF(); 
 
             dis.close();
         } catch (IOException e) {

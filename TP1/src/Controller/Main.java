@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-import controller.Actions;
+import controller.Crud;
 import Model.steam;
+
+// A classe Main recebe a opção do usuário e chama o método correspondente do Crud
+
 
 public class Main {
     public static void main(String[] args) {
-        Actions actions = new Actions();
+        Crud actions = new Crud();
         Scanner scanner = new Scanner(System.in);
         
         try {
@@ -35,9 +38,9 @@ public class Main {
             switch (choice) {
 
 
-                case 1: //LOAD
-                    actions.loadData();
-                    break;
+                    case 1: //LOAD
+                        actions.loadData();
+                        break;
 
 
 
@@ -59,10 +62,10 @@ public class Main {
                     System.out.print("Digite o gênero do jogo: ");
                     String genre = scanner.nextLine();
                 
-                    // Determina o valor de LaunchBefore2010 com base na data de lançamento
+                    // Determina o valor de LaunchBefore2010 com base na data de lançamento, nossa string fixa
                     String launchBefore2010 = date.getYear() < 2010 ? "SIM" : "NAO";
                 
-                    // Cria o objeto steam com o campo LaunchBefore2010
+                    // Cria o objeto steam 
                     steam newGame = new steam(id, name, date, platforms, genre, launchBefore2010);
                 
                     if (actions.createGame(newGame)) {
