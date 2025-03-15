@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.IOException;
@@ -9,22 +10,19 @@ import Model.steam;
 
 public class Main {
     public static void main(String[] args) {
-        Actions actions = new Actions();
-        Scanner scanner = new Scanner(System.in);
-        ExternalSort sorter = new ExternalSort();
-       
-
-
-
+        Actions actions = new Actions(); // Instância da classe que gerencia as operações do CRUD
+        Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados pelo usuário
+        ExternalSort sorter = new ExternalSort(); // Instância do algoritmo de ordenação externa
         
         try {
-            actions.openFile();
+            actions.openFile(); // Abre o arquivo contendo os dados
         } catch (IOException e) {
             System.err.println("Erro ao abrir arquivo: " + e.getMessage());
-            return;
+            return; // Sai do programa caso haja erro ao abrir o arquivo
         }
 
         while (true) {
+            // Exibição do menu
             System.out.println("\n==== MENU ====");
             System.out.println("1. Carregar dados do CSV(Se o arquivo Db estiver vazio)");
             System.out.println("2. Criar jogo");
@@ -35,14 +33,15 @@ public class Main {
             System.out.println("7. Sair");
             System.out.print("Escolha uma opção: ");
 
-            int choice = scanner.nextInt();
+            int choice = scanner.nextInt(); // Captura a escolha do usuário
             scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    actions.loadData();
+                    actions.loadData(); // Carrega dados do CSV se o banco estiver vazio
                     break;
                 case 2:
+                    // Criação de um novo jogo
                     System.out.print("Digite o ID do jogo: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();
@@ -67,6 +66,7 @@ public class Main {
                     }
                     break;
                 case 3:
+                    // Leitura de um jogo pelo ID
                     try {
                         System.out.print("Digite o ID do jogo para leitura: ");
                         int searchId = scanner.nextInt();
@@ -83,6 +83,7 @@ public class Main {
                     }
                     break;
                 case 4:
+                    // Atualização de um jogo existente
                     System.out.print("Digite o ID do jogo para atualizar: ");
                     int updateId = scanner.nextInt();
                     scanner.nextLine();
@@ -107,6 +108,7 @@ public class Main {
                     }
                     break;
                 case 5:
+                    // Exclusão de um jogo
                     System.out.print("Digite o ID do jogo para deletar: ");
                     int deleteId = scanner.nextInt();
                     steam deletedGame = actions.deleteGame(deleteId);
@@ -117,6 +119,7 @@ public class Main {
                     }
                     break;
                 case 6:
+                    // Ordenação externa
                     System.out.print("Digite o número de caminhos: ");
                     int numCaminhos = scanner.nextInt();
                     System.out.print("Digite o número máximo de registros na memória: ");
@@ -124,6 +127,7 @@ public class Main {
                     sorter.externalSort(numCaminhos, maxRegistrosMemoria);
                     break;
                 case 7:
+                    // Encerramento do programa
                     System.out.println("Saindo...");
                     scanner.close();
                     return;
@@ -132,4 +136,4 @@ public class Main {
             }
         }
     }
-}
+}//comentario e algumas melhorias feitas por IA

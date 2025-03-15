@@ -1,3 +1,5 @@
+//Lucas Lopes e Guilherme Meyer
+
 package controller;
 
 import Model.steam;
@@ -7,38 +9,32 @@ import java.util.ArrayList;
 
 public class Actions {
 
-    private long lastPos;
-    private int maxId;
-    private int gamesCount;
-    RandomAccessFile file;
+    private long lastPos; // Última posição escrita no arquivo
+    private int maxId;// Maior ID registrado no banco de dados
+    RandomAccessFile file; // Arquivo de banco de dados
 
     public void openFile() throws IOException {
-        File sortedDbFile = new File("TP1/src/steam_sorted.db");
         File dbFile = new File("TP1/src/steam.db");
     
-        // Verifica se o arquivo ordenado já foi criado, se sim, usa ele
-        if (sortedDbFile.exists()) {
-            file = new RandomAccessFile(sortedDbFile, "rw");
-            System.out.println("Usando o arquivo ordenado: steam_sorted.db");
-        } else {
-            file = new RandomAccessFile(dbFile, "rw");
+        
+       
+            file = new RandomAccessFile(dbFile, "rw");// Abre o arquivo para leitura e escrita
             System.out.println("Usando o arquivo original: steam.db");
-        }
-    
-        if (file.length() == 0) {
+        
+        if (file.length() == 0) {// Se o arquivo estiver vazio, inicializa os metadados
             file.writeInt(0);
             file.writeLong(12);
             lastPos = 12;
         } else {
             file.seek(0);
-            maxId = file.readInt();
-            lastPos = file.readLong();
+            maxId = file.readInt();// Lê o ID máximo salvo no arquivo
+            lastPos = file.readLong();// Lê a última posição escrita
         }
     
-        gamesCount = maxId;
+
     }
     
-
+    // Método para fechar o arquivo
     public void closeFile() throws IOException {
         try {
             file.close();
@@ -46,24 +42,24 @@ public class Actions {
             System.err.println("Erro ao fechar arquivo .db: " + e);
         }
     }
-
+    // Método para carregar dados de um CSV para o banco de dados
     public void loadData() {
         try (BufferedReader csv = new BufferedReader(new FileReader("TP1/src/steam2.csv"));
              RandomAccessFile write = new RandomAccessFile("TP1/src/steam.db", "rw")) {
 
             csv.readLine();
-            write.writeInt(0);
-            write.writeLong(12);
+            write.writeInt(0); // Reinicializa o maior ID
+            write.writeLong(12);// Reinicializa a posição inicial
 
             System.out.println("Carregando dados para o arquivo...");
 
             String str;
             int lastId = 0;
 
-            while ((str = csv.readLine()) != null) {
-                if (str.trim().isEmpty()) continue;
+            while ((str = csv.readLine()) != null) {// Lê cada linha do CSV
+                if (str.trim().isEmpty()) continue;// Pula linhas vazias
 
-                String[] vet = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                String[] vet = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");// Divide corretamente considerando aspas
                 if (vet.length < 6) {
                     continue;
                 }
@@ -75,7 +71,7 @@ public class Actions {
 
                 int appid;
                 try {
-                    appid = Integer.parseInt(vet[0]);
+                    appid = Integer.parseInt(vet[0]);// Converte o AppID para inteiro
                 } catch (NumberFormatException e) {
                     System.err.println("Erro ao converter AppID para número: " + vet[0]);
                     continue;
@@ -99,15 +95,15 @@ public class Actions {
                 steam tmp = new steam(appid, vet[1], releaseDate, platforms, vet[3], vet[5].trim());
                 byte[] aux = tmp.toByteArray();
 
-                write.writeByte(0);
-                write.writeInt(aux.length);
-                write.write(aux);
-                lastId = tmp.getAppid();
+                write.writeByte(0);// Marca como não excluído
+                write.writeInt(aux.length);// Escreve o tamanho do registro
+                write.write(aux);// Escreve os dados do jogo
+                lastId = tmp.getAppid();// Atualiza o último ID
             }
 
             write.seek(0);
-            write.writeInt(lastId);
-            write.writeLong(write.getFilePointer());
+            write.writeInt(lastId);// Atualiza o maior ID no início do arquivo
+            write.writeLong(write.getFilePointer()); // Atualiza a última posição escrita
             System.out.println("Dados carregados com sucesso!");
 
         } catch (Exception e) {
@@ -128,45 +124,45 @@ public class Actions {
     }
     
     public steam readGame(int searchId) throws IOException {
-        long pos = 12;
-        file.seek(pos);
+        long pos = 12; // Define a posição inicial para a leitura no arquivo
+        file.seek(pos); // Move o ponteiro do arquivo para essa posição
     
         try {
-            while (file.getFilePointer() < file.length()) {
-                long regPos = file.getFilePointer();
-                byte tombstone = file.readByte();
+            while (file.getFilePointer() < file.length()) { // Enquanto não atingir o final do arquivo
+                byte tombstone = file.readByte(); // Lê o byte que indica se o registro está ativo ou excluído
                 
+                // Verifica se há pelo menos 4 bytes disponíveis para leitura do tamanho
                 if (file.getFilePointer() + 4 > file.length()) {
                     System.err.println("❌ Erro: Tentando ler um tamanho inválido! Registro pode estar corrompido.");
                     return null;
                 }
     
-                int tam = file.readInt();
+                int tam = file.readInt(); // Lê o tamanho do registro
     
-               
-    
+                // Verifica se o tamanho do registro é válido
                 if (tam <= 0 || tam > file.length() - file.getFilePointer()) {
                     System.err.println("❌ Erro: tamanho do registro inválido! Algo está corrompido.");
                     return null;
                 }
     
-                byte[] tempVet = new byte[tam];
-                file.read(tempVet);
+                byte[] tempVet = new byte[tam]; // Cria um array de bytes para armazenar os dados do registro
+                file.read(tempVet); // Lê os bytes do registro
     
+                // Verifica se o registro não foi excluído e se corresponde ao ID buscado
                 if (tombstone == 0 && isGameValid(tempVet, searchId)) {
-                    steam game = new steam();
-                    game.fromByteArray(tempVet);
-                    return game;
+                    steam game = new steam(); // Cria uma instância da classe steam
+                    game.fromByteArray(tempVet); // Converte os bytes lidos para um objeto steam
+                    return game; // Retorna o jogo encontrado
                 }
     
-                pos = file.getFilePointer(); // Atualiza a posição corretamente
-                file.seek(pos);
+                pos = file.getFilePointer(); // Atualiza a posição do ponteiro corretamente
+                file.seek(pos); // Move o ponteiro do arquivo para continuar a leitura
             }
         } catch (Exception e) {
-            System.err.println("Erro na função readGame: " + e.getMessage());
+            System.err.println("Erro na função readGame: " + e.getMessage()); // Captura e exibe possíveis erros
         }
     
-        return null;
+        return null; // Retorna null caso o jogo não seja encontrado
     }
     
     
@@ -181,23 +177,23 @@ public class Actions {
             file.seek(pos);
     
             while (file.getFilePointer() < file.length()) {
-                long regPos = file.getFilePointer();
-                byte tombstone = file.readByte();
-                int tam = file.readInt();
+                long regPos = file.getFilePointer(); // Guarda a posição do registro atual
+                byte tombstone = file.readByte();// Lê o marcador de exclusão
+                int tam = file.readInt(); // Lê o tamanho do registro
                 byte[] arr = new byte[tam];
-                file.read(arr);
+                file.read(arr);// Lê os dados do jogo
     
-                if (tombstone == 0 && isGameValid(arr, id)) {
+                if (tombstone == 0 && isGameValid(arr, id)) {// Verifica se o jogo é válido e corresponde ao ID
                     byte[] newGameBytes = newGame.toByteArray();
     
                     if (newGameBytes.length <= tam) {
-                        file.seek(regPos + 5);
-                        file.write(newGameBytes);
+                        file.seek(regPos + 5);// Pula o marcador e o tamanho
+                        file.write(newGameBytes);// Escreve os novos dados
                         return true;
-                    } else {
-                        file.seek(regPos);
+                    } else {// Se o novo jogo for maior que o espaço disponível
+                        file.seek(regPos);// Marca o registro antigo como deletado
                         file.writeByte(1);
-                        return createGame(newGame);
+                        return createGame(newGame); // Cria um novo registro no final do arquivo
                     }
                 }
     
@@ -221,11 +217,11 @@ public class Actions {
             // Ir para o final do arquivo
             file.seek(file.length());
     
-            long newPos = file.getFilePointer(); // Atualiza para a nova posição correta
+            
     
-            file.writeByte(0);
-            file.writeInt(aux.length);
-            file.write(aux);
+            file.writeByte(0);// Marca o registro como válido
+            file.writeInt(aux.length);// Escreve o tamanho do registro
+            file.write(aux);// Escreve os dados do jogo
     
             lastPos = file.getFilePointer(); // Atualiza a posição final corretamente
     
@@ -257,19 +253,19 @@ public class Actions {
 
             while (file.getFilePointer() < file.length()) {
                 long regPos = file.getFilePointer();
-                byte tombstone = file.readByte();
+                byte tombstone = file.readByte();//Lapide que marca se esta deletado
                 int tam = file.readInt();
                 byte[] temp = new byte[tam];
                 file.read(temp);
 
                 if (tombstone == 0 && isGameValid(temp, id)) {
                     file.seek(regPos);
-                    file.writeByte(1);
+                    file.writeByte(1); // Marca o jogo como deletado
                     aux.fromByteArray(temp);
                     return aux;
                 }
 
-                pos += 5 + tam;
+                pos += 5 + tam;//reajusta o tamanho
             }
         } catch (Exception e) {
             System.err.println("Erro na função deleteGame: " + e);
