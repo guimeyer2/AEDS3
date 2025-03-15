@@ -13,16 +13,18 @@ public class Actions {
     RandomAccessFile file;
 
     public void openFile() throws IOException {
+        File sortedDbFile = new File("TP1/src/steam_sorted.db");
         File dbFile = new File("TP1/src/steam.db");
-
-        if (!dbFile.exists()) {
-            dbFile.getParentFile().mkdirs(); 
-            dbFile.createNewFile();
-            System.out.println("Arquivo steam.db criado!");
+    
+        // Verifica se o arquivo ordenado já foi criado, se sim, usa ele
+        if (sortedDbFile.exists()) {
+            file = new RandomAccessFile(sortedDbFile, "rw");
+            System.out.println("Usando o arquivo ordenado: steam_sorted.db");
+        } else {
+            file = new RandomAccessFile(dbFile, "rw");
+            System.out.println("Usando o arquivo original: steam.db");
         }
-
-        file = new RandomAccessFile(dbFile, "rw");
-        
+    
         if (file.length() == 0) {
             file.writeInt(0);
             file.writeLong(12);
@@ -32,9 +34,10 @@ public class Actions {
             maxId = file.readInt();
             lastPos = file.readLong();
         }
-        
+    
         gamesCount = maxId;
     }
+    
 
     public void closeFile() throws IOException {
         try {
@@ -62,7 +65,6 @@ public class Actions {
 
                 String[] vet = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
                 if (vet.length < 6) {
-
                     continue;
                 }
 
@@ -128,37 +130,42 @@ public class Actions {
     public steam readGame(int searchId) throws IOException {
         long pos = 12;
         file.seek(pos);
-
+    
         try {
             while (file.getFilePointer() < file.length()) {
                 long regPos = file.getFilePointer();
                 byte tombstone = file.readByte();
-
+                
                 if (file.getFilePointer() + 4 > file.length()) {
+                    System.err.println("❌ Erro: Tentando ler um tamanho inválido! Registro pode estar corrompido.");
                     return null;
                 }
-
+    
                 int tam = file.readInt();
-                if (tam <= 0 || tam > (file.length() - file.getFilePointer())) {
+    
+               
+    
+                if (tam <= 0 || tam > file.length() - file.getFilePointer()) {
+                    System.err.println("❌ Erro: tamanho do registro inválido! Algo está corrompido.");
                     return null;
                 }
-
+    
                 byte[] tempVet = new byte[tam];
                 file.read(tempVet);
-
+    
                 if (tombstone == 0 && isGameValid(tempVet, searchId)) {
                     steam game = new steam();
                     game.fromByteArray(tempVet);
                     return game;
                 }
-
-                pos = file.getFilePointer();
+    
+                pos = file.getFilePointer(); // Atualiza a posição corretamente
                 file.seek(pos);
             }
         } catch (Exception e) {
             System.err.println("Erro na função readGame: " + e.getMessage());
         }
-
+    
         return null;
     }
     
@@ -210,21 +217,23 @@ public class Actions {
             }
     
             byte[] aux = tmp.toByteArray();
-            
-            // Debug para verificar os bytes do jogo
-            System.out.println("Criando jogo com ID: " + tmp.getAppid() + " | Tamanho: " + aux.length);
     
-            file.seek(lastPos);
+            // Ir para o final do arquivo
+            file.seek(file.length());
+    
+            long newPos = file.getFilePointer(); // Atualiza para a nova posição correta
+    
             file.writeByte(0);
             file.writeInt(aux.length);
             file.write(aux);
     
-            lastPos = file.getFilePointer();
+            lastPos = file.getFilePointer(); // Atualiza a posição final corretamente
     
             if (tmp.getAppid() > maxId) {
                 maxId = tmp.getAppid();
             }
     
+            // Atualiza os metadados corretamente
             file.seek(0);
             file.writeInt(maxId);
             file.writeLong(lastPos);
