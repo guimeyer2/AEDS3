@@ -1,11 +1,10 @@
-
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import Algoritmos.ExternalSort;
 import Algoritmos.InvertedList;
 import controller.*;
@@ -131,29 +130,31 @@ public class Main {
                     int maxRegistrosMemoria = scanner.nextInt();
                     sorter.externalSort(numCaminhos, maxRegistrosMemoria);
                     break;
+                // No arquivo Main.java, modifique o case 7 (opção de indexação):
                 case 7:
-                    System.out.println("=== Tipo de Indexação ===");
-                    System.out.println("1 - Árvore");
-                    System.out.println("2 - Hash");
-                    System.out.println("3 - Lista Invertida");
-                    System.out.print("Escolha o tipo de indexação: ");
-                    int tipo = scanner.nextInt();
-                    scanner.nextLine(); // Limpa o buffer
-            switch (tipo) {
+                System.out.println("=== Tipo de Indexação ===");
+                System.out.println("1 - Árvore");
+                System.out.println("2 - Hash");
+                System.out.println("3 - Lista Invertida");
+                System.out.print("Escolha o tipo de indexação: ");
+                int tipo = scanner.nextInt();
+                scanner.nextLine(); // Limpa o buffer
+                
+                switch (tipo) {
                     case 1:
                         System.out.println("Árvore ainda não implementada.");
-                    break;
+                        break;
                     case 2:
                         System.out.println("Hash ainda não implementado.");
-                    break;
+                        break;
                     case 3:
                         System.out.println("Executando Lista Invertida...");
-                        InvertedList invertedList = new InvertedList();
+                        actions.menuListaInvertida(scanner);
                         break;
-        default:
-            System.out.println("Opção inválida.");
-    }
-    break;
+                    default:
+                        System.out.println("Opção inválida.");
+                }
+                break;
 case 8:
     System.out.println("Saindo...");
     scanner.close();
@@ -164,4 +165,4 @@ case 8:
             }
         }
     }
-}//comentario e algumas melhorias feitas por IA
+}//comentario e a
