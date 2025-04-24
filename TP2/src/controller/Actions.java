@@ -1,112 +1,82 @@
-//Lucas Lopes e Guilherme Meyer
-
 package controller;
 
-import Model.Registro;
 import Model.steam;
 import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import Algoritmos.HashExtensivel;
+import java.util.*;
+import Algoritmos.InvertedList;
 
 public class Actions {
 
-    private long lastPos; // Última posição escrita no arquivo
-    private int maxId;// Maior ID registrado no banco de dados
-    RandomAccessFile file; // Arquivo de banco de dados
+    private long lastPos;
+    private int maxId;
+    RandomAccessFile file;
 
     public void openFile() throws IOException {
         File dbFile = new File("TP2/src/steam.db");
-    
-        
-       
-            file = new RandomAccessFile(dbFile, "rw");// Abre o arquivo para leitura e escrita
-            System.out.println("Usando o arquivo original: steam.db");
-        
-        if (file.length() == 0) {// Se o arquivo estiver vazio, inicializa os metadados
+        file = new RandomAccessFile(dbFile, "rw");
+        System.out.println("Usando o arquivo original: steam.db");
+
+        if (file.length() == 0) {
             file.writeInt(0);
             file.writeLong(12);
             lastPos = 12;
         } else {
             file.seek(0);
-            maxId = file.readInt();// Lê o ID máximo salvo no arquivo
-            lastPos = file.readLong();// Lê a última posição escrita
+            maxId = file.readInt();
+            lastPos = file.readLong();
         }
-    
+    }
 
-    }
-    
-    // Método para fechar o arquivo
     public void closeFile() throws IOException {
-        try {
-            file.close();
-        } catch (Exception e) {
-            System.err.println("Erro ao fechar arquivo .db: " + e);
-        }
+        if (file != null) file.close();
     }
-    // Método para carregar dados de um CSV para o banco de dados
+
     public void loadData() {
         try (BufferedReader csv = new BufferedReader(new FileReader("TP2/src/steam2.csv"));
              RandomAccessFile write = new RandomAccessFile("TP2/src/steam.db", "rw")) {
 
             csv.readLine();
-            write.writeInt(0); // Reinicializa o maior ID
-            write.writeLong(12);// Reinicializa a posição inicial
+            write.writeInt(0);
+            write.writeLong(12);
 
             System.out.println("Carregando dados para o arquivo...");
-
             String str;
             int lastId = 0;
 
-            while ((str = csv.readLine()) != null) {// Lê cada linha do CSV
-                if (str.trim().isEmpty()) continue;// Pula linhas vazias
+            while ((str = csv.readLine()) != null) {
+                if (str.trim().isEmpty()) continue;
 
-                String[] vet = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");// Divide corretamente considerando aspas
-                if (vet.length < 6) {
-                    continue;
-                }
-
-                if (vet[0].isEmpty() || vet[1].isEmpty() || vet[2].isEmpty()) {
-                    System.err.println("Linha com dados faltando: " + str);
-                    continue;
-                }
+                String[] vet = str.split(",(?=(?:[^\"]\"[^\"]\")[^\"]$)");
+                if (vet.length < 6 || vet[0].isEmpty() || vet[1].isEmpty() || vet[2].isEmpty()) continue;
 
                 int appid;
                 try {
-                    appid = Integer.parseInt(vet[0]);// Converte o AppID para inteiro
-                } catch (NumberFormatException e) {
-                    System.err.println("Erro ao converter AppID para número: " + vet[0]);
-                    continue;
-                }
+                    appid = Integer.parseInt(vet[0]);
+                } catch (NumberFormatException e) { continue; }
 
-                LocalDate releaseDate = null;
+                LocalDate releaseDate;
                 try {
                     releaseDate = LocalDate.parse(vet[2]);
-                } catch (Exception e) {
-                    System.err.println("Erro ao parsear data: " + vet[2]);
-                    continue;
-                }
+                } catch (Exception e) { continue; }
 
                 ArrayList<String> platforms = new ArrayList<>();
                 if (!vet[4].isEmpty()) {
-                    for (String platform : vet[4].split(";")) {
-                        platforms.add(platform.trim());
-                    }
+                    for (String platform : vet[4].split(";")) platforms.add(platform.trim());
                 }
 
                 steam tmp = new steam(appid, vet[1], releaseDate, platforms, vet[3], vet[5].trim());
                 byte[] aux = tmp.toByteArray();
 
-                write.writeByte(0);// Marca como não excluído
-                write.writeInt(aux.length);// Escreve o tamanho do registro
-                write.write(aux);// Escreve os dados do jogo
-                lastId = tmp.getAppid();// Atualiza o último ID
+                write.writeByte(0);
+                write.writeInt(aux.length);
+                write.write(aux);
+                lastId = tmp.getAppid();
             }
 
             write.seek(0);
-            write.writeInt(lastId);// Atualiza o maior ID no início do arquivo
-            write.writeLong(write.getFilePointer()); // Atualiza a última posição escrita
+            write.writeInt(lastId);
+            write.writeLong(write.getFilePointer());
             System.out.println("Dados carregados com sucesso!");
 
         } catch (Exception e) {
@@ -114,92 +84,63 @@ public class Actions {
         }
     }
 
-
     public boolean isGameValid(byte[] arr, int id) {
         try {
             steam temp = new steam();
             temp.fromByteArray(arr);
             return temp.getAppid() == id;
         } catch (Exception e) {
-            System.err.println("Erro na validação do jogo: " + e);
             return false;
         }
     }
-    
+
     public steam readGame(int searchId) throws IOException {
-        long pos = 12; // Define a posição inicial para a leitura no arquivo
-        file.seek(pos); // Move o ponteiro do arquivo para essa posição
-    
+        long pos = 12;
+        file.seek(pos);
         try {
-            while (file.getFilePointer() < file.length()) { // Enquanto não atingir o final do arquivo
-                byte tombstone = file.readByte(); // Lê o byte que indica se o registro está ativo ou excluído
-                
-                // Verifica se há pelo menos 4 bytes disponíveis para leitura do tamanho
-                if (file.getFilePointer() + 4 > file.length()) {
-                    System.err.println("❌ Erro: Tentando ler um tamanho inválido! Registro pode estar corrompido.");
-                    return null;
-                }
-    
-                int tam = file.readInt(); // Lê o tamanho do registro
-    
-                // Verifica se o tamanho do registro é válido
-                if (tam <= 0 || tam > file.length() - file.getFilePointer()) {
-                    System.err.println("❌ Erro: tamanho do registro inválido! Algo está corrompido.");
-                    return null;
-                }
-    
-                byte[] tempVet = new byte[tam]; // Cria um array de bytes para armazenar os dados do registro
-                file.read(tempVet); // Lê os bytes do registro
-    
-                // Verifica se o registro não foi excluído e se corresponde ao ID buscado
+            while (file.getFilePointer() < file.length()) {
+                byte tombstone = file.readByte();
+                int tam = file.readInt();
+                if (tam <= 0 || tam > file.length() - file.getFilePointer()) return null;
+                byte[] tempVet = new byte[tam];
+                file.read(tempVet);
                 if (tombstone == 0 && isGameValid(tempVet, searchId)) {
-                    steam game = new steam(); // Cria uma instância da classe steam
-                    game.fromByteArray(tempVet); // Converte os bytes lidos para um objeto steam
-                    return game; // Retorna o jogo encontrado
+                    steam game = new steam();
+                    game.fromByteArray(tempVet);
+                    return game;
                 }
-    
-                pos = file.getFilePointer(); // Atualiza a posição do ponteiro corretamente
-                file.seek(pos); // Move o ponteiro do arquivo para continuar a leitura
+                pos = file.getFilePointer();
+                file.seek(pos);
             }
         } catch (Exception e) {
-            System.err.println("Erro na função readGame: " + e.getMessage()); // Captura e exibe possíveis erros
+            System.err.println("Erro na função readGame: " + e.getMessage());
         }
-    
-        return null; // Retorna null caso o jogo não seja encontrado
+        return null;
     }
-    
-    
 
-    
-    
-    
     public boolean updateGame(int id, steam newGame) {
         long pos = 12;
-    
         try {
             file.seek(pos);
-    
             while (file.getFilePointer() < file.length()) {
-                long regPos = file.getFilePointer(); // Guarda a posição do registro atual
-                byte tombstone = file.readByte();// Lê o marcador de exclusão
-                int tam = file.readInt(); // Lê o tamanho do registro
+                long regPos = file.getFilePointer();
+                byte tombstone = file.readByte();
+                int tam = file.readInt();
                 byte[] arr = new byte[tam];
-                file.read(arr);// Lê os dados do jogo
-    
-                if (tombstone == 0 && isGameValid(arr, id)) {// Verifica se o jogo é válido e corresponde ao ID
+                file.read(arr);
+
+                if (tombstone == 0 && isGameValid(arr, id)) {
                     byte[] newGameBytes = newGame.toByteArray();
-    
                     if (newGameBytes.length <= tam) {
-                        file.seek(regPos + 5);// Pula o marcador e o tamanho
-                        file.write(newGameBytes);// Escreve os novos dados
+                        file.seek(regPos + 5);
+                        file.write(newGameBytes);
                         return true;
-                    } else {// Se o novo jogo for maior que o espaço disponível
-                        file.seek(regPos);// Marca o registro antigo como deletado
+                    } else {
+                        file.seek(regPos);
                         file.writeByte(1);
-                        return createGame(newGame); // Cria um novo registro no final do arquivo
+                        return createGame(newGame);
                     }
                 }
-    
                 pos += 5 + tam;
             }
         } catch (Exception e) {
@@ -210,71 +151,161 @@ public class Actions {
 
     public boolean createGame(steam tmp) {
         try {
-            if (readGame(tmp.getAppid()) != null) {
-                System.err.println("Erro: Já existe um jogo com o AppID " + tmp.getAppid());
-                return false;
-            }
-    
+            if (readGame(tmp.getAppid()) != null) return false;
             byte[] aux = tmp.toByteArray();
-    
-            // Ir para o final do arquivo
             file.seek(file.length());
-    
-            
-    
-            file.writeByte(0);// Marca o registro como válido
-            file.writeInt(aux.length);// Escreve o tamanho do registro
-            file.write(aux);// Escreve os dados do jogo
-    
-            lastPos = file.getFilePointer(); // Atualiza a posição final corretamente
-    
-            if (tmp.getAppid() > maxId) {
-                maxId = tmp.getAppid();
-            }
-    
-            // Atualiza os metadados corretamente
+            file.writeByte(0);
+            file.writeInt(aux.length);
+            file.write(aux);
+            lastPos = file.getFilePointer();
+            if (tmp.getAppid() > maxId) maxId = tmp.getAppid();
             file.seek(0);
             file.writeInt(maxId);
             file.writeLong(lastPos);
-            
             return true;
         } catch (IOException e) {
             System.err.println("Erro na função createGame: " + e);
             return false;
         }
     }
-    
-    
-    
 
     public steam deleteGame(int id) {
-        steam aux = new steam();
         long pos = 12;
-
         try {
             file.seek(pos);
-
             while (file.getFilePointer() < file.length()) {
                 long regPos = file.getFilePointer();
-                byte tombstone = file.readByte();//Lapide que marca se esta deletado
+                byte tombstone = file.readByte();
                 int tam = file.readInt();
                 byte[] temp = new byte[tam];
                 file.read(temp);
-
                 if (tombstone == 0 && isGameValid(temp, id)) {
                     file.seek(regPos);
-                    file.writeByte(1); // Marca o jogo como deletado
+                    file.writeByte(1);
+                    steam aux = new steam();
                     aux.fromByteArray(temp);
                     return aux;
                 }
-
-                pos += 5 + tam;//reajusta o tamanho
+                pos += 5 + tam;
             }
         } catch (Exception e) {
             System.err.println("Erro na função deleteGame: " + e);
         }
         return null;
     }
-   
-
-}
+    public void menuListaInvertida(Scanner scanner) {
+        InvertedList invertedList = new InvertedList();
+        
+        // Verifica e constrói as listas se necessário
+        if (new File("src/temp/invertedGenero.db").length() == 0 || 
+            new File("src/temp/invertedPlataforma.db").length() == 0) {
+            System.out.println("Construindo listas invertidas pela primeira vez...");
+            invertedList.construirListas();
+        }
+    
+        while (true) {
+            System.out.println("\n=== MENU LISTA INVERTIDA ===");
+            System.out.println("1. Buscar por Gênero");
+            System.out.println("2. Buscar por Plataforma");
+            System.out.println("3. Buscar por Gênero e Plataforma");
+            System.out.println("4. Listar Tudo (Debug)");
+            System.out.println("5. Voltar ao Menu Principal");
+            System.out.print("Escolha uma opção: ");
+            
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Limpa o buffer
+            
+            switch (choice) {
+                case 1:
+                    buscarPorGeneroUI(invertedList, scanner);
+                    break;
+                    
+                case 2:
+                    buscarPorPlataformaUI(invertedList, scanner);
+                    break;
+                    
+                case 3:
+                    buscarPorGeneroEPlataformaUI(invertedList, scanner);
+                    break;
+                    
+                case 4:
+                    invertedList.listarTudo();
+                    break;
+                    
+                case 5:
+                    invertedList.close();
+                    return;
+                    
+                default:
+                    System.out.println("Opção inválida.");
+            }
+        }
+    }
+    
+    private void buscarPorGeneroUI(InvertedList invertedList, Scanner scanner) {
+        System.out.print("Digite o gênero para buscar: ");
+        String genero = scanner.nextLine();
+        List<Integer> ids = invertedList.buscarPorGenero(genero);
+        if (ids.isEmpty()) {
+            System.out.println("Nenhum jogo encontrado para o gênero: " + genero);
+        } else {
+            System.out.println("\n=== JOGOS ENCONTRADOS ===");
+            for (int id : ids) {
+                try {
+                    steam game = readGame(id);
+                    if (game != null) {
+                        System.out.println(game);
+                        System.out.println("----------------------------");
+                    }
+                } catch (IOException e) {
+                    System.err.println("Erro ao ler jogo com ID " + id + ": " + e.getMessage());
+                }
+            }
+        }
+    }
+    
+    private void buscarPorPlataformaUI(InvertedList invertedList, Scanner scanner) {
+        System.out.print("Digite a plataforma para buscar: ");
+        String plataforma = scanner.nextLine();
+        List<Integer> ids = invertedList.buscarPorPlataforma(plataforma);
+        if (ids.isEmpty()) {
+            System.out.println("Nenhum jogo encontrado para a plataforma: " + plataforma);
+        } else {
+            System.out.println("\n=== JOGOS ENCONTRADOS ===");
+            for (int id : ids) {
+                try {
+                    steam game = readGame(id);
+                    if (game != null) {
+                        System.out.println(game);
+                        System.out.println("----------------------------");
+                    }
+                } catch (IOException e) {
+                    System.err.println("Erro ao ler jogo com ID " + id + ": " + e.getMessage());
+                }
+            }
+        }
+    }
+    
+    private void buscarPorGeneroEPlataformaUI(InvertedList invertedList, Scanner scanner) {
+        System.out.print("Digite o gênero: ");
+        String genero = scanner.nextLine();
+        System.out.print("Digite a plataforma: ");
+        String plataforma = scanner.nextLine();
+        List<Integer> ids = invertedList.buscarPorGeneroEPlataforma(genero, plataforma);
+        if (ids.isEmpty()) {
+            System.out.println("Nenhum jogo encontrado para gênero " + genero + " e plataforma " + plataforma);
+        } else {
+            System.out.println("\n=== JOGOS ENCONTRADOS ===");
+            for (int id : ids) {
+                try {
+                    steam game = readGame(id);
+                    if (game != null) {
+                        System.out.println(game);
+                        System.out.println("----------------------------");
+                    }
+                } catch (IOException e) {
+                    System.err.println("Erro ao ler jogo com ID " + id + ": " + e.getMessage());
+                }
+            }
+        }
+    }}
