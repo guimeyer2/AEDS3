@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Algoritmos.ExternalSort;
 import Algoritmos.InvertedList;
 import controller.*;
 import Model.steam;

@@ -1,4 +1,4 @@
-package controller;
+package Algoritmos;
 
 import java.io.EOFException;
 import java.io.IOException;
