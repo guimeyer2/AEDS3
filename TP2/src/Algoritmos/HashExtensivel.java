@@ -1,236 +1,381 @@
 package Algoritmos;
 
-import java.io.EOFException;
-import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
-
-import Model.Registro;
 
 public class HashExtensivel {
-    private static final String ARQUIVO = "data/indexes/Hash.db";
-    private RandomAccessFile file;
-    private Diretorio diretorio;
-    private int bucketSize;
 
-    public HashExtensivel(int bucketSize) {
-        this.bucketSize = bucketSize;
-        try {
-            file = new RandomAccessFile(ARQUIVO, "rw");
-    
-            if (file.length() <= 4) {
-                inicializarArquivo();
-            } else {
-                try {
-                    file.seek(0);
-                    this.bucketSize = file.readInt();
-                    carregarDiretorio();
-                } catch (IOException e) {
-                    System.err.println("Arquivo corrompido. Recriando...");
-                    file.setLength(0); // Limpa o arquivo
-                    inicializarArquivo();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+  // Ponteiros
+  private int ptrGlobal; 
+  private int contBuckets; 
+  private long endBucket;
+  // Buckets
+  private int ptrLocal;
+  private int contReg; 
+  private int maxReg = 2972;
+  // Registros
+  private int tamReg = 12; 
+  private int idReg; 
+  private long endReg; 
 
-    private void inicializarArquivo() throws IOException {
-        file.seek(0);
-        file.writeInt(bucketSize);  // 4 bytes
-        
-        // Escreve cabeçalho do diretório (8 bytes)
-        file.writeInt(1); // profundidadeGlobal
-        file.writeInt(2); // quantidade de buckets
-        
-        // Escreve os endereços dos buckets (2 * 8 bytes = 16 bytes)
-        long posBucket1 = 28; // 4 (bucketSize) + 8 (header) + 16 (endereços) = 28
-        long posBucket2 = posBucket1 + calculateBucketSize();
-        
-        file.writeLong(posBucket1);
-        file.writeLong(posBucket2);
-        
-        // Agora escreve os buckets
-        Bucket b1 = new Bucket(bucketSize);
-        Bucket b2 = new Bucket(bucketSize);
-        
-        escreverBucketNaPosicao(b1, posBucket1);
-        escreverBucketNaPosicao(b2, posBucket2);
-    }
-    private int calculateBucketSize() {
-        // Tamanho fixo estimado para um bucket vazio
-        return 12; // 4 (profundidadeLocal) + 4 (maxRegistros) + 4 (size=0)
-    }
-    private void escreverBucketNaPosicao(Bucket bucket, long pos) throws IOException {
-        byte[] bytes = bucket.toByteArray();
-        file.seek(pos);
-        file.write(bytes);
-    }
+  // * Arquivos
+  public RandomAccessFile hashIndex;
+  public RandomAccessFile hashBuckets;
 
-    private void salvarDiretorio() throws IOException {
-        file.seek(4); // Pula o tamanho do bucket (4 bytes)
+  // * Ponteiros
+  public int getPtrGlobal() {
+    return ptrGlobal;
+  }
 
-        file.writeInt(diretorio.profundidadeGlobal);
-    
-        int tamanho = (int) Math.pow(2, diretorio.profundidadeGlobal);
-        for (int i = 0; i < tamanho; i++) {
-            file.writeLong(diretorio.enderecosBuckets[i]);
-        }
-    }
+  public void setPtrGlobal(int ptrGlobal) {
+    this.ptrGlobal = ptrGlobal;
+  }
 
-    private void carregarDiretorio() throws IOException {
-        file.seek(4); // Pula o bucketSize
-        
-        diretorio = new Diretorio(file.readInt());
-        int numBuckets = file.readInt();
-        
-        for (int i = 0; i < numBuckets; i++) {
-            diretorio.enderecosBuckets[i] = file.readLong();
-        }
-    }
+  public int getContBuckets() {
+    return contBuckets;
+  }
 
-    private long escreverBucket(Bucket bucket) throws IOException {
-        byte[] bytes = bucket.toByteArray();
-        long pos = file.length(); // Aponta para o final do arquivo
-    
-        file.seek(pos); // Vai para o fim do arquivo
-        file.writeInt(bytes.length); // Grava o tamanho
-        file.write(bytes);           // Grava os dados reais
-    
-        return pos; // Retorna o endereço do bucket
-    }
+  public void setContBuckets(int contBuckets) {
+    this.contBuckets = contBuckets;
+  }
 
-    private void escreverBucketComEndereco(Bucket b, long endereco) throws IOException {
-        byte[] bytes = b.toByteArray();
-        
-        file.seek(endereco);
-        file.writeInt(bytes.length);
-        file.write(bytes);
-    }
+  public long getEndBucket() {
+    return endBucket;
+  }
 
-    private Bucket lerBucket(long endereco) throws IOException {
-    if (endereco < 28) { // Os primeiros 28 bytes são do cabeçalho
-        throw new IOException("Endereço inválido para bucket: " + endereco);
-    }
-    
-    file.seek(endereco);
-    
-    Bucket bucket = new Bucket(bucketSize);
-    
+  public void setEndBucket(long endBucket) {
+    this.endBucket = endBucket;
+  }
+
+  // * Buckets
+  public int getPtrLocal() {
+    return ptrLocal;
+  }
+
+  public void setPtrLocal(int ptrLocal) {
+    this.ptrLocal = ptrLocal;
+  }
+
+  public int getContReg() {
+    return contReg;
+  }
+
+  public void setContReg(int contReg) {
+    this.contReg = contReg;
+  }
+
+  public int getMaxReg() {
+    return maxReg;
+  }
+
+  // * Registros
+  public int getTamReg() {
+    return tamReg;
+  }
+
+  public int getIdReg() {
+    return idReg;
+  }
+
+  public void setIdReg(int idReg) {
+    this.idReg = idReg;
+  }
+
+  public long getEndReg() {
+    return endReg;
+  }
+
+  public void setEndReg(long endReg) {
+    this.endReg = endReg;
+  }
+
+  // * Construtor
+  public HashExtensivel() {
+    // Ponteiros
+    this.ptrGlobal = 1;
+    this.contBuckets = 0;
+    this.endBucket = -1;
+    // Buckets
+    this.ptrLocal = 1;
+    this.contReg = 0;
+    this.maxReg = 2972;
+    // Registros
+    this.tamReg = 12;
+    this.idReg = -1;
+    this.endReg = -1;
+
     try {
-        bucket.profundidadeLocal = file.readInt();
-        bucket.maxRegistros = file.readInt();
-        int size = file.readInt();
-        
-        // Validação mais flexível para o número de registros
-        if (size < 0 || size > bucket.maxRegistros * 2) {
-            throw new IOException("Número inválido de registros: " + size);
+      this.hashIndex = new RandomAccessFile("./TP2/src/hashIndex.db", "rw"); // cria o arquivo de indice
+      this.hashBuckets = new RandomAccessFile("./TP2/src/hashBuckets.db", "rw"); // cria o arquivo de buckets
+
+      if (hashBuckets.length() == 0 && hashIndex.length() == 0) { 
+        // ponteiros no inicio do file
+        hashIndex.seek(0);
+        hashBuckets.seek(0);
+
+        hashIndex.writeInt(1); 
+        hashIndex.writeInt(2); 
+
+        for (int i = 0; i < 2; i++) {
+          hashIndex.writeLong(hashBuckets.getFilePointer()); 
+          hashBuckets.writeInt(1); 
+          hashBuckets.writeInt(0); 
+          for (int j = 0; j < maxReg; j++) { 
+            hashBuckets.writeInt(-1); 
+            hashBuckets.writeLong(-1); 
+          }
         }
-        
-        bucket.registros = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            Registro r = new Registro();
-            r.id = file.readInt();
-            r.end = file.readLong();
-            bucket.registros.add(r);
-        }
-    } catch (EOFException e) {
-        throw new IOException("Bucket incompleto no endereço " + endereco, e);
+        setContBuckets(2);
+      }
+    } catch (Exception e) {
+      System.out.println();
+      System.err.println(
+        "Erro ao criar os arquivos de buckets: " + e.getMessage()
+      );
+      e.printStackTrace();
     }
-    
-    return bucket;
-}
-    
+  }
 
+  
+  public void readCbAndPg() {
+    try {
+      hashIndex.seek(0); 
 
-    public synchronized void inserir(Registro r) {
-        try {
-            int hash = diretorio.hash(r.id);
-            long endereco = diretorio.enderecosBuckets[hash];
-            if (endereco < 0) {
-                // Criar novo bucket se o endereço for inválido
-                Bucket novoBucket = new Bucket(bucketSize);
-                novoBucket.inserir(r);
-                endereco = escreverBucket(novoBucket);
-                diretorio.enderecosBuckets[hash] = endereco;
-                salvarDiretorio();
-                return;
-            }
-            Bucket b = lerBucket(endereco);
+      // leitura da contagem de buckets
+      setPtrGlobal(hashIndex.readInt());
+      setContBuckets(hashIndex.readInt());
+    } catch (Exception e) {
+      System.out.println();
+      System.err.println(
+        "Erro ao ler ptrGlobal e contBuckets! " + e.getMessage()
+      );
+      e.printStackTrace();
+    }
+  }
 
+  public long funcaoHash(int id, int p) {
+    int qualBucket = id % ((int) Math.pow(2, p));
+    long posBucket = -1; // posicao do bucket no arquivo
 
-                if (!b.inserir(r)) {
-              
-                    b.profundidadeLocal++;
+    try {
+      hashIndex.seek(8); // posiciona o ponteiro no inicio do arquivo, pulando o ptrGlobal e a qtd de buckets
+      hashIndex.skipBytes(qualBucket * 8); // pula para o endereco do bucket certo
+      posBucket = hashIndex.readLong(); // le o endBucket
+    } catch (Exception e) {
+      System.out.println();
+      System.err.println("Erro no cálculo da função hash! " + e.getMessage());
+      e.printStackTrace();
+    }
 
-                    // Se a profundidade local agora é maior que a global, duplicar diretório
-                    if (b.profundidadeLocal > diretorio.profundidadeGlobal) {
-                        diretorio.duplicar();
-                        salvarDiretorio();
-                    }
+    return posBucket;
+  }
 
-                    // Criar novo bucket
-                    Bucket novoBucket = new Bucket(bucketSize);
-                    novoBucket.profundidadeLocal = b.profundidadeLocal;
+  // busca por um registro no hash
+  public long searchHash(int id) {
+    long posBucket = funcaoHash(id, getPtrGlobal());
 
-                    // Redistribuir registros
-                    List<Registro> todos = new ArrayList<>(b.registros);
-                    todos.add(r);  // adicionar o registro novo que causou o split
-                    b.registros.clear();
+    try {
+      hashBuckets.seek(posBucket + 4); // posiciona o ponteiro no inicio do bucket certo, pulando o ptrLocal
+      int registrosBucket = hashBuckets.readInt(); // le a contagem de registros do bucket
+      setContReg(registrosBucket);
 
-                    for (Registro reg : todos) {
-                        int novoHash = diretorio.hashComBits(reg.id, b.profundidadeLocal);
-                        if ((novoHash & 1) == 0) {
-                            b.registros.add(reg);
-                        } else {
-                            novoBucket.registros.add(reg);
-                        }
-                    }
+      // percorre o bucket sequencialmente
+      for (int i = 0; i < getContReg(); i++) {
+        // se o id do registro == ao id procurado
+        if (hashBuckets.readInt() == id) {
+          setEndReg(hashBuckets.readLong()); // le o endReg
+          return getEndReg();
+        } else {
+          hashBuckets.skipBytes(8); // pula para o proximo registro
+        }
+      }
+    } catch (Exception e) {
+      System.out.println("Erro ao procurar registro: " + e.getMessage());
+      e.printStackTrace();
+    }
+    return -1;
+  }
 
-                    long enderecoAntigo = endereco; // salve antes de reescrever
-                    long enderecoNovo = escreverBucket(novoBucket);
-                    enderecoAntigo = escreverBucket(b);
+  // apaga registro do hash
+  public boolean deleteInHash(int id, long endBucket) {
+    try {
+      hashBuckets.seek(endBucket + 4); // posiciona ptr no bucket certo, pulando o ptrLocal
+      setContReg(hashBuckets.readInt()); // le a contagem de registros do bucket
 
-                    // Atualizar ponteiros do diretório
-                    for (int i = 0; i < diretorio.enderecosBuckets.length; i++) {
-                        int prefix = i >> (diretorio.profundidadeGlobal - b.profundidadeLocal);
-                        if ((prefix & 1) == 0 && diretorio.enderecosBuckets[i] == endereco) {
-                            diretorio.enderecosBuckets[i] = enderecoAntigo;
-                        } else if ((prefix & 1) == 1 && diretorio.enderecosBuckets[i] == endereco) {
-                            diretorio.enderecosBuckets[i] = enderecoNovo;
-                        }
-                    }
+      for (int i = 0; i < 440; i++) { // percorre o bucket inteiro
+        if (hashBuckets.readInt() == id) { // se o id do registro for igual ao id do registro a excluir
+          hashBuckets.seek(hashBuckets.getFilePointer() - 4); // volta 4 bytes (idReg)
+          hashBuckets.writeInt(-1); // escreve -1 no idReg
+          hashBuckets.writeLong(-1); // escreve -1 no endReg
+          hashBuckets.seek(endBucket + 4); // posiciona o ponteiro no inicio do bucket certo, pulando o ptrLocal
+          hashBuckets.writeInt(getContReg() - 1); // atualiza a qtd de registros do bucket
+          return true;
+        } else {
+          hashBuckets.skipBytes(8); // pula para o proximo registro
+        }
+      }
+      return false;
+    } catch (Exception e) {
+      System.out.println();
+      System.out.println("Erro ao excluir registro: " + e.getMessage());
+      e.printStackTrace();
+      return false;
+    }
+  }
 
-                    salvarDiretorio();
-    
+  // insere registro no Hash
+  public long createInHash(int id, long endReg) {
+    long endBucketCheio = -1;
+    long aux = -1; // aux para valores tmp
+
+    try {
+      // se os arqs ja existirem
+      if (hashBuckets.length() != 0 && hashIndex.length() != 0) {
+        hashIndex.seek(0); // posiciona o ptr no inicio do arquivo
+        setPtrGlobal(hashIndex.readInt()); // le o ptrGlobal
+
+        // função hash
+        int qualBucket = id % ((int) Math.pow(2, getPtrGlobal()));
+
+        hashIndex.skipBytes(4); // pula o contBuckets
+        hashIndex.skipBytes(qualBucket * 8); // endereço do bucket correto
+        setEndBucket(hashIndex.readLong()); // leitura do endBucket
+
+        hashBuckets.seek(getEndBucket()); // posiciona o ptr no bucket certo
+        setPtrLocal(hashBuckets.readInt()); // le o ptrLocal
+        setContReg(hashBuckets.readInt()); // le a contagem de registros
+
+        // * Caso 1: bucket possui espaco livre
+        if (getContReg() < maxReg) {
+          hashBuckets.seek(getEndBucket() + 8); // posiciona o ptr no inicio do bucket, pulando o ptrLocal e a contReg
+
+          // percorre o bucket
+          for (int i = 0; i < maxReg; i++) {
+            // se o bucket estiver vazio
+            if (hashBuckets.readInt() == -1) {
+              hashBuckets.seek(hashBuckets.getFilePointer() - 4); // volta 4 bytes (idReg)
+              hashBuckets.writeInt(id); // escreve o idReg
+              hashBuckets.writeLong(endReg); // escreve o endReg
+              hashBuckets.seek(getEndBucket() + 4); // posiciona o ponteiro no inicio do bucket, pulando o ptrLocal
+              hashBuckets.writeInt(getContReg() + 1); // atualiza a contagem de registros
+              i = maxReg;
             } else {
-                escreverBucketComEndereco(b, endereco);
-
+              hashBuckets.skipBytes(8); // pula para o proximo registro
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            try {
-                Bucket novoBucket = new Bucket(bucketSize);
-                novoBucket.inserir(r);
-                long endereco = escreverBucket(novoBucket);
-                // Atualizar diretório se necessário
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+          }
 
-    public Registro buscar(int id) {
-        try {
-            int hash = diretorio.hash(id);
-            long endereco = diretorio.enderecosBuckets[hash];
-            Bucket b = lerBucket(endereco);
-            return b.buscar(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+          return getEndBucket();
         }
+        // * Caso 2: bucket sem espaço e ptrLocal < ptrGlobal
+        else if ((getContReg() == maxReg) && (getPtrLocal() < getPtrGlobal())) {
+          // atualiza o ptrLocal
+          hashBuckets.seek(getEndBucket()); // posiciona o ponteiro no inicio do bucket
+          setPtrLocal(getPtrGlobal()); // atualiza o ptrLocal
+          hashBuckets.writeInt(getPtrLocal()); // atualiza o ptrLocal no arquivo
+
+          // cria bucket novo
+          hashBuckets.seek(hashBuckets.length()); // posiciona o ponteiro no final do arquivo
+          endBucketCheio = getEndBucket(); // armazena o endBucket do bucket cheio
+          criaBucket(); // cria um novo bucket
+
+          // atualiza o ptr do novo bucket
+          hashIndex.seek(8); // posiciona o ponteiro no inicio do arquivo, pulando o ptrGlobal e o contBuckets
+          for (int i = 0; i < (hashIndex.length() - 8); i++) {
+            // se endBucket == endBucket do bucket que foi dividido
+            if (hashIndex.readLong() == endBucketCheio) {
+              i = (int) (hashIndex.length() - 8); // sai do loop
+            }
+          }
+          while (hashIndex.getFilePointer() < hashIndex.length()) { // percorre o arquivo indexado
+            if (hashIndex.readLong() == endBucketCheio) { // se o endBucket == endBucket do bucket que foi dividido
+              hashIndex.seek(hashIndex.getFilePointer() - 8); // volta o ponteiro para o endBucket
+              hashIndex.writeLong(getEndBucket()); // move o ponteiro para o novo endBucket
+              break;
+            }
+          }
+
+          // redistribuir os registros do bucket cheio
+          aux = endBucketCheio + 8;
+          for (int i = 0; i < 440; i++) { // percorre o bucket
+            hashBuckets.seek(aux);
+            if (hashBuckets.readInt() != -1) {
+              hashBuckets.seek(hashBuckets.getFilePointer() - 4); // volta 4 bytes (idReg)
+              setIdReg(hashBuckets.readInt()); // le o idReg
+              setEndReg(hashBuckets.readLong()); // le o endReg
+              aux = hashBuckets.getFilePointer();
+              deleteInHash(getIdReg(), endBucketCheio); // exclui o registro do bucket cheio
+              createInHash(getIdReg(), getEndReg());
+            } else {
+              aux += 12; // pula para o proximo registro
+            }
+          }
+
+          // insere o novo registro
+          createInHash(id, endReg);
+        }
+        // * Caso 3: bucket sem espaco e ptrLocal == ptrGlobal
+        else if (
+          (getContReg() == maxReg) && (getPtrLocal() == getPtrGlobal())
+        ) {
+          aumentaProfundidade();
+          createInHash(id, endReg);
+          return getEndBucket();
+        }
+      }
+      return -1;
+    } catch (Exception e) {
+      System.out.println();
+      System.out.println("Erro ao createInHash: " + e.getMessage());
+      e.getStackTrace();
+      return -1;
     }
+  }
+
+  // aumenta a profundidade do hash
+  public void aumentaProfundidade() {
+    try {
+      int qtdPointersAntigo = ((int) Math.pow(2, getPtrGlobal())); // armazena a cont de ponteiros antes do aumento do ptrGlobal
+      setPtrGlobal(getPtrGlobal() + 1); // atualiza o ptrGlobal
+
+      hashIndex.seek(0); // posiciona o ptr no inicio do arquivo
+      hashIndex.writeInt(getPtrGlobal()); // escreve o novo ptrGlobal
+      hashIndex.skipBytes(4); // pula os 4 bytes da qtd de buckets
+
+      for (int i = 1; i <= qtdPointersAntigo; i++) {
+        setEndBucket(hashIndex.readLong()); // le o endBucket
+        hashIndex.seek(hashIndex.length()); // posiciona o ponteiro no final do arquivo
+        hashIndex.writeLong(getEndBucket()); // escreve o endBucket do novo pointer
+        hashIndex.seek((i * 8) + 8); // posiciona o ponteiro depois do pointer lido, pulando ptrGlobal e contBuckets
+      }
+    } catch (Exception e) {
+      System.out.println();
+      System.out.println(
+        "Erro ao aumentar a profundidade do Hash! " + e.getMessage()
+      );
+      e.printStackTrace();
+    }
+  }
+
+  // cria um novo bucket
+  public void criaBucket() {
+    try {
+      hashBuckets.seek(hashBuckets.length()); // posiciona o ponteiro no final do arquivo
+      setEndBucket(hashBuckets.getFilePointer()); // armazena o novo endBucket
+
+      hashBuckets.writeInt(getPtrGlobal()); // escreve o ptrLocal
+      hashBuckets.writeInt(0); // escreve a cont de registros (bucket inicia vazio)
+
+      for (int i = 0; i < maxReg; i++) { // registros vazios
+        hashBuckets.writeInt(-1); // escreve o idReg
+        hashBuckets.writeLong(-1); // escreve o endReg
+      }
+
+      setContBuckets(getContBuckets() + 1); // atualiza a cont de buckets escritos no arquivo
+      hashIndex.seek(4); // posiciona o ptr no inicio do arquivo, pulando o ptrGlobal
+      hashIndex.writeInt(getContBuckets()); // escreve a cont de buckets
+    } catch (Exception e) {
+      System.out.println();
+      System.out.println("Erro ao criar novo bucket: " + e.getMessage());
+      e.printStackTrace();
+    }
+  }
 }

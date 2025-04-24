@@ -1,168 +1,193 @@
 package controller;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.annotation.processing.FilerException;
+
 import Algoritmos.ExternalSort;
+import Algoritmos.HashExtensivel;
 import Algoritmos.InvertedList;
 import controller.*;
 import Model.steam;
 
-public class Main {
-    public static void main(String[] args) {
-        Actions actions = new Actions(); // Instância da classe que gerencia as operações do CRUD
-        Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados pelo usuário
-        ExternalSort sorter = new ExternalSort(); // Instância do algoritmo de ordenação externa
-        
+
+
+public class Main extends HashCrud {
+
+    private int selected;
+    private Scanner sc;
+    public  Main() {
+      this.selected = 0;
+    }
+    public void executeMenu() {
         try {
-            actions.openFile(); // Abre o arquivo contendo os dados
+          selected = 0;
+          this.openFile();
+          this.selectOption();
+          this.executeOption();
+        } catch (Exception e) {
+          System.err.println("Erro ao executar Menu: " + e);
+        }
+      }
+      public void selectOption() {
+        System.out.println("1. Carregar dados do CSV");
+        System.out.println("2. Criar jogo");
+        System.out.println("3. Ler jogo");
+        System.out.println("4. Atualizar jogo");
+        System.out.println("5. Deletar jogo");
+        System.out.println("6. Carregar dados para o Hash");
+        System.out.println("7. Ver game utilizando Hash");
+        System.out.println("8. Criar game utilizando Hash");
+        System.out.println("9. Deletar game utilizando Hash");
+        System.out.println("10. Sair");
+        
+        
+        System.out.print("Escolha uma opção: ");
+        int input = Integer.parseInt(sc.nextLine()); // input do usuário
+    
+        if (input < 1 || input > 10) {
+          System.out.println(
+            "\nOpção inválida inserida, por favor tente novamente:"
+          );
+          input = Integer.parseInt(sc.nextLine());
+        }
+    
+        selected = input;
+      }
+      public void executeOption() throws FileNotFoundException {
+        Actions actions = new Actions();
+        ExternalSort sorter = new ExternalSort();
+    
+        try {
+            actions.openFile(); // Tenta abrir o arquivo
         } catch (IOException e) {
             System.err.println("Erro ao abrir arquivo: " + e.getMessage());
-            return; // Sai do programa caso haja erro ao abrir o arquivo
+            return;
         }
-
-        while (true) {
-            // Exibição do menu
-            System.out.println("\n==== MENU ====");
-            System.out.println("1. Carregar dados do CSV(Se o arquivo Db estiver vazio)");
-            System.out.println("2. Criar jogo");
-            System.out.println("3. Ler jogo");
-            System.out.println("4. Atualizar jogo");
-            System.out.println("5. Deletar jogo");
-            System.out.println("6. Ordenação Externa");
-            System.out.println("7. Ordenação Indexada");
-            System.out.println("8. Sair");
-            
-            System.out.print("Escolha uma opção: ");
-
-            int choice = scanner.nextInt(); // Captura a escolha do usuário
-            scanner.nextLine();
-
-            switch (choice) {
+    
+        try {
+            switch (this.selected) {
                 case 1:
-                    actions.loadData(); // Carrega dados do CSV se o banco estiver vazio
+                    actions.loadData();
                     break;
+    
                 case 2:
-                    // Criação de um novo jogo
                     System.out.print("Digite o ID do jogo: ");
-                    int id = scanner.nextInt();
-                    scanner.nextLine();
+                    int id = Integer.parseInt(sc.nextLine());
                     System.out.print("Digite o nome do jogo: ");
-                    String name = scanner.nextLine();
+                    String name = sc.nextLine();
                     System.out.print("Digite a data de lançamento (AAAA-MM-DD): ");
-                    LocalDate date = LocalDate.parse(scanner.nextLine());
+                    LocalDate date = LocalDate.parse(sc.nextLine());
                     System.out.print("Digite as plataformas (separadas por vírgula): ");
-                    String[] plats = scanner.nextLine().split(",");
                     ArrayList<String> platforms = new ArrayList<>();
-                    for (String p : plats) {
-                        platforms.add(p.trim());
-                    }
+                    for (String p : sc.nextLine().split(",")) platforms.add(p.trim());
                     System.out.print("Digite o gênero do jogo: ");
-                    String genre = scanner.nextLine();
+                    String genre = sc.nextLine();
                     String launchBefore2010 = date.getYear() < 2010 ? "SIM" : "NAO";
+    
                     steam newGame = new steam(id, name, date, platforms, genre, launchBefore2010);
-                    if (actions.createGame(newGame)) {
-                        System.out.println("Jogo criado com sucesso!");
-                    } else {
-                        System.out.println("Erro ao criar jogo.");
-                    }
+                    System.out.println(actions.createGame(newGame) ? "Jogo criado com sucesso!" : "Erro ao criar jogo.");
                     break;
+    
                 case 3:
-                    // Leitura de um jogo pelo ID
-                    try {
-                        System.out.print("Digite o ID do jogo para leitura: ");
-                        int searchId = scanner.nextInt();
-                        steam game = actions.readGame(searchId);
-                        if (game != null) {
-                            System.out.println("\n===== 🎮 JOGO ENCONTRADO =====");
-                            System.out.println(game);
-                            System.out.println("================================");
-                        } else {
-                            System.out.println("🚫 Jogo não encontrado.");
-                        }
-                    } catch (IOException e) {
-                        System.err.println("❌ Erro ao ler jogo: " + e.getMessage());
+                    System.out.print("Digite o ID do jogo para leitura: ");
+                    int searchId = Integer.parseInt(sc.nextLine());
+                    steam game = actions.readGame(searchId);
+                    if (game != null) {
+                        System.out.println("\n===== 🎮 JOGO ENCONTRADO =====");
+                        System.out.println(game);
+                        System.out.println("================================");
+                    } else {
+                        System.out.println("🚫 Jogo não encontrado.");
                     }
                     break;
+    
                 case 4:
-                    // Atualização de um jogo existente
                     System.out.print("Digite o ID do jogo para atualizar: ");
-                    int updateId = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.print("Digite o novo nome do jogo: ");
-                    String newName = scanner.nextLine();
+                    int updateId = Integer.parseInt(sc.nextLine());
+                    System.out.print("Digite o novo nome: ");
+                    String newName = sc.nextLine();
                     System.out.print("Digite a nova data de lançamento (AAAA-MM-DD): ");
-                    LocalDate newDate = LocalDate.parse(scanner.nextLine());
-                    System.out.print("Digite as novas plataformas (separadas por vírgula): ");
-                    String[] newPlats = scanner.nextLine().split(",");
+                    LocalDate newDate = LocalDate.parse(sc.nextLine());
+                    System.out.print("Digite as novas plataformas: ");
                     ArrayList<String> newPlatforms = new ArrayList<>();
-                    for (String p : newPlats) {
-                        newPlatforms.add(p.trim());
-                    }
-                    System.out.print("Digite o novo gênero do jogo: ");
-                    String newGenre = scanner.nextLine();
+                    for (String p : sc.nextLine().split(",")) newPlatforms.add(p.trim());
+                    System.out.print("Digite o novo gênero: ");
+                    String newGenre = sc.nextLine();
                     String newLaunchBefore2010 = newDate.getYear() < 2010 ? "SIM" : "NAO";
                     steam updatedGame = new steam(updateId, newName, newDate, newPlatforms, newGenre, newLaunchBefore2010);
-                    if (actions.updateGame(updateId, updatedGame)) {
-                        System.out.println("Jogo atualizado com sucesso!");
-                    } else {
-                        System.out.println("Erro ao atualizar jogo.");
-                    }
+                    System.out.println(actions.updateGame(updateId, updatedGame) ? "Atualizado com sucesso!" : "Erro ao atualizar.");
                     break;
+    
                 case 5:
-                    // Exclusão de um jogo
                     System.out.print("Digite o ID do jogo para deletar: ");
-                    int deleteId = scanner.nextInt();
+                    int deleteId = Integer.parseInt(sc.nextLine());
                     steam deletedGame = actions.deleteGame(deleteId);
-                    if (deletedGame != null) {
-                        System.out.println("Jogo deletado: " + deletedGame);
+                    System.out.println(deletedGame != null ? "Jogo deletado: " + deletedGame : "Erro ao deletar jogo.");
+                    break;
+    
+                case 6:
+                    System.out.println("Carregando dados para Hash...");
+                    this.loadDataToHash();
+                    System.out.println("Dados carregados para Hash com sucesso!");
+                    break;
+    
+                case 7:
+                    System.out.print("Insira o ID do game: ");
+                    int searchHashId = Integer.parseInt(sc.nextLine());
+                    steam foundHash = this.readHashh(searchHashId);
+                    if (foundHash != null) {
+                        System.out.println("\n===== JOGO ENCONTRADO COM HASH =====");
+                        System.out.println(foundHash);
                     } else {
-                        System.out.println("Erro ao deletar jogo.");
+                        System.out.println("Game não encontrado ou deletado.");
                     }
                     break;
-                case 6:
-                    // Ordenação externa
-                    System.out.print("Digite o número de caminhos: ");
-                    int numCaminhos = scanner.nextInt();
-                    System.out.print("Digite o número máximo de registros na memória: ");
-                    int maxRegistrosMemoria = scanner.nextInt();
-                    sorter.externalSort(numCaminhos, maxRegistrosMemoria);
+    
+                case 8:
+                    this.createHashh(new steam());
+                    System.out.println("Game criado com Hash!");
                     break;
-                // No arquivo Main.java, modifique o case 7 (opção de indexação):
-                case 7:
-                System.out.println("=== Tipo de Indexação ===");
-                System.out.println("1 - Árvore");
-                System.out.println("2 - Hash");
-                System.out.println("3 - Lista Invertida");
-                System.out.print("Escolha o tipo de indexação: ");
-                int tipo = scanner.nextInt();
-                scanner.nextLine(); // Limpa o buffer
-                
-                switch (tipo) {
-                    case 1:
-                        System.out.println("Árvore ainda não implementada.");
-                        break;
-                    case 2:
-                        System.out.println("Hash ainda não implementado.");
-                        break;
-                    case 3:
-                        System.out.println("Executando Lista Invertida...");
-                        actions.menuListaInvertida(scanner);
-                        break;
-                    default:
-                        System.out.println("Opção inválida.");
-                }
-                break;
-case 8:
-    System.out.println("Saindo...");
-    scanner.close();
-    return;
-
+    
+                case 9:
+                    System.out.print("Insira o ID para deletar com Hash: ");
+                    int delHashId = Integer.parseInt(sc.nextLine());
+                    steam deletedHash = deleteHashh(delHashId);
+                    System.out.println(deletedHash != null ? "Game deletado com Hash." : "Erro ao deletar com Hash.");
+                    break;
+    
+                case 10:
+                    System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
+                    sc.close();
+                    this.closeFile();
+                    break;
+    
                 default:
-                    System.out.println("Opção inválida, tente novamente.");
+                    System.out.println("Opção inválida.");
+                    break;
             }
+    
+        } catch (Exception e) {
+            System.err.println("Erro na função executeOption: " + e.getMessage());
         }
     }
-}//comentario e a
+    public void setScanner(Scanner sc) {
+        this.sc = sc;
+    }
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            Main menu = new Main();
+            menu.setScanner(scanner);  // Injeção do scanner externo
+            menu.executeMenu();
+        }
+    }
+    
+    
+}
+
+//comentario e algumas melhorias feitas por IA

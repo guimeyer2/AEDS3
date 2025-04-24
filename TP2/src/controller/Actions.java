@@ -1,11 +1,11 @@
 
 package controller;
 
+import Model.Registro;
 import Model.steam;
 import java.io.*;
 import java.time.LocalDate;
-import java.util.*;
-import Algoritmos.InvertedList;
+import java.util.ArrayList;
 
 public class Actions {
 
@@ -194,119 +194,4 @@ public class Actions {
         }
         return null;
     }
-    public void menuListaInvertida(Scanner scanner) {
-        InvertedList invertedList = new InvertedList();
-        
-        // Verifica e constrói as listas se necessário
-        if (new File("src/temp/invertedGenero.db").length() == 0 || 
-            new File("src/temp/invertedPlataforma.db").length() == 0) {
-            System.out.println("Construindo listas invertidas pela primeira vez...");
-            invertedList.construirListas();
-        }
-    
-        while (true) {
-            System.out.println("\n=== MENU LISTA INVERTIDA ===");
-            System.out.println("1. Buscar por Gênero");
-            System.out.println("2. Buscar por Plataforma");
-            System.out.println("3. Buscar por Gênero e Plataforma");
-            System.out.println("4. Listar Tudo (Debug)");
-            System.out.println("5. Voltar ao Menu Principal");
-            System.out.print("Escolha uma opção: ");
-            
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer
-            
-            switch (choice) {
-                case 1:
-                    buscarPorGeneroUI(invertedList, scanner);
-                    break;
-                    
-                case 2:
-                    buscarPorPlataformaUI(invertedList, scanner);
-                    break;
-                    
-                case 3:
-                    buscarPorGeneroEPlataformaUI(invertedList, scanner);
-                    break;
-                    
-                case 4:
-                    invertedList.listarTudo();
-                    break;
-                    
-                case 5:
-                    invertedList.close();
-                    return;
-                    
-                default:
-                    System.out.println("Opção inválida.");
-            }
-        }
-    }
-    
-    private void buscarPorGeneroUI(InvertedList invertedList, Scanner scanner) {
-        System.out.print("Digite o gênero para buscar: ");
-        String genero = scanner.nextLine();
-        List<Integer> ids = invertedList.buscarPorGenero(genero);
-        if (ids.isEmpty()) {
-            System.out.println("Nenhum jogo encontrado para o gênero: " + genero);
-        } else {
-            System.out.println("\n=== JOGOS ENCONTRADOS ===");
-            for (int id : ids) {
-                try {
-                    steam game = readGame(id);
-                    if (game != null) {
-                        System.out.println(game);
-                        System.out.println("----------------------------");
-                    }
-                } catch (IOException e) {
-                    System.err.println("Erro ao ler jogo com ID " + id + ": " + e.getMessage());
-                }
-            }
-        }
-    }
-    
-    private void buscarPorPlataformaUI(InvertedList invertedList, Scanner scanner) {
-        System.out.print("Digite a plataforma para buscar: ");
-        String plataforma = scanner.nextLine();
-        List<Integer> ids = invertedList.buscarPorPlataforma(plataforma);
-        if (ids.isEmpty()) {
-            System.out.println("Nenhum jogo encontrado para a plataforma: " + plataforma);
-        } else {
-            System.out.println("\n=== JOGOS ENCONTRADOS ===");
-            for (int id : ids) {
-                try {
-                    steam game = readGame(id);
-                    if (game != null) {
-                        System.out.println(game);
-                        System.out.println("----------------------------");
-                    }
-                } catch (IOException e) {
-                    System.err.println("Erro ao ler jogo com ID " + id + ": " + e.getMessage());
-                }
-            }
-        }
-    }
-    
-    private void buscarPorGeneroEPlataformaUI(InvertedList invertedList, Scanner scanner) {
-        System.out.print("Digite o gênero: ");
-        String genero = scanner.nextLine();
-        System.out.print("Digite a plataforma: ");
-        String plataforma = scanner.nextLine();
-        List<Integer> ids = invertedList.buscarPorGeneroEPlataforma(genero, plataforma);
-        if (ids.isEmpty()) {
-            System.out.println("Nenhum jogo encontrado para gênero " + genero + " e plataforma " + plataforma);
-        } else {
-            System.out.println("\n=== JOGOS ENCONTRADOS ===");
-            for (int id : ids) {
-                try {
-                    steam game = readGame(id);
-                    if (game != null) {
-                        System.out.println(game);
-                        System.out.println("----------------------------");
-                    }
-                } catch (IOException e) {
-                    System.err.println("Erro ao ler jogo com ID " + id + ": " + e.getMessage());
-                }
-            }
-        }
-    }}
+}
