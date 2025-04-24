@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Algoritmos.InvertedList;
 import controller.*;
 import Model.steam;
 
@@ -30,7 +32,9 @@ public class Main {
             System.out.println("4. Atualizar jogo");
             System.out.println("5. Deletar jogo");
             System.out.println("6. Ordenação Externa");
-            System.out.println("7. Sair");
+            System.out.println("7. Ordenação Indexada");
+            System.out.println("8. Sair");
+            
             System.out.print("Escolha uma opção: ");
 
             int choice = scanner.nextInt(); // Captura a escolha do usuário
@@ -127,10 +131,34 @@ public class Main {
                     sorter.externalSort(numCaminhos, maxRegistrosMemoria);
                     break;
                 case 7:
-                    // Encerramento do programa
-                    System.out.println("Saindo...");
-                    scanner.close();
-                    return;
+                    System.out.println("=== Tipo de Indexação ===");
+                    System.out.println("1 - Árvore");
+                    System.out.println("2 - Hash");
+                    System.out.println("3 - Lista Invertida");
+                    System.out.print("Escolha o tipo de indexação: ");
+                    int tipo = scanner.nextInt();
+                    scanner.nextLine(); // Limpa o buffer
+            switch (tipo) {
+                    case 1:
+                        System.out.println("Árvore ainda não implementada.");
+                    break;
+                    case 2:
+                        System.out.println("Hash ainda não implementado.");
+                    break;
+                    case 3:
+                        System.out.println("Executando Lista Invertida...");
+                        InvertedList invertedList = new InvertedList();
+                        invertedList.run(); // Supondo que você tenha um método 'run()' para executar o processo
+                        break;
+        default:
+            System.out.println("Opção inválida.");
+    }
+    break;
+case 8:
+    System.out.println("Saindo...");
+    scanner.close();
+    return;
+
                 default:
                     System.out.println("Opção inválida, tente novamente.");
             }
