@@ -4,6 +4,7 @@ import controller.Actions;
 import Model.steam;
 import Algoritmos.HashExtensivel;
 
+import java.io.EOFException;
 import java.io.RandomAccessFile;
 
 public class HashCrud extends Actions {
@@ -32,42 +33,53 @@ public class HashCrud extends Actions {
 
   // * Load dados do DB no Hash indexado
   public void loadDataToHash() {
-    try (RandomAccessFile file = new RandomAccessFile("./TP2/src/steam.db", "rw")) {
-      long ultimaPos = file.length(); // ← mais seguro
-      file.seek(13); // ignora cabeçalho, se existir
-  
-      while (file.getFilePointer() < ultimaPos) {
-        long pos = file.getFilePointer(); // posição do registro
-  
-        int tam = file.readInt(); // tamanho do registro
-        System.out.println("tamanho do registro " + tam);
-  
-        if (tam <= 0 || tam > 10000) {
-          System.err.println("Tamanho inválido: " + tam + " em pos " + pos);
-          break;
+    try {
+        RandomAccessFile file = new RandomAccessFile("./TP2/src/steam.db", "rw");
+        long ultimaPos = file.readLong();
+        file.seek(8); // Posição inicial após o ponteiro global
+
+        while (file.getFilePointer() < ultimaPos) {
+            long pos = file.getFilePointer();
+            int tam = file.readInt();
+
+            if (tam == 0) { 
+                System.out.println("Registro ignorado (tamanho 0) em pos " + pos);
+                continue;
+            }
+
+            if (tam < 1 || tam > 1048576) { // Verifica se o tamanho do registro é razoável
+                System.out.println("Tamanho inválido: " + tam + " em pos " + pos);
+                continue;
+            }
+
+            System.out.println("tamanho do registro " + tam);
+            byte[] arr = new byte[tam];
+            file.read(arr);
+
+            try {
+                // Criação do objeto steam a partir do array de bytes
+                steam aux = new steam();
+                aux.fromByteArray(arr); // Desserializa o registro
+
+                System.out.println("objeto adicionado: id " + aux.getAppid());
+                hash.createInHash(aux.getAppid(), pos); // Adiciona no hash
+
+                System.out.println("inserido no hash");
+            } catch (Exception e) {
+                System.err.println("Erro ao desserializar o registro em pos " + pos + ": " + e.getMessage());
+            }
         }
-  
-        byte[] arr = new byte[tam];
-        file.readFully(arr); // ← aqui está a segurança
-  
-        steam aux = new steam();
-        try {
-          aux.fromByteArray(arr);
-          System.out.println("objeto adicionado: id " + aux.getAppid());
-  
-          // insere no hash
-          hash.createInHash(aux.getAppid(), pos);
-          System.out.println("inserido no hash\n");
-        } catch (Exception e) {
-          System.err.println("Erro ao desserializar: " + e.getMessage());
-          // continua lendo os próximos
-        }
-      }
-  
+
+        file.close();
+
+    } catch (EOFException e) {
+        System.err.println("Erro de EOF encontrado, possivelmente devido a dados corrompidos ou leitura incompleta.");
     } catch (Exception e) {
-      System.err.println("Erro ao carregar dados para o Hash: " + e);
+        System.err.println("Erro ao carregar dados para o Hash: " + e);
     }
-  }
+}
+
+
   
 
   // * Buscar registro usando hash indexado
