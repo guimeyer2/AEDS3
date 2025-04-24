@@ -2,10 +2,13 @@
 
 package controller;
 
+import Model.Registro;
 import Model.steam;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import Algoritmos.HashExtensivel;
 
 public class Actions {
 
@@ -272,4 +275,6 @@ public class Actions {
         }
         return null;
     }
+   
+
 }

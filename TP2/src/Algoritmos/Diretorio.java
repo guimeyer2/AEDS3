@@ -1,4 +1,4 @@
-package controller;
+package Algoritmos;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
