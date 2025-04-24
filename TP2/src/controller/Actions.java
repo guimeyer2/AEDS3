@@ -14,7 +14,7 @@ public class Actions {
     RandomAccessFile file; // Arquivo de banco de dados
 
     public void openFile() throws IOException {
-        File dbFile = new File("TP1/src/steam.db");
+        File dbFile = new File("TP2/src/steam.db");
     
         
        
@@ -44,8 +44,8 @@ public class Actions {
     }
     // Método para carregar dados de um CSV para o banco de dados
     public void loadData() {
-        try (BufferedReader csv = new BufferedReader(new FileReader("TP1/src/steam2.csv"));
-             RandomAccessFile write = new RandomAccessFile("TP1/src/steam.db", "rw")) {
+        try (BufferedReader csv = new BufferedReader(new FileReader("TP2/src/steam2.csv"));
+             RandomAccessFile write = new RandomAccessFile("TP2/src/steam.db", "rw")) {
 
             csv.readLine();
             write.writeInt(0); // Reinicializa o maior ID

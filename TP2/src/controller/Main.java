@@ -148,7 +148,6 @@ public class Main {
                     case 3:
                         System.out.println("Executando Lista Invertida...");
                         InvertedList invertedList = new InvertedList();
-                        invertedList.run(); // Supondo que você tenha um método 'run()' para executar o processo
                         break;
         default:
             System.out.println("Opção inválida.");
