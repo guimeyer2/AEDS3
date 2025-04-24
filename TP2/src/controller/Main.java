@@ -6,9 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import javax.annotation.processing.FilerException;
-
 import Algoritmos.ExternalSort;
 import Algoritmos.HashExtensivel;
 import Algoritmos.InvertedList;
@@ -44,7 +42,8 @@ public class Main extends HashCrud {
         System.out.println("7. Ver game utilizando Hash");
         System.out.println("8. Criar game utilizando Hash");
         System.out.println("9. Deletar game utilizando Hash");
-        System.out.println("10. Sair");
+        System.out.println("10. Ordenar utilizando lista invertida");
+        System.out.println("11. Sair");
         
         
         System.out.print("Escolha uma opção: ");
@@ -160,8 +159,12 @@ public class Main extends HashCrud {
                     steam deletedHash = deleteHashh(delHashId);
                     System.out.println(deletedHash != null ? "Game deletado com Hash." : "Erro ao deletar com Hash.");
                     break;
-    
-                case 10:
+                    
+                    case 10:
+                    System.out.println("Executando Lista Invertida...");
+                    actions.menuListaInvertida(sc);
+                    break;
+                case 11:
                     System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
                     sc.close();
                     this.closeFile();
