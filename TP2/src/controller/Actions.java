@@ -5,6 +5,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 import Algoritmos.InvertedList;
+import Algoritmos.BTree;
 
 public class Actions {
 
@@ -182,6 +183,7 @@ public class Actions {
                 if (tombstone == 0 && isGameValid(temp, id)) {
                     file.seek(regPos);
                     file.writeByte(1);
+                    
                     steam aux = new steam();
                     aux.fromByteArray(temp);
                     return aux;
@@ -193,6 +195,250 @@ public class Actions {
         }
         return null;
     }
+    public void menuArvoreB(Scanner scanner) throws IOException {
+        BTree bTree = new BTree();
+        
+        // Verifica se o índice já existe, se não, oferece para criá-lo
+        File indexFile = new File("TP2/src/btree_index.db");
+        if (!indexFile.exists() || indexFile.length() == 0) {
+            System.out.println("Índice da Árvore B não encontrado. Deseja criar? (S/N)");
+            String resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("S")) {
+                System.out.println("Criando índice da Árvore B...");
+                bTree = new BTree(5); // Cria uma nova árvore com ordem 5
+                bTree.carregarDados("TP2/src/steam.db");
+                System.out.println("Índice criado com sucesso!");
+            }
+        }
+        
+        while (true) {
+            System.out.println("\n=== MENU ÁRVORE B ===");
+            System.out.println("1. Buscar jogo por ID");
+            System.out.println("2. Inserir novo jogo no índice");
+            System.out.println("3. Atualizar endereço de um jogo");
+            System.out.println("4. Remover jogo do índice");
+            System.out.println("5. Recriar índice");
+            System.out.println("6. Voltar ao Menu Principal");
+            System.out.print("Escolha uma opção: ");
+            
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Limpa o buffer
+            
+            switch (choice) {
+                case 1:
+                    buscarJogoPorIdUI(bTree, scanner);
+                    break;
+                    
+                case 2:
+                    inserirJogoUI(bTree, scanner);
+                    break;
+                    
+                case 3:
+                    atualizarEnderecoUI(bTree, scanner);
+                    break;
+                    
+                case 4:
+                    removerJogoUI(bTree, scanner);
+                    break;
+                    
+                case 5:
+                    recriarIndiceUI(bTree, scanner);
+                    break;
+                    
+                case 6:
+                    bTree.close();
+                    return;
+                    
+                default:
+                    System.out.println("Opção inválida.");
+            }
+        }
+    }
+    
+    private void buscarJogoPorIdUI(BTree bTree, Scanner scanner) {
+        System.out.print("Digite o ID do jogo para buscar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+        
+        long endereco = bTree.procurar(id);
+        if (endereco == -1) {
+            System.out.println("Jogo com ID " + id + " não encontrado no índice.");
+        } else {
+            try {
+                // Posiciona o arquivo no endereço encontrado na árvore
+                file.seek(endereco);
+                byte tombstone = file.readByte();
+                int tam = file.readInt();
+                byte[] dados = new byte[tam];
+                file.read(dados);
+                
+                // Verifica se o registro não está excluído
+                if (tombstone == 0) {
+                    steam game = new steam();
+                    game.fromByteArray(dados);
+                    System.out.println("\n=== JOGO ENCONTRADO ===");
+                    System.out.println(game);
+                    System.out.println("Endereço no arquivo: " + endereco);
+                } else {
+                    System.out.println("Registro encontrado no índice, mas está marcado como excluído.");
+                }
+            } catch (IOException e) {
+                System.err.println("Erro ao ler o jogo do arquivo: " + e.getMessage());
+            }
+        }
+    }
+    
+    private void inserirJogoUI(BTree bTree, Scanner scanner) throws IOException {
+        System.out.println("\nInsira os dados do novo jogo:");
+        System.out.print("ID (appid): ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+        
+        // Verifica se o ID já existe na árvore
+        if (bTree.procurar(id) != -1) {
+            System.out.println("Jogo com ID " + id + " já existe no índice.");
+            return;
+        }
+        
+        System.out.print("Nome: ");
+        String nome = scanner.nextLine();
+        
+        System.out.print("Data de lançamento (YYYY-MM-DD): ");
+        LocalDate releaseDate;
+        try {
+            releaseDate = LocalDate.parse(scanner.nextLine());
+        } catch (Exception e) {
+            System.out.println("Formato de data inválido. Operação cancelada.");
+            return;
+        }
+        
+        System.out.print("Plataformas (separadas por ;): ");
+        String plataformasInput = scanner.nextLine();
+        ArrayList<String> plataformas = new ArrayList<>();
+        if (!plataformasInput.isEmpty()) {
+            for (String plataforma : plataformasInput.split(";")) {
+                plataformas.add(plataforma.trim());
+            }
+        }
+        
+        System.out.print("Gênero: ");
+        String genero = scanner.nextLine();
+        
+        System.out.print("Desenvolvedor: ");
+        String dev = scanner.nextLine();
+        
+        // Criar o objeto steam e inserir no arquivo de dados
+        steam novoJogo = new steam(id, nome, releaseDate, plataformas, genero, dev);
+        if (createGame(novoJogo)) {
+            // Obter a posição onde o jogo foi inserido
+            long enderecoJogo = file.length() - novoJogo.toByteArray().length - 5;
+            // Inserir na árvore B
+            bTree.inserir(id, enderecoJogo);
+            System.out.println("Jogo cadastrado com sucesso e indexado na árvore B!");
+        } else {
+            System.out.println("Erro ao cadastrar o jogo. Operação cancelada.");
+        }
+    }
+    
+    private void atualizarEnderecoUI(BTree bTree, Scanner scanner) {
+        System.out.print("Digite o ID do jogo para atualizar endereço: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+        
+        // Busca o jogo no arquivo diretamente (sem usar a árvore)
+        long endereco = -1;
+        try {
+            long pos = 12; // Pula o cabeçalho
+            file.seek(pos);
+            while (file.getFilePointer() < file.length()) {
+                long posRegistro = file.getFilePointer();
+                byte tombstone = file.readByte();
+                int tam = file.readInt();
+                byte[] dados = new byte[tam];
+                file.read(dados);
+                
+                if (tombstone == 0 && isGameValid(dados, id)) {
+                    endereco = posRegistro;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Erro ao buscar jogo: " + e.getMessage());
+        }
+        
+        if (endereco == -1) {
+            System.out.println("Jogo com ID " + id + " não encontrado no arquivo de dados.");
+            return;
+        }
+        
+        // Atualiza o endereço na árvore B
+        if (bTree.atualizar(id, endereco)) {
+            System.out.println("Endereço do jogo atualizado com sucesso no índice!");
+        } else {
+            System.out.println("Jogo não encontrado no índice ou erro ao atualizar.");
+        }
+    }
+    
+    private void removerJogoUI(BTree bTree, Scanner scanner) {
+        System.out.print("Digite o ID do jogo para remover do índice: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+        
+        // Primeiro verifica se o jogo existe no índice
+        if (bTree.procurar(id) == -1) {
+            System.out.println("Jogo com ID " + id + " não encontrado no índice.");
+            return;
+        }
+        
+        // Remove o jogo do índice
+        if (bTree.deletar(id)) {
+            System.out.println("Jogo removido do índice com sucesso!");
+            
+            // Pergunta se deseja excluir o registro do arquivo de dados também
+            System.out.println("Deseja excluir o registro do arquivo de dados também? (S/N)");
+            String resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("S")) {
+                steam jogoExcluido = deleteGame(id);
+                if (jogoExcluido != null) {
+                    System.out.println("Registro excluído do arquivo de dados: " + jogoExcluido.getName());
+                } else {
+                    System.out.println("Erro ao excluir o registro do arquivo de dados.");
+                }
+            }
+        } else {
+            System.out.println("Erro ao remover o jogo do índice.");
+        }
+    }
+    
+    private void recriarIndiceUI(BTree bTree, Scanner scanner) {
+        System.out.println("Tem certeza que deseja recriar o índice da Árvore B? (S/N)");
+        System.out.println("Isso irá apagar o índice atual e criar um novo com base no arquivo de dados.");
+        String resposta = scanner.nextLine();
+        
+        if (resposta.equalsIgnoreCase("S")) {
+            bTree.close(); // Fecha a árvore atual
+            
+            // Cria uma nova árvore com ordem 5
+            BTree novaArvore = new BTree(5);
+            
+            System.out.println("Recriando índice da Árvore B...");
+            novaArvore.carregarDados("TP2/src/steam.db");
+            System.out.println("Índice recriado com sucesso!");
+            
+            // Substitui a árvore antiga pela nova
+            bTree = novaArvore;
+        }
+    }
+
+
+
+
+
+
+
+
+
+    
     public void menuListaInvertida(Scanner scanner) {
         InvertedList invertedList = new InvertedList();
         

@@ -43,13 +43,14 @@ public class Main extends HashCrud {
         System.out.println("8. Criar game utilizando Hash");
         System.out.println("9. Deletar game utilizando Hash");
         System.out.println("10. Ordenar utilizando lista invertida");
-        System.out.println("11. Sair");
+        System.out.println("11. Indexar utilizando Árvore B");
+        System.out.println("12. Sair");
         
         
         System.out.print("Escolha uma opção: ");
         int input = Integer.parseInt(sc.nextLine()); // input do usuário
     
-        if (input < 1 || input > 10) {
+        if (input < 1 || input > 12) {
           System.out.println(
             "\nOpção inválida inserida, por favor tente novamente:"
           );
@@ -160,11 +161,17 @@ public class Main extends HashCrud {
                     System.out.println(deletedHash != null ? "Game deletado com Hash." : "Erro ao deletar com Hash.");
                     break;
                     
-                    case 10:
+                case 10:
                     System.out.println("Executando Lista Invertida...");
                     actions.menuListaInvertida(sc);
                     break;
+                    
                 case 11:
+                    System.out.println("Executando Árvore B...");
+                    actions.menuArvoreB(sc);
+                    break;
+                    
+                case 12:
                     System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
                     sc.close();
                     this.closeFile();
@@ -189,8 +196,6 @@ public class Main extends HashCrud {
             menu.executeMenu();
         }
     }
-    
-    
 }
 
 //comentario e algumas melhorias feitas por IA
