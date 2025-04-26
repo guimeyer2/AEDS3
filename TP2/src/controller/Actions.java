@@ -205,7 +205,7 @@ public class Actions {
             String resposta = scanner.nextLine();
             if (resposta.equalsIgnoreCase("S")) {
                 System.out.println("Criando índice da Árvore B...");
-                bTree = new BTree(5); // Cria uma nova árvore com ordem 5
+                bTree = new BTree(5); 
                 bTree.carregarDados("TP2/src/steam.db");
                 System.out.println("Índice criado com sucesso!");
             }
@@ -429,13 +429,6 @@ public class Actions {
             bTree = novaArvore;
         }
     }
-
-
-
-
-
-
-
 
 
     
