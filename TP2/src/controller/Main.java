@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-import Algoritmos.ExternalSort;
 import Algoritmos.Huffman;
+import Algoritmos.LZW;
 import Model.steam;
-import Algoritmos.Huffman; 
+
 
 public class Main extends HashCrud {
 
@@ -48,7 +48,8 @@ public class Main extends HashCrud {
         System.out.println("8. Indexar utilizando Árvore B");
         System.out.println("9. Comprimir base de dados (Huffman)");   // Nova opção
         System.out.println("10. Descomprimir base de dados (Huffman)"); // Nova opção
-        System.out.println("11. Sair");                               
+        System.out.println("11. Descomprimir base de dados (LZW)"); // Nova opção
+        System.out.println("12. Sair");                               
 
         System.out.print("Escolha uma opção (1-11): ");
         
@@ -57,7 +58,7 @@ public class Main extends HashCrud {
             try {
                 String line = sc.nextLine();
                 int input = Integer.parseInt(line);
-                if (input >= 1 && input <= 11) {
+                if (input >= 1 && input <= 12) {
                     selected = input;
                     break;
                 } else {
@@ -115,7 +116,10 @@ public class Main extends HashCrud {
                 case 10: 
                     decompressDatabaseHuffman();
                     break;
-                case 11: 
+                case 11:
+                    menuCompressaoLZW();
+                    break;
+                    case 12: 
                     System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
                     if (sc != null) { 
                         
@@ -352,6 +356,43 @@ public class Main extends HashCrud {
     public void setScanner(Scanner sc) {
         this.sc = sc;
     }
+
+    private void menuCompressaoLZW() {
+    try {
+        System.out.println("\n=== COMPACTAÇÃO COM LZW ===");
+
+        // Lê os dados do arquivo original
+        byte[] dados = java.nio.file.Files.readAllBytes(new java.io.File("TP2/src/steam.db").toPath());
+
+        // Compressão LZW
+        System.out.println("\n🔵 Compactando com LZW...");
+        long inicio = System.nanoTime();
+        byte[] comprimidoLZW = LZW.compress(dados);
+        long fim = System.nanoTime();
+        System.out.printf("Tempo de compressão: %.2f ms\n", (fim - inicio) / 1e6);
+        java.nio.file.Files.write(new java.io.File("steamLZW1.db").toPath(), comprimidoLZW);
+
+        // Descompressão LZW
+        System.out.println("🟢 Descompactando com LZW...");
+        inicio = System.nanoTime();
+        byte[] descomprimidoLZW = LZW.decompress(comprimidoLZW);
+        fim = System.nanoTime();
+        System.out.printf("Tempo de descompressão: %.2f ms\n", (fim - inicio) / 1e6);
+        java.nio.file.Files.write(new java.io.File("steamDescomprimidoLZW.db").toPath(), descomprimidoLZW);
+
+        // Taxa de compressão
+        double taxa = 100.0 * (1 - ((double) comprimidoLZW.length / dados.length));
+        System.out.printf("📉 Taxa de compressão: %.2f%%\n", taxa);
+
+        // Verificação de integridade
+        boolean ok = java.util.Arrays.equals(dados, descomprimidoLZW);
+        System.out.println("✅ Verificação de integridade: " + (ok ? "SUCESSO" : "FALHA"));
+
+    } catch (IOException e) {
+        System.err.println("Erro na compressão/descompressão com LZW: " + e.getMessage());
+    }
+}
+
 
     public static void main(String[] args) {
         //  try-with-resources para garantir que o Scanner seja fechado 
