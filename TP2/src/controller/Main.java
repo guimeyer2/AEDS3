@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Algoritmos.Huffman;
+import Algoritmos.KMPMatcher;
 import Algoritmos.LZW;
 import Model.steam;
 
@@ -49,6 +50,7 @@ public class Main extends HashCrud {
         System.out.println("9. Comprimir base de dados (Huffman)");   // Nova opção
         System.out.println("10. Descomprimir base de dados (Huffman)"); // Nova opção
         System.out.println("11. Descomprimir base de dados (LZW)"); // Nova opção
+        System.out.println("11. Casamento de Padrões KMP");
         System.out.println("12. Sair");                               
 
         System.out.print("Escolha uma opção (1-11): ");
@@ -119,7 +121,10 @@ public class Main extends HashCrud {
                 case 11:
                     menuCompressaoLZW();
                     break;
-                    case 12: 
+                case 12:
+                    searchWithKMP(actions);
+                    break; 
+                case 13: 
                     System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
                     if (sc != null) { 
                         
@@ -392,6 +397,24 @@ public class Main extends HashCrud {
         System.err.println("Erro na compressão/descompressão com LZW: " + e.getMessage());
     }
 }
+
+private void searchWithKMP(Actions actions) throws IOException {
+    System.out.print("Digite o padrão a ser buscado: ");
+    String pattern = sc.nextLine();
+
+    // Lê todos os dados do arquivo .db
+    byte[] data = actions.readAllBytesFromDb(); // você deve implementar esse método
+    String text = new String(data); // converte os bytes para string (válido se não for binário puro)
+
+    KMPMatcher kmp = new KMPMatcher();
+    long start = System.nanoTime();
+    int count = kmp.search(text, pattern);
+    long end = System.nanoTime();
+
+    System.out.printf("🔍 O padrão \"%s\" apareceu %d vez(es).\n", pattern, count);
+    System.out.printf("⏱ Tempo de busca: %.2f ms\n", (end - start) / 1e6);
+}
+
 
 
     public static void main(String[] args) {

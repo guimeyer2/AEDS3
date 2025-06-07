@@ -502,6 +502,16 @@ public class Actions {
             }
         }
     }
+
+    public byte[] readAllBytesFromDb() throws IOException {
+    File file = new File("TP2/src/steam.db");
+    byte[] data = new byte[(int) file.length()];
+    try (FileInputStream fis = new FileInputStream(file)) {
+        fis.read(data);
+    }
+    return data;
+}
+
     
     private void buscarPorPlataformaUI(InvertedList invertedList, Scanner scanner) {
         System.out.print("Digite a plataforma para buscar: ");
