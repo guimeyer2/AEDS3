@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Algoritmos.BoyerMoore;
 import Algoritmos.Huffman;
 import Algoritmos.KMPMatcher;
 import Algoritmos.LZW;
@@ -50,21 +52,22 @@ public class Main extends HashCrud {
         System.out.println("9. Comprimir base de dados (Huffman)");   // Nova opção
         System.out.println("10. Descomprimir base de dados (Huffman)"); // Nova opção
         System.out.println("11. Descomprimir base de dados (LZW)"); // Nova opção
-        System.out.println("11. Casamento de Padrões KMP");
-        System.out.println("12. Sair");                               
+        System.out.println("12. Casamento de Padrões KMP");
+        System.out.println("13. Casamento de Padrões Boyer-Moore");
+        System.out.println("14. Sair");
 
-        System.out.print("Escolha uma opção (1-11): ");
-        
-        
+        System.out.print("Escolha uma opção (1-14): ");
+
+
         while (true) {
             try {
                 String line = sc.nextLine();
                 int input = Integer.parseInt(line);
-                if (input >= 1 && input <= 12) {
+                if (input >= 1 && input <= 14) {
                     selected = input;
                     break;
                 } else {
-                    System.out.print("Opção inválida. Por favor, escolha entre 1 e 11: ");
+                    System.out.print("Opção inválida. Por favor, escolha entre 1 e 14: ");
                 }
             } catch (NumberFormatException e) {
                 System.out.print("Entrada inválida. Por favor, digite um número: ");
@@ -124,7 +127,10 @@ public class Main extends HashCrud {
                 case 12:
                     searchWithKMP(actions);
                     break; 
-                case 13: 
+                    case 13:
+                    searchWithBoyerMoore(actions);
+                    break;
+                case 14: 
                     System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
                     if (sc != null) { 
                         
@@ -140,6 +146,29 @@ public class Main extends HashCrud {
             e.printStackTrace(); 
         }
         return true; 
+    }
+    private void searchWithBoyerMoore(Actions actions) throws IOException {
+        System.out.print("Digite o padrão a ser buscado (Boyer-Moore): ");
+        String pattern = sc.nextLine();
+
+        if (pattern.isEmpty()) {
+            System.out.println("O padrão de busca não pode ser vazio.");
+            return;
+        }
+
+      
+        System.out.println("Atenção: A busca lê o arquivo binário como texto.");
+        byte[] data = actions.readAllBytesFromDb(); 
+        String text = new String(data);
+
+        BoyerMoore bm = new BoyerMoore();
+        long start = System.nanoTime();
+        int count = bm.search(text, pattern); 
+        long end = System.nanoTime();
+
+        System.out.println("\n--- Resultados da Busca (Boyer-Moore) ---");
+        System.out.printf("🔍 O padrão \"%s\" apareceu %d vez(es).\n", pattern, count);
+        System.out.printf("⏱ Tempo de busca: %.2f ms\n", (end - start) / 1e6);
     }
 
     // verifica quantos huffmans ja foram criados e retorna o próximo número de versão
