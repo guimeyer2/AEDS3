@@ -6,8 +6,6 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.ArrayList;
-import java.util.List;
 
 // Tirei do actions pra não dar confusão com os outros algoritmos
 public class Huffman {

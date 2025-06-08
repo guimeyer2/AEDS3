@@ -1,23 +1,25 @@
 package controller;
 
-import java.io.File; 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import Algoritmos.BoyerMoore;
 import Algoritmos.Huffman;
 import Algoritmos.KMPMatcher;
 import Algoritmos.LZW;
 import Model.steam;
 
-
 public class Main extends HashCrud {
 
     private int selected;
     private Scanner sc;
+    
     
     private static final String DATABASE_FILENAME = "TP2\\src\\steam.db";
 
@@ -49,25 +51,25 @@ public class Main extends HashCrud {
         System.out.println("6. Indexar com Hash");
         System.out.println("7. Ordenar utilizando lista invertida");
         System.out.println("8. Indexar utilizando Árvore B");
-        System.out.println("9. Comprimir base de dados (Huffman)");   // Nova opção
-        System.out.println("10. Descomprimir base de dados (Huffman)"); // Nova opção
-        System.out.println("11. Descomprimir base de dados (LZW)"); // Nova opção
-        System.out.println("12. Casamento de Padrões KMP");
-        System.out.println("13. Casamento de Padrões Boyer-Moore");
-        System.out.println("14. Sair");
+        System.out.println();
+        System.out.println("--- Ferramentas ---");
+        System.out.println("9. Comprimir Base de Dados (Huffman + LZW)");
+        System.out.println("10. Descomprimir Base de Dados");
+        System.out.println("11. Buscar Padrão (KMP)");
+        System.out.println("12. Buscar Padrão (Boyer-Moore)");
+        System.out.println("13. Sair");
 
-        System.out.print("Escolha uma opção (1-14): ");
-
+        System.out.print("Escolha uma opção (1-13): ");
 
         while (true) {
             try {
                 String line = sc.nextLine();
                 int input = Integer.parseInt(line);
-                if (input >= 1 && input <= 14) {
+                if (input >= 1 && input <= 13) {
                     selected = input;
                     break;
                 } else {
-                    System.out.print("Opção inválida. Por favor, escolha entre 1 e 14: ");
+                    System.out.print("Opção inválida. Por favor, escolha entre 1 e 13: ");
                 }
             } catch (NumberFormatException e) {
                 System.out.print("Entrada inválida. Por favor, digite um número: ");
@@ -78,9 +80,7 @@ public class Main extends HashCrud {
     public boolean executeOption() throws FileNotFoundException {
         Actions actions = new Actions();
         
-
         try {
-            
             actions.openFile();
         } catch (IOException e) {
             System.err.println("Erro ao abrir arquivo para Actions: " + e.getMessage());
@@ -89,24 +89,12 @@ public class Main extends HashCrud {
 
         try {
             switch (this.selected) {
-                case 1:
-                    actions.loadData();
-                    break;
-                case 2:
-                    createNewGame(actions);
-                    break;
-                case 3:
-                    readGame(actions);
-                    break;
-                case 4:
-                    updateGame(actions);
-                    break;
-                case 5:
-                    deleteGame(actions);
-                    break;
-                case 6:
-                    executeHashMenu();
-                    break;
+                case 1: actions.loadData(); break;
+                case 2: createNewGame(actions); break;
+                case 3: readGame(actions); break;
+                case 4: updateGame(actions); break;
+                case 5: deleteGame(actions); break;
+                case 6: executeHashMenu(); break;
                 case 7:
                     System.out.println("Executando Lista Invertida...");
                     actions.menuListaInvertida(sc);
@@ -116,25 +104,19 @@ public class Main extends HashCrud {
                     actions.menuArvoreB(sc);
                     break;
                 case 9: 
-                    compressDatabaseHuffman();
+                    compressDatabase(); // novo método unificado
                     break;
                 case 10: 
-                    decompressDatabaseHuffman();
+                    decompressDatabase(); // novo método unificado
                     break;
                 case 11:
-                    menuCompressaoLZW();
-                    break;
-                case 12:
                     searchWithKMP(actions);
                     break; 
-                    case 13:
-                    searchWithBoyerMoore(actions);
+                case 12:
+                    buscaComBoyerMoore(actions);
                     break;
-                case 14: 
+                case 13: 
                     System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
-                    if (sc != null) { 
-                        
-                    }
                     this.closeFile(); 
                     return false; 
                 default:
@@ -147,7 +129,148 @@ public class Main extends HashCrud {
         }
         return true; 
     }
-    private void searchWithBoyerMoore(Actions actions) throws IOException {
+    
+    
+
+    /**
+     * aqui ocorre a compressão unificada da base de dados utilizando Huffman e LZW.
+     */
+    private void compressDatabase() throws IOException {
+        System.out.println("\n--- INICIANDO COMPRESSÃO UNIFICADA ---");
+        
+        Path originalPath = Paths.get(DATABASE_FILENAME);
+        if (!Files.exists(originalPath)) {
+            System.err.println("Erro: Arquivo de banco de dados '" + DATABASE_FILENAME + "' não encontrado.");
+            return;
+        }
+
+        byte[] originalData = Files.readAllBytes(originalPath);
+        if (originalData.length == 0) {
+            System.out.println("Aviso: O arquivo de dados está vazio. Nenhuma compressão será realizada.");
+            return;
+        }
+
+        int version = proximaVersaoCompressao();
+        String basePath = DATABASE_FILENAME.replace(".db", "");
+
+        // --- compressão com Huffman ---
+        System.out.println("\n1) Executando compressão com Huffman...");
+        Huffman huffmanCompressor = new Huffman();
+        String huffmanOutputFile = basePath + "-Huffman-" + version + ".db";
+        Huffman.HuffmanResult huffmanResult = huffmanCompressor.compress(DATABASE_FILENAME, huffmanOutputFile);
+        System.out.println("Arquivo gerado: " + huffmanOutputFile);
+
+        // --- compressão com LZW ---
+        System.out.println("\n2) Executando compressão com LZW...");
+        long lzwStartTime = System.nanoTime();
+        byte[] compressedLZW = LZW.compress(originalData);
+        long lzwEndTime = System.nanoTime();
+        double lzwTimeMillis = (lzwEndTime - lzwStartTime) / 1e6;
+
+        String lzwOutputFile = basePath + "-LZW-" + version + ".db";
+        Files.write(Paths.get(lzwOutputFile), compressedLZW);
+        double lzwRatio = 100.0 * (1 - ((double) compressedLZW.length / originalData.length));
+        System.out.println("Arquivo gerado: " + lzwOutputFile);
+
+        // --- Relatório Comparativo ---
+        System.out.println("\n--- RELATÓRIO DE COMPRESSÃO (Versão " + version + ") ---");
+        System.out.println("-------------------------------------------------");
+        System.out.printf("| Algoritmo | Tempo (ms) | Taxa de Compressão |\n");
+        System.out.println("-------------------------------------------------");
+        System.out.printf("| Huffman   | %-10d | %17.2f%% |\n", huffmanResult.tempoPercorridoMillis, huffmanResult.porcentagemCompressao);
+        System.out.printf("| LZW       | %-10.2f | %17.2f%% |\n", lzwTimeMillis, lzwRatio);
+        System.out.println("-------------------------------------------------");
+
+        if (huffmanResult.porcentagemCompressao > lzwRatio) {
+            System.out.println("Conclusão: Huffman obteve a melhor taxa de compressão.");
+        } else if (lzwRatio > huffmanResult.porcentagemCompressao) {
+            System.out.println("Conclusão: LZW obteve a melhor taxa de compressão.");
+        } else {
+            System.out.println("Conclusão: Ambos os algoritmos tiveram taxas de compressão similares.");
+        }
+        System.out.println("-------------------------------------------------");
+    }
+    
+    /**
+     * usuário escolhe a versão e o algoritmo para descomprimir o arquivo principal.
+     */
+    private void decompressDatabase() throws IOException {
+        System.out.println("\n--- INICIANDO DESCOMPRESSÃO ---");
+        System.out.print("Digite a versão (X) dos arquivos que deseja descompactar: ");
+        int version;
+        try {
+            version = Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.err.println("Versão inválida. Por favor, digite um número.");
+            return;
+        }
+
+        System.out.println("Qual algoritmo deseja usar para restaurar o arquivo principal?");
+        System.out.println("1. Huffman");
+        System.out.println("2. LZW");
+        System.out.print("Escolha uma opção: ");
+        
+        int choice;
+        try {
+            choice = Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.err.println("Opção inválida.");
+            return;
+        }
+        
+        String basePath = DATABASE_FILENAME.replace(".db", "");
+        String inputFile;
+        
+        switch (choice) {
+            case 1:
+                // --- Descompressão com Huffman ---
+                inputFile = basePath + "-Huffman-" + version + ".db";
+                if (!Files.exists(Paths.get(inputFile))) {
+                    System.err.println("Erro: Arquivo '" + inputFile + "' não encontrado.");
+                    return;
+                }
+                System.out.println("Restaurando '" + DATABASE_FILENAME + "' a partir de '" + inputFile + "'...");
+                Huffman huffmanDecompressor = new Huffman();
+                huffmanDecompressor.decompress(inputFile, DATABASE_FILENAME);
+                System.out.println("Sucesso! Arquivo principal restaurado com a versão " + version + " de Huffman.");
+                break;
+                
+            case 2:
+                // --- Descompressão com LZW ---
+                inputFile = basePath + "-LZW-" + version + ".db";
+                 if (!Files.exists(Paths.get(inputFile))) {
+                    System.err.println("Erro: Arquivo '" + inputFile + "' não encontrado.");
+                    return;
+                }
+                System.out.println("Restaurando '" + DATABASE_FILENAME + "' a partir de '" + inputFile + "'...");
+                byte[] compressedData = Files.readAllBytes(Paths.get(inputFile));
+                byte[] decompressedData = LZW.decompress(compressedData);
+                Files.write(Paths.get(DATABASE_FILENAME), decompressedData);
+                System.out.println("Sucesso! Arquivo principal restaurado com a versão " + version + " de LZW.");
+                break;
+                
+            default:
+                System.err.println("Opção de algoritmo inválida.");
+                break;
+        }
+    }
+    
+    /**
+     * busca a próxima versão de compressão
+     */
+    private int proximaVersaoCompressao() {
+        int version = 1;
+        String basePath = DATABASE_FILENAME.replace(".db", "");
+        while (true) {
+            File huffmanFile = new File(basePath + "-Huffman-" + version + ".db");
+            File lzwFile = new File(basePath + "-LZW-" + version + ".db");
+            if (!huffmanFile.exists() && !lzwFile.exists()) {
+                return version;
+            }
+            version++;
+        }
+    }
+    private void buscaComBoyerMoore(Actions actions) throws IOException {
         System.out.print("Digite o padrão a ser buscado (Boyer-Moore): ");
         String pattern = sc.nextLine();
 
@@ -157,7 +280,7 @@ public class Main extends HashCrud {
         }
 
       
-        System.out.println("Atenção: A busca lê o arquivo binário como texto.");
+        
         byte[] data = actions.readAllBytesFromDb(); 
         String text = new String(data);
 
@@ -167,131 +290,9 @@ public class Main extends HashCrud {
         long end = System.nanoTime();
 
         System.out.println("\n--- Resultados da Busca (Boyer-Moore) ---");
-        System.out.printf("🔍 O padrão \"%s\" apareceu %d vez(es).\n", pattern, count);
-        System.out.printf("⏱ Tempo de busca: %.2f ms\n", (end - start) / 1e6);
+        System.out.printf("O padrão \"%s\" apareceu %d vez(es).\n", pattern, count);
+        System.out.printf("Tempo de busca: %.2f ms\n", (end - start) / 1e6);
     }
-
-    // verifica quantos huffmans ja foram criados e retorna o próximo número de versão
-    private int getNextHuffmanversao(String baseFileName) {
-        int versao = 1;
-        while (true) {
-           
-            File compressedFile = new File(baseFileName + "Huffman" + versao);
-            if (!compressedFile.exists()) {
-                return versao;
-            }
-            versao++;
-        }
-    }
-
-    
-    private void compressDatabaseHuffman() {
-        Huffman huffmanCompressor = new Huffman();
-        int versao = getNextHuffmanversao(DATABASE_FILENAME);
-        String inputFile = DATABASE_FILENAME;
-        String outputFile = DATABASE_FILENAME + "Huffman" + versao; 
-
-        System.out.println("\nIniciando compressão com Huffman...");
-        System.out.println("Arquivo de entrada: " + inputFile);
-        System.out.println("Arquivo de saída: " + outputFile);
-       
-
-
-        File dbFile = new File(inputFile);
-        if (!dbFile.exists()) {
-            System.err.println("Erro: Arquivo de dados '" + inputFile + "' não encontrado para compressão.");
-            
-            return;
-        }
-        if (dbFile.length() == 0) {
-            System.out.println("Aviso: O arquivo de dados '" + inputFile + "' está vazio.");
-        }
-
-
-        try {
-           
-
-            Huffman.HuffmanResult result = huffmanCompressor.compress(inputFile, outputFile);
-            
-            
-
-            System.out.println("\n--- Resultado da Compressão Huffman ---");
-            System.out.println(result);
-            System.out.println("------------------------------------");
-        } catch (FileNotFoundException e) {
-            // Esta verificação já foi feita acima.
-            System.err.println("Erro.");
-        } catch (IOException e) {
-            System.err.println("Erro de I/O durante a compressão Huffman: " + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) {
-            System.err.println("Erro: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    
-    private void decompressDatabaseHuffman() {
-        System.out.print("Digite a versão (X) do arquivo Huffman que deseja descompactar (ex: 1 para " + DATABASE_FILENAME + "Huffman1): ");
-        String versaoStr = sc.nextLine();
-        int versao;
-        try {
-            versao = Integer.parseInt(versaoStr);
-            if (versao <= 0) {
-                System.out.println("Versão inválida. Deve ser um número positivo.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Entrada inválida para a versão. Por favor, insira um número.");
-            return;
-        }
-
-        String inputFile = DATABASE_FILENAME + "Huffman" + versao;
-        String outputFile = DATABASE_FILENAME; // Vai substituir o arquivo original
-
-        System.out.println("\nIniciando descompressão com Huffman...");
-        System.out.println("Arquivo de entrada (comprimido): " + inputFile);
-        System.out.println("Arquivo de saída (descomprimido): " + outputFile);
-        System.out.println("Atenção: Esta operação substituirá o arquivo '" + outputFile + "' existente.");
-
-
-        File compressedFile = new File(inputFile);
-        if (!compressedFile.exists()) {
-            System.err.println("Erro: Arquivo comprimido '" + inputFile + "' não encontrado.");
-            return;
-        }
-         if (compressedFile.length() == 0) {
-            System.out.println("Aviso: O arquivo comprimido '" + inputFile + "' está vazio.");
-        }
-
-        Huffman huffmanDecompressor = new Huffman();
-        try {
-            
-
-            Huffman.HuffmanResult result = huffmanDecompressor.decompress(inputFile, outputFile);
-
-        
-
-            System.out.println("\n--- Resultado da Descompressão Huffman ---");
-            System.out.println(result);
-            System.out.println("O arquivo '" + outputFile + "' foi substituído pela versão descomprimida.");
-            System.out.println("Pode ser necessário recarregar índices ou reiniciar operações que dependem deste arquivo.");
-            System.out.println("---------------------------------------");
-
-        } catch (FileNotFoundException e) {
-             
-            System.err.println("Erro: Arquivo comprimido '" + inputFile + "' não encontrado no momento da descompressão.");
-        } catch (IOException e) {
-            System.err.println("Erro de I/O durante a descompressão Huffman: " + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) {
-            System.err.println("Erro: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-
-    
     private void createNewGame(Actions actions) throws IOException {
         System.out.print("Digite o ID do jogo: ");
         int id = Integer.parseInt(sc.nextLine());
@@ -391,48 +392,14 @@ public class Main extends HashCrud {
         this.sc = sc;
     }
 
-    private void menuCompressaoLZW() {
-    try {
-        System.out.println("\n=== COMPACTAÇÃO COM LZW ===");
-
-        // Lê os dados do arquivo original
-        byte[] dados = java.nio.file.Files.readAllBytes(new java.io.File("TP2/src/steam.db").toPath());
-
-        // Compressão LZW
-        System.out.println("\n🔵 Compactando com LZW...");
-        long inicio = System.nanoTime();
-        byte[] comprimidoLZW = LZW.compress(dados);
-        long fim = System.nanoTime();
-        System.out.printf("Tempo de compressão: %.2f ms\n", (fim - inicio) / 1e6);
-        java.nio.file.Files.write(new java.io.File("steamLZW1.db").toPath(), comprimidoLZW);
-
-        // Descompressão LZW
-        System.out.println("🟢 Descompactando com LZW...");
-        inicio = System.nanoTime();
-        byte[] descomprimidoLZW = LZW.decompress(comprimidoLZW);
-        fim = System.nanoTime();
-        System.out.printf("Tempo de descompressão: %.2f ms\n", (fim - inicio) / 1e6);
-        java.nio.file.Files.write(new java.io.File("steamDescomprimidoLZW.db").toPath(), descomprimidoLZW);
-
-        // Taxa de compressão
-        double taxa = 100.0 * (1 - ((double) comprimidoLZW.length / dados.length));
-        System.out.printf("📉 Taxa de compressão: %.2f%%\n", taxa);
-
-        // Verificação de integridade
-        boolean ok = java.util.Arrays.equals(dados, descomprimidoLZW);
-        System.out.println("✅ Verificação de integridade: " + (ok ? "SUCESSO" : "FALHA"));
-
-    } catch (IOException e) {
-        System.err.println("Erro na compressão/descompressão com LZW: " + e.getMessage());
-    }
-}
+   
 
 private void searchWithKMP(Actions actions) throws IOException {
     System.out.print("Digite o padrão a ser buscado: ");
     String pattern = sc.nextLine();
 
     // Lê todos os dados do arquivo .db
-    byte[] data = actions.readAllBytesFromDb(); // você deve implementar esse método
+    byte[] data = actions.readAllBytesFromDb(); 
     String text = new String(data); // converte os bytes para string (válido se não for binário puro)
 
     KMPMatcher kmp = new KMPMatcher();
@@ -440,8 +407,8 @@ private void searchWithKMP(Actions actions) throws IOException {
     int count = kmp.search(text, pattern);
     long end = System.nanoTime();
 
-    System.out.printf("🔍 O padrão \"%s\" apareceu %d vez(es).\n", pattern, count);
-    System.out.printf("⏱ Tempo de busca: %.2f ms\n", (end - start) / 1e6);
+    System.out.printf("O padrão \"%s\" apareceu %d vez(es).\n", pattern, count);
+    System.out.printf("Tempo de busca: %.2f ms\n", (end - start) / 1e6);
 }
 
 

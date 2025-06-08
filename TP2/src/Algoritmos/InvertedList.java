@@ -202,7 +202,7 @@ public class InvertedList {
             generoFile.seek(0);
             
             while (generoFile.getFilePointer() < generoFile.length()) {
-                long posAtual = generoFile.getFilePointer();
+                //long posAtual = generoFile.getFilePointer();
                 String generoAtual = generoFile.readUTF();
                 int idAtual = generoFile.readInt();
                 long proxPos = generoFile.readLong();
@@ -238,7 +238,7 @@ public class InvertedList {
             plataformaFile.seek(0);
             
             while (plataformaFile.getFilePointer() < plataformaFile.length()) {
-                long posAtual = plataformaFile.getFilePointer();
+                //long posAtual = plataformaFile.getFilePointer();
                 String plataformaAtual = plataformaFile.readUTF();
                 int idAtual = plataformaFile.readInt();
                 long proxPos = plataformaFile.readLong();
