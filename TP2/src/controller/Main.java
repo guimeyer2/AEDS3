@@ -1,8 +1,11 @@
 package controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,6 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Algoritmos.BoyerMoore;
+import Algoritmos.CriptografiaSimples;
 import Algoritmos.Huffman;
 import Algoritmos.KMPMatcher;
 import Algoritmos.LZW;
@@ -57,7 +61,10 @@ public class Main extends HashCrud {
         System.out.println("10. Descomprimir Base de Dados");
         System.out.println("11. Buscar Padrão (KMP)");
         System.out.println("12. Buscar Padrão (Boyer-Moore)");
-        System.out.println("13. Sair");
+       System.out.println("13. Visualizar Criptografia Simples");
+        System.out.println("14. Visualizar Criptografia Moderna (DES)");
+        System.out.println("15. Sair");
+
 
         System.out.print("Escolha uma opção (1-13): ");
 
@@ -65,7 +72,7 @@ public class Main extends HashCrud {
             try {
                 String line = sc.nextLine();
                 int input = Integer.parseInt(line);
-                if (input >= 1 && input <= 13) {
+                if (input >= 1 && input <= 16) {
                     selected = input;
                     break;
                 } else {
@@ -115,14 +122,16 @@ public class Main extends HashCrud {
                 case 12:
                     buscaComBoyerMoore(actions);
                     break;
-                case 13: 
-                    System.out.println("\nObrigado por usar nosso Banco de Dados! :)");
-                    this.closeFile(); 
-                    return false; 
-                default:
-                    System.out.println("Opção inválida.");
-                    break;
-            }
+                 case 13:
+    visualizarCriptografiaDB(actions); // simples
+    break;
+case 14:
+    visualizarCriptografiaDES(actions); // nova opção DES
+    break;
+case 15:
+    System.out.println("Obrigado por usar nosso Banco de Dados!");
+    this.closeFile();
+    return false;}
         } catch (Exception e) {
             System.err.println("Erro na função executeOption: " + e.getMessage());
             e.printStackTrace(); 
@@ -293,23 +302,81 @@ public class Main extends HashCrud {
         System.out.printf("O padrão \"%s\" apareceu %d vez(es).\n", pattern, count);
         System.out.printf("Tempo de busca: %.2f ms\n", (end - start) / 1e6);
     }
-    private void createNewGame(Actions actions) throws IOException {
-        System.out.print("Digite o ID do jogo: ");
-        int id = Integer.parseInt(sc.nextLine());
-        System.out.print("Digite o nome do jogo: ");
-        String name = sc.nextLine();
-        System.out.print("Digite a data de lançamento (AAAA-MM-DD): ");
-        LocalDate date = LocalDate.parse(sc.nextLine());
-        System.out.print("Digite as plataformas (separadas por vírgula): ");
-        ArrayList<String> platforms = new ArrayList<>();
-        for (String p : sc.nextLine().split(",")) platforms.add(p.trim());
-        System.out.print("Digite o gênero do jogo: ");
-        String genre = sc.nextLine();
-        String launchBefore2010 = date.getYear() < 2010 ? "SIM" : "NAO";
+       
+private void createNewGame(Actions actions) throws IOException {
+    System.out.print("Digite o ID do jogo: ");
+    int id = Integer.parseInt(sc.nextLine());
 
-        steam newGame = new steam(id, name, date, platforms, genre, launchBefore2010);
-        System.out.println(actions.createGame(newGame) ? "Jogo criado com sucesso!" : "Erro ao criar jogo.");
+    System.out.print("Digite o nome do jogo: ");
+    String name = sc.nextLine();
+
+    // Submenu de escolha de criptografia
+    System.out.println("Escolha o tipo de criptografia para o nome:");
+    System.out.println("1. Simples (Substituição)");
+    System.out.println("2. Moderna (DES)");
+    System.out.print("Opção: ");
+    int tipoCript = Integer.parseInt(sc.nextLine());
+
+    String nameCriptografado;
+    if (tipoCript == 2) {
+        nameCriptografado = Algoritmos.CriptografiaModerna.criptografarDES(name);
+    } else {
+        nameCriptografado = Algoritmos.CriptografiaSimples.substituir(name, 3);
     }
+
+    System.out.print("Digite a data de lançamento (AAAA-MM-DD): ");
+    LocalDate date = LocalDate.parse(sc.nextLine());
+
+    System.out.print("Digite as plataformas (separadas por vírgula): ");
+    ArrayList<String> platforms = new ArrayList<>();
+    for (String p : sc.nextLine().split(",")) platforms.add(p.trim());
+
+    System.out.print("Digite o gênero do jogo: ");
+    String genre = sc.nextLine();
+
+    String launchBefore2010 = date.getYear() < 2010 ? "SIM" : "NAO";
+
+    steam newGame = new steam(id, nameCriptografado, date, platforms, genre, launchBefore2010);
+    System.out.println(actions.createGame(newGame) ? "Jogo criado com sucesso!" : "Erro ao criar jogo.");
+}
+
+private void updateGame(Actions actions) throws IOException {
+    System.out.print("Digite o ID do jogo para atualizar: ");
+    int updateId = Integer.parseInt(sc.nextLine());
+
+    System.out.print("Digite o novo nome: ");
+    String newName = sc.nextLine();
+
+    // Submenu de escolha de criptografia
+    System.out.println("Escolha o tipo de criptografia para o nome:");
+    System.out.println("1. Simples (Substituição)");
+    System.out.println("2. Moderna (DES)");
+    System.out.print("Opção: ");
+    int tipoCript = Integer.parseInt(sc.nextLine());
+
+    String nameCriptografado;
+    if (tipoCript == 2) {
+        nameCriptografado = Algoritmos.CriptografiaModerna.criptografarDES(newName);
+    } else {
+        nameCriptografado = Algoritmos.CriptografiaSimples.substituir(newName, 3);
+    }
+
+    System.out.print("Digite a nova data de lançamento (AAAA-MM-DD): ");
+    LocalDate newDate = LocalDate.parse(sc.nextLine());
+
+    System.out.print("Digite as novas plataformas: ");
+    ArrayList<String> newPlatforms = new ArrayList<>();
+    for (String p : sc.nextLine().split(",")) newPlatforms.add(p.trim());
+
+    System.out.print("Digite o novo gênero: ");
+    String newGenre = sc.nextLine();
+
+    String newLaunchBefore2010 = newDate.getYear() < 2010 ? "SIM" : "NAO";
+
+    steam updatedGame = new steam(updateId, nameCriptografado, newDate, newPlatforms, newGenre, newLaunchBefore2010);
+    System.out.println(actions.updateGame(updateId, updatedGame) ? "Atualizado com sucesso!" : "Erro ao atualizar.");
+}
+
 
     private void readGame(Actions actions) throws IOException {
         System.out.print("Digite o ID do jogo para leitura: ");
@@ -324,30 +391,52 @@ public class Main extends HashCrud {
         }
     }
 
-    private void updateGame(Actions actions) throws IOException {
-        System.out.print("Digite o ID do jogo para atualizar: ");
-        int updateId = Integer.parseInt(sc.nextLine());
-        System.out.print("Digite o novo nome: ");
-        String newName = sc.nextLine();
-        System.out.print("Digite a nova data de lançamento (AAAA-MM-DD): ");
-        LocalDate newDate = LocalDate.parse(sc.nextLine());
-        System.out.print("Digite as novas plataformas: ");
-        ArrayList<String> newPlatforms = new ArrayList<>();
-        for (String p : sc.nextLine().split(",")) newPlatforms.add(p.trim());
-        System.out.print("Digite o novo gênero: ");
-        String newGenre = sc.nextLine();
-        String newLaunchBefore2010 = newDate.getYear() < 2010 ? "SIM" : "NAO";
-
-        steam updatedGame = new steam(updateId, newName, newDate, newPlatforms, newGenre, newLaunchBefore2010);
-        System.out.println(actions.updateGame(updateId, updatedGame) ? "Atualizado com sucesso!" : "Erro ao atualizar.");
-    }
-
     private void deleteGame(Actions actions) throws IOException {
         System.out.print("Digite o ID do jogo para deletar: ");
         int deleteId = Integer.parseInt(sc.nextLine());
         steam deletedGame = actions.deleteGame(deleteId);
         System.out.println(deletedGame != null ? "Jogo deletado: " + deletedGame : "Erro ao deletar jogo.");
     }
+
+   private void visualizarCriptografiaDB(Actions actions) throws IOException {
+    System.out.print("Digite o ID do jogo que deseja inspecionar: ");
+    int id = Integer.parseInt(sc.nextLine());
+
+    try (RandomAccessFile raf = new RandomAccessFile("TP2/src/steam.db", "r")) {
+        raf.seek(12); // pula cabeçalho
+
+        while (raf.getFilePointer() < raf.length()) {
+            long regInicio = raf.getFilePointer();
+            byte tombstone = raf.readByte();
+            int tam = raf.readInt();
+            if (tam <= 0 || tam > raf.length() - raf.getFilePointer()) break;
+
+            byte[] dados = new byte[tam];
+            raf.readFully(dados);
+
+            try (DataInputStream dis = new DataInputStream(new ByteArrayInputStream(dados))) {
+                int appid = dis.readInt();
+                String nomeCriptografado = dis.readUTF();
+
+                if (appid == id && tombstone == 0) {
+                    String nomeDescriptografado = Algoritmos.CriptografiaSimples.reverterSubstituicao(nomeCriptografado, 3);
+
+                    System.out.println("\n--- REGISTRO ENCONTRADO ---");
+                    System.out.println("AppID: " + appid);
+                    System.out.println("Nome criptografado: " + nomeCriptografado);
+                    System.out.println("Nome descriptografado: " + nomeDescriptografado);
+                    System.out.println("----------------------------");
+                    return;
+                }
+            }
+        }
+
+        System.out.println("Jogo com ID " + id + " não encontrado.");
+    } catch (Exception e) {
+        System.err.println("Erro ao inspecionar criptografia: " + e.getMessage());
+    }
+}
+
 
     private void executeHashMenu() throws IOException {
         System.out.println("\n=== MENU HASH ===");
@@ -393,6 +482,48 @@ public class Main extends HashCrud {
     }
 
    
+
+
+    private void visualizarCriptografiaDES(Actions actions) throws IOException {
+    System.out.print("Digite o ID do jogo (DES): ");
+    int id = Integer.parseInt(sc.nextLine());
+
+    try (RandomAccessFile raf = new RandomAccessFile("TP2/src/steam.db", "r")) {
+        raf.seek(12); // pula cabeçalho
+
+        while (raf.getFilePointer() < raf.length()) {
+            long inicio = raf.getFilePointer();
+            byte tombstone = raf.readByte();
+            int tam = raf.readInt();
+            if (tombstone == 1 || tam <= 0 || tam > raf.length() - raf.getFilePointer()) {
+                raf.seek(inicio + 5 + Math.max(tam, 0));
+                continue;
+            }
+
+            byte[] dados = new byte[tam];
+            raf.readFully(dados);
+
+            try (DataInputStream dis = new DataInputStream(new ByteArrayInputStream(dados))) {
+                int appid = dis.readInt();
+                String nomeCriptografado = dis.readUTF();
+
+                if (appid == id) {
+                    String nomeDescriptografado = Algoritmos.CriptografiaModerna.descriptografarDES(nomeCriptografado);
+                    System.out.println("\n--- REGISTRO DES ENCONTRADO ---");
+                    System.out.println("AppID: " + appid);
+                    System.out.println("Nome criptografado (DES): " + nomeCriptografado);
+                    System.out.println("Nome descriptografado (DES): " + nomeDescriptografado);
+                    System.out.println("--------------------------------");
+                    return;
+                }
+            } catch (Exception e) {
+                System.out.println("Erro ao processar registro: " + e.getMessage());
+            }
+        }
+
+        System.out.println("Jogo com ID " + id + " não encontrado.");
+    }
+}
 
 private void searchWithKMP(Actions actions) throws IOException {
     System.out.print("Digite o padrão a ser buscado: ");

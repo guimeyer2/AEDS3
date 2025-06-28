@@ -534,6 +534,34 @@ public class Actions {
             }
         }
     }
+
+    public byte[] readRawGameData(int searchId) {
+    long pos = 12;
+    try {
+        file.seek(pos);
+        while (file.getFilePointer() < file.length()) {
+            long regPos = file.getFilePointer();
+            byte tombstone = file.readByte();
+            int tam = file.readInt();
+
+            if (tam <= 0 || tam > file.length() - file.getFilePointer()) return null;
+
+            byte[] tempVet = new byte[tam];
+            file.read(tempVet);
+
+            if (tombstone == 0 && isGameValid(tempVet, searchId)) {
+                return tempVet; // 🔁 Retorna os dados crus
+            }
+
+            pos = file.getFilePointer();
+            file.seek(pos);
+        }
+    } catch (Exception e) {
+        System.err.println("Erro na função readRawGameData: " + e.getMessage());
+    }
+    return null;
+}
+
     
     private void buscarPorGeneroEPlataformaUI(InvertedList invertedList, Scanner scanner) {
         System.out.print("Digite o gênero: ");
